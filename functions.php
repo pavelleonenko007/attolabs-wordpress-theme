@@ -268,7 +268,14 @@ function attolabs_add_site_scripts() {
 		);
 	}
 
-	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css', array(), $theme_version );
+	wp_enqueue_style( 'style', TEMPLATE_PATH . '/build/css/style.css', array(), time() );
+	// wp_enqueue_style( 'main', TEMPLATE_PATH . '/css/main.css', array(), time() );
+	wp_enqueue_script( 'main', TEMPLATE_PATH . '/js/main.js', array( 'jquery' ), time(), true );
+	wp_enqueue_script( 'front', TEMPLATE_PATH . '/js/front.js', array( 'main' ), time(), true );
+	wp_enqueue_script( 'shuffle-letters', '//unpkg.com/shuffle-letters', array( 'main' ), time(), true );
+	wp_enqueue_script( 'splitting', '//unpkg.com/splitting/dist/splitting.min.js', array( 'main' ), time(), true );
+	wp_enqueue_script( 'formsubmit', '//cdn.jsdelivr.net/npm/@finsweet/attributes-formsubmit@1/formsubmit.js', array( 'splitting' ), time(), true );
+	wp_enqueue_script( 'scripts', '//thevogne.ru/clients/vosk-clients/atto/scripts.js', array( 'formsubmit' ), time(), true );
 }
 
 add_filter( 'wp_default_scripts', 'attolabs_remove_jquery_migrate' );
