@@ -7,9 +7,10 @@
 
 defined( 'ABSPATH' ) || exit;
 define( 'TEMPLATE_PATH', get_template_directory_uri() );
+define( 'DATA_WF_SITE', '65ae21eab8e90d9757d32cc8' );
 
-add_action( 'after_setup_theme', 'atto_after_setup_theme' );
-function atto_after_setup_theme() {
+add_action( 'after_setup_theme', 'attolabs_after_setup_theme' );
+function attolabs_after_setup_theme() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'menus' );
 	add_theme_support( 'post-thumbnails' );
@@ -247,14 +248,14 @@ if (
 
 add_filter( 'widget_text', 'do_shortcode' );
 
-add_action( 'atto_admin_enqueue_scripts', 'atto_add_admin_scripts' );
+add_action( 'attolabs_admin_enqueue_scripts', 'attolabs_add_admin_scripts' );
 function add_admin_scripts() {
 	wp_register_script( 'admin_script', get_template_directory_uri() . '/js/admin.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'admin_script' );
 }
 
-add_action( 'wp_enqueue_scripts', 'atto_add_site_scripts' );
-function atto_add_site_scripts() {
+add_action( 'wp_enqueue_scripts', 'attolabs_add_site_scripts' );
+function attolabs_add_site_scripts() {
 	wp_deregister_script( 'jquery-core' );
 	wp_register_script( 'jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', false, false, true );
 	wp_enqueue_script( 'jquery' );
@@ -270,8 +271,8 @@ function atto_add_site_scripts() {
 	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/css/main.css', array(), $theme_version );
 }
 
-add_filter( 'wp_default_scripts', 'atto_remove_jquery_migrate' );
-function atto_remove_jquery_migrate( &$scripts ) {
+add_filter( 'wp_default_scripts', 'attolabs_remove_jquery_migrate' );
+function attolabs_remove_jquery_migrate( &$scripts ) {
 	if ( ! is_admin() ) {
 		$scripts->remove( 'jquery' );
 		$scripts->add( 'jquery', false, array( 'jquery-core' ), '1.12.4' );
@@ -347,7 +348,7 @@ function show_file_func( $atts ) {
 	}
 }
 
-function atto_get_current_url( $include_params = false ) {
+function attolabs_get_current_url( $include_params = false ) {
 	$protocol = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) ? 'https://' : 'http://';
 		$host = $_SERVER['HTTP_HOST'];
 		$uri  = $_SERVER['REQUEST_URI'];
@@ -359,27 +360,27 @@ function atto_get_current_url( $include_params = false ) {
 	}
 }
 
-function atto_is_current_url( string $test_url, $include_params = false ) {
+function attolabs_is_current_url( string $test_url, $include_params = false ) {
 	return vosk_get_current_url( $include_params ) === $test_url;
 }
 
-add_filter( 'upload_mimes', 'atto_myme_types', 1, 1 );
-function atto_myme_types( $mime_types ) {
+add_filter( 'upload_mimes', 'attolabs_myme_types', 1, 1 );
+function attolabs_myme_types( $mime_types ) {
 	$mime_types['svg'] = 'image/svg+xml'; // поддержка SVG
 	return $mime_types;
 }
 
 add_filter(
 	'post_thumbnail_html',
-	'atto_remove_width_height_attribute',
+	'attolabs_remove_width_height_attribute',
 	10
 );
 add_filter(
 	'image_send_to_editor',
-	'atto_remove_width_height_attribute',
+	'attolabs_remove_width_height_attribute',
 	10
 );
-function atto_remove_width_height_attribute( $html ) {
+function attolabs_remove_width_height_attribute( $html ) {
 	$html = preg_replace( '/(width|height)="\d*"\s/', '', $html );
 	return $html;
 }
@@ -490,19 +491,19 @@ if ( ! function_exists( 'num_decline' ) ) {
 	}
 }
 
-add_action( 'admin_menu', 'atto_add_custom_tools_page' );
-function atto_add_custom_tools_page() {
+add_action( 'admin_menu', 'attolabs_add_custom_tools_page' );
+function attolabs_add_custom_tools_page() {
 	add_submenu_page(
 		'tools.php', // родительская страница
 		'Редактор .htaccess и wp-config.php', // заголовок страницы
 		'Редактор .htaccess и wp-config.php', // название страницы в меню
 		'manage_options', // права пользователя
 		'custom-menu-page', // идентификатор страницы
-		'atto_custom_menu_tools_page_callback' // функция обработчика
+		'attolabs_custom_menu_tools_page_callback' // функция обработчика
 	);
 }
 
-function atto_custom_menu_tools_page_callback() {
+function attolabs_custom_menu_tools_page_callback() {
 	?>
 	<div class="wrap">
 		<h1>Редактор .htaccess и wp-config.php</h1>
@@ -525,8 +526,8 @@ function atto_custom_menu_tools_page_callback() {
 	<?php
 }
 
-add_action( 'admin_post_edit_htaccess', 'atto_custom_menu_tools_page_save_htaccess' );
-function atto_custom_menu_tools_page_save_htaccess() {
+add_action( 'admin_post_edit_htaccess', 'attolabs_custom_menu_tools_page_save_htaccess' );
+function attolabs_custom_menu_tools_page_save_htaccess() {
 	if ( isset( $_POST['htaccess'] ) ) {
 		file_put_contents( ABSPATH . '.htaccess', stripslashes( $_POST['htaccess'] ) );
 	}
@@ -534,11 +535,134 @@ function atto_custom_menu_tools_page_save_htaccess() {
 	exit;
 }
 
-add_action( 'admin_post_edit_wpconfig', 'atto_custom_menu_tools_page_save_wpconfig' );
-function atto_custom_menu_tools_page_save_wpconfig() {
+add_action( 'admin_post_edit_wpconfig', 'attolabs_custom_menu_tools_page_save_wpconfig' );
+function attolabs_custom_menu_tools_page_save_wpconfig() {
 	if ( isset( $_POST['wpconfig'] ) ) {
 		file_put_contents( ABSPATH . 'wp-config.php', stripslashes( $_POST['wpconfig'] ) );
 	}
 	wp_redirect( admin_url( 'tools.php?page=custom-menu-page' ) );
 	exit;
+}
+
+add_action( 'init', 'attolabs_register_post_types' );
+function attolabs_register_post_types(): void {
+	register_taxonomy(
+		'service',
+		null,
+		array(
+			'label'             => '',
+			'labels'            => array(
+				'name'          => 'Services',
+				'singular_name' => 'Service',
+				'search_items'  => 'Search Services',
+				'all_items'     => 'All services',
+				'view_item '    => 'View service',
+				'parent_item'   => 'parent_item',
+				'edit_item'     => 'Edit service',
+				'update_item'   => 'Update service',
+				'add_new_item'  => 'Add new service',
+				'new_item_name' => 'New Service name',
+				'menu_name'     => 'Services',
+				'back_to_items' => '← Back to services',
+			),
+			'description'       => '',
+			'public'            => false,
+			// 'publicly_queryable'    => null,
+			'show_in_nav_menus' => true,
+			'show_ui'           => true,
+			'show_in_menu'      => true,
+			'show_tagcloud'     => true,
+			// 'show_in_quick_edit'    => null,
+			'hierarchical'      => false,
+			'rewrite'           => true,
+			// 'query_var'             => taxonomy, // название параметра запроса
+			'capabilities'      => array(),
+			'meta_box_cb'       => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
+			'show_admin_column' => false, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
+			'show_in_rest'      => true, // добавить в REST API
+			'rest_base'         => null, // taxonomy
+		)
+	);
+
+		register_taxonomy(
+			'industry',
+			null,
+			array(
+				'label'             => '',
+				'labels'            => array(
+					'name'              => 'Industries',
+					'singular_name'     => 'Industry',
+					'search_items'      => 'Search Industries',
+					'all_items'         => 'All Industries',
+					'view_item '        => 'View Industries',
+					'parent_item'       => 'Parent Industry',
+					'parent_item_colon' => 'Parent Genre:',
+					'edit_item'         => 'Edit industry',
+					'update_item'       => 'Update industry',
+					'add_new_item'      => 'Add new industry',
+					'new_item_name'     => 'New industry name',
+					'menu_name'         => 'Industries',
+					'back_to_items'     => '← Back to industries',
+				),
+				'description'       => '',
+				'public'            => false,
+				// 'publicly_queryable'    => null,
+				'show_in_nav_menus' => true,
+				'show_ui'           => true,
+				'show_in_menu'      => true,
+				'show_tagcloud'     => true,
+				// 'show_in_quick_edit'    => null,
+				'hierarchical'      => false,
+
+				'rewrite'           => true,
+				// 'query_var'             => taxonomy, // название параметра запроса
+				'capabilities'      => array(),
+				'meta_box_cb'       => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
+				'show_admin_column' => false, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
+				'show_in_rest'      => true, // добавить в REST API
+				'rest_base'         => null, // taxonomy
+			)
+		);
+
+	register_post_type(
+		'project',
+		array(
+			'label'         => null,
+			'labels'        => array(
+				'name'               => 'Projects',
+				'singular_name'      => 'Project',
+				'add_new'            => 'Add new project',
+				'add_new_item'       => 'Add new project',
+				'edit_item'          => 'Edit new project',
+				'new_item'           => 'New project',
+				'view_item'          => 'View project',
+				'search_items'       => 'Search Projects',
+				'not_found'          => 'Not found',
+				'not_found_in_trash' => 'Not found in trash',
+				'parent_item_colon'  => '',
+				'menu_name'          => 'Projects',
+			),
+			'description'   => '',
+			'public'        => true,
+			// 'publicly_queryable'  => null,
+			// 'exclude_from_search' => null,
+			// 'show_ui'             => null,
+			// 'show_in_nav_menus'   => null,
+			'show_in_menu'  => null,
+			// 'show_in_admin_bar'   => null,
+			'show_in_rest'  => true,
+			'rest_base'     => null,
+			'menu_position' => null,
+			'menu_icon'     => 'dashicons-list-view',
+			// 'capability_type'   => 'post',
+			// 'capabilities'      => 'post',
+			// 'map_meta_cap'      => null,
+			'hierarchical'  => false,
+			'supports'      => array( 'title', 'editor', 'thumbnail' ), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+			'taxonomies'    => array( 'service', 'industry' ),
+			'has_archive'   => false,
+			'rewrite'       => true,
+			'query_var'     => true,
+		)
+	);
 }
