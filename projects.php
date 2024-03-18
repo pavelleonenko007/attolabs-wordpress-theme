@@ -614,7 +614,8 @@ textarea {
 										<div class="form-block filter-projects w-form">
 											<form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-2" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="6ddaff6a-b4e1-9242-a944-e6813b312421">
 <input type="submit" data-wait="Please wait..." class="hide w-button" value="Submit">
-												<div class="text-block-4">Filters</div>
+												<div class="spleet">
+													<div class="text-block-4">Filters</div><a href="#" class="link-2">Clear filters</a></div>
 												<div class="droper-filter">
 													<div class="drpoter-block">
 														<div class="p-12-120">Services (<span class="count">6</span>)</div><img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2"></div>

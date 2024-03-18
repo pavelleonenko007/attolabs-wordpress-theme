@@ -5320,6 +5320,21 @@ ul, ol {
   display: flex;
 }
 
+.spleet {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.link-2 {
+  color: #292525;
+  text-transform: uppercase;
+  font-size: 12rem;
+  line-height: 120%;
+  text-decoration: none;
+  display: none;
+}
+
 @media screen and (max-width: 991px) {
   .section.main-section.main-page.obsf.ob1 {
     height: 100svh;
