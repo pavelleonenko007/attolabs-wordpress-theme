@@ -1,357 +1,20 @@
 <?php
-/*
-Template name: Atto-flow
-*/
-?>
-    <!DOCTYPE html>
-<html data-wf-page="65ae21eab8e90d9757d32ccb" data-wf-site="65ae21eab8e90d9757d32cc8">
-	<?php get_template_part("header_block", ""); ?>
-	<body class="body">
-		<?php if(function_exists('get_field')) { echo get_field('body_code', 'option'); } ?>
-		<div class="css w-embed">
-			<style>
-html{font-size:calc(100vw / 1600)}
-
-@media screen and (max-width: 1280px) { 
- html{font-size:calc(100vw / 1280)}
-}
-
-
-@media screen and (max-width: 992px) { 
- html{font-size:calc(100vw / 695)}
-}
-
-@media screen and (max-width: 495px) { 
- html{font-size:calc(100vw / 375)}
-}
-
-
-::-webkit-scrollbar {
-height:0;
-width:0
-}
-
-::-webkit-scrollbar-track {
-background:black
-}
-
-::-webkit-scrollbar-thumb {
-background-color:#c1c1c1;
-border-radius:0;
-border:0 solid #c1c1c1
-}
-
-
-.taba{pointer-events:none}
-.styk-form {bottom: calc(-100vh + 36rem)}
-
-.adress-item_bottom *{
-color: #292525;
-font-size: 12rem;
-line-height: 120%;
-letter-spacing: 0.12rem;
-text-decoration-line: none;
-}
-
-.lang-line.active .radio-button {background-color: var(--grey-black);}
-
-.closes{}
-
-.serv-item .serv-projects{opacity:0}
-.serv-item.active .serv-projects{opacity:1}
-
-.lang-sh{filter:invert(1)}
-
-.obs-link-tracker{height:calc(100vh - 21rem)}
-
-.active .img-addr{opacity:1}
-
-.tlink.prt{width: calc(50vw - 1px);}
-
-.serv-item:hover *{opacity:1; color:var(--red)}
-
-
-.serv-item *{padding-top:8px;padding-bottom:8px}
-
-.imger-mom{pointer-events:none}
-
-.imger.active{opacity:1}
-
-.whitespace:after{content:' '}
-
-.blackmenu nav a {
-    color: rgba(41, 37, 37, 1);   
-}
-
-.blackmenu .logo{filter:invert(1)}
-
-.project-in_item:nth-child(6n+1) {
-    
-    grid-column-start: span 2 !important;
-    grid-column-end: span 2 !important;
-    display: flex;
-    min-height:800rem;
-}
-
-.project-in_item:nth-child(6n+2) {
-    
-    grid-column-start: span 1 !important;
-    grid-column-end: span 1 !important;
-    display: flex;
-    min-height:400rem;
- 
-}
-
-
-.project-in_item:nth-child(6n+2) .prjr{
- font-size: 18rem;
- line-height: 120%;
- letter-spacing: 0;
- color:white;
-}
-
-.project-in_item:nth-child(6n+3) {
-    
-    grid-column-start: span 3 !important;
-    grid-column-end: span 3 !important;
-    display: flex;
-    min-height:800rem;
-}
-
-.project-in_item:nth-child(6n+4) {
-    
-    grid-column-start: span 1 !important;
-    grid-column-end: span 1 !important;
-    display: flex;
-    min-height:400rem;
-}
-
-.project-in_item:nth-child(6n+4) .prjr{
- font-size: 18rem;
- line-height: 120%;
- letter-spacing: 0;
- color:white;
-}
-
-.project-in_item:nth-child(6n+5) {
-    
-    grid-column-start: span 2 !important;
-    grid-column-end: span 2 !important;
-    display: flex;
-    min-height:800rem;
-}
-
-.project-in_item:nth-child(6n+6) {
-    
-    grid-column-start: span 3 !important;
-    grid-column-end: span 3 !important;
-    display: flex;
-    min-height:800rem;
-}
-
-.project-in_item:nth-child(6n+2) *,
-.project-in_item:nth-child(6n+4) *,
-.project-in_item:nth-child(6n+3) img + * *,
-.project-in_item:nth-child(6n+6) img + * *
-{color:white}
-
-.project-in_item:nth-child(6n+3) .p-76-92.prjr,
-.project-in_item:nth-child(6n+6) .p-76-92.prjr{width:50%;padding-left:10rem; margin-left:auto}
-
-
-.project-in_item:nth-child(18n+2) {
-    background:rgba(48, 119, 255, 1);
-    
-}
-
-.project-in_item:nth-child(18n+4) {
-    background:rgba(251, 77, 64, 1);
-}
-
-.project-in_item:nth-child(18n+8) {
-    background:rgba(13, 170, 94, 1);
-}
-
-.project-in_item:nth-child(18n+10) {
-    background:rgba(48, 119, 255, 1);
-}
-
-.project-in_item:nth-child(18n+14) {
-    background:rgba(251, 77, 64, 1);
-}
-
-.project-in_item:nth-child(18n+16) {
-    background:rgba(13, 170, 94, 1);
-}
-
-.cat-core *:after, .last-jbcol *:after, .jil *:after{content:', '}
-.cat-core *:nth-last-child(1):after, .last-jbcol *:nth-last-child(1):after, .jil *:nth-last-child(1):after{content:''}
-
-.droper-content:after{content:"";height:40px}
-
-.rdb:hover .radio-button{background:#fb4d40}
-.rdb:hover .radio-button-label{color:#fb4d40}
-
-
-
-textarea {
-  resize: none;
-}
-
-.project-img .img-cover {
-    opacity: 0;
-}
-
-.img-addr .blt{background:white}
-
-.form-ceeper, .close-form, .tline.ll {transition: all 300ms ease}
-
-.form-ceeper.openforms{transform: translateY(calc(-100vh + 36rem))}
-
-.openforms .close-form{opacity:1; display: flex}
-.openforms .tline.ll{opacity:0}
-
-.word {
-    display: contents;
-    float: left;
-}
-
-.word:after{content:" ";display:inline}
-
-
-
-.uls-mom{ 
-  counter-reset: count;
-}
-.uls {
-  counter-increment: count;
-}
-.uls::before {
-  content: counter(count, decimal) '.';
-}
-
-.project-img + .resoults .paragraph.p-18-120.styks.single-p{
-    width: 50%;
-    max-width: 50%;
-    margin-right: 10rem;
-}
-
-.project-img + .resoults .resoultes-core{max-width: 671rem;
-    grid-column-gap: 44rem;
-    grid-row-gap: 44rem;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.project-img + .resoults .resoult{flex-direction: row;}
-.project-img + .resoults .p-18-120.blk.resoult {
-    max-width: 178rem;
-    min-width: 178rem;
-    margin-bottom: 0;
-}
-
-.w-form-formradioinput--inputType-custom.w--redirected-checked + * + *{color:white}
-
-.l-arrow {
-    width: calc(50% + 1px);
-    }
-@media screen and (max-width: 992px) { 
-
-.taba{pointer-events:all}
-
-
-.project-in_item:nth-child(6n+1),
-.project-in_item:nth-child(6n+2),
-.project-in_item:nth-child(6n+3),
-.project-in_item:nth-child(6n+4),
-.project-in_item:nth-child(6n+5),
-.project-in_item:nth-child(6n+6){
-    min-height:480rem;
-}
-
-
-
-.project-in_item:nth-child(6n+2) .prjr,.project-in_item:nth-child(6n+4) .prjr{
- font-size: 13rem;
- line-height: 16rem;
-}
-
-.blackmenu .dot-m {
-    filter: invert(1);
-}
-
-
-.project-img.img-man.rel .img-cover {
-    opacity: 1;
-}
-
-.project-img.img-man.rel canvas,.project-img.img-man.rel .canvas-tops {
-      opacity: 0;
-}
-
-.project-in_item:nth-child(6n+3) .p-76-92.prjr, .project-in_item:nth-child(6n+6) .p-76-92.prjr{
-    width: 100%;
-    padding-left: 0rem;
-    margin-left: auto;
-}
-
-
-
-
-}    
-
-@media screen and (max-width: 495px) { 
-
-.serv-item *{
-    grid-area: span 1 / span 2 / span 1 / span 2;
-    justify-self: stretch;
-}
-
-textarea {
-    min-height: 120rem;
-}
-
-.form-ceeper.openforms {
-    transform: translateY(calc(-100dvh + 36rem));
-}
-
-}
-			
-			</style>
-		</div>
-		<div class="wrapper">
-			<div class="barba-container">
-				<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
-					<header class="header"><a href="/" aria-current="page" class="brand w-nav-brand w--current"><img src="<?php echo get_template_directory_uri() ?>/images/65e02d40c169cf7705bd3a4a_logo.svg" loading="lazy" alt class="logo"></a>
-						<nav role="navigation" class="w-nav-menu"><a href="/projects" class="navlink w-nav-link">What we do</a><a href="/about" class="navlink w-nav-link">Who we are</a><a href="/work-with-us" class="navlink w-nav-link">Work with us</a><a href="/jobs" class="navlink w-nav-link">Jobs</a>
-							<div data-hover="false" data-delay="0" class="dropdown w-dropdown">
-								<div class="navlink lang-drop w-dropdown-toggle">
-									<div>ENG</div><img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh"></div>
-								<nav class="dropdown-list w-dropdown-list"><a href="#" class="lang-line active w-inline-block"><div>English</div><div class="radio-button"></div></a><a href="#" class="lang-line w-inline-block"><div>German</div><div class="radio-button"></div></a><a href="#" class="lang-line w-inline-block"><div>Russian</div><div class="radio-button"></div></a></nav>
-							</div>
-						</nav>
-						<div class="menu-b">
-							<div class="dot-m _1"></div>
-							<div class="dot-m _2"></div>
-							<div class="dot-m _3"></div>
-							<div class="dot-m _4"></div>
-						</div><a href="#" class="close-menu">Close</a></header>
-					<div class="menu-block">
-						<div class="div-block-13"><a href="/" aria-current="page" class="menu-link w--current">Home</a><a href="/projects" class="menu-link">What we do</a><a href="/about" class="menu-link">Who we are</a><a href="/work-with-us" class="menu-link">Work with us</a><a href="/jobs" class="menu-link">Jobs</a></div>
-						<div class="bottom-nav">
-							<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188996-58975f82" class="adress-item">
-								<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188997-58975f82" class="p-18-120 _222">Contacts</div>
-								<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188999-58975f82" class="adress-item_bottom">
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899a-58975f82">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899c-58975f82" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b61889a1-58975f82">contact@attolabs.de</div>
-								</div>
-							</div>
-							<div id="w-node-_6f0c7519-0018-f7f0-0117-8a8f518ee231-58975f82" class="vert"><a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a></div>
-							<div id="w-node-_6d4226e5-071d-3179-c4da-f21becda97b7-58975f82" class="foo-text">Attolabs, 2024</div>
-						</div>
-					</div>
-				</div>
+	/**
+	 * Template name: Atto-flow
+	 *
+	 * @package 0.0.1
+	 */
+
+	defined( 'ABSPATH' ) || exit;
+	get_header(
+		null,
+		array(
+			'data-wf-page' => '65ae21eab8e90d9757d32ccb',
+		)
+	);
+
+	the_post();
+	?>
 				<section data-w-id="55190ab3-513e-5d8f-8125-8044187d946c" class="section main-section main-page obsf ob1">
 					<div data-w-id="79284580-e454-7642-0e1a-43be8a2c8342" class="main-bg">
 						<div class="main-img-front">
@@ -391,94 +54,67 @@ textarea {
 						</div>
 					</div>
 					<div class="container _100vh dfs">
-						<h1 class="h1-main-page">ENGINEERS for new era</h1>
+						<h1 class="h1-main-page"><?php the_title(); ?></h1>
 					</div>
 				</section>
+				<?php $projects_page_id = 56; ?>
 				<section class="section obsf ob2">
 					<div class="container secnd">
 						<h2 class="p-76-92">Our team strives for unparalleled quality and innovative solutions, ensuring that <span class="red">your project will be executed at the highest level, exceeding expectations and delivering enduring value.</span></h2>
-						<div class="cats-scroller">
-							<h3 class="h3">Services</h3>
-							<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e6-57d32ccb" class="serv-core server">
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e7-57d32ccb" class="serv-item"><a id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e8-57d32ccb" href="#" class="serv-link">Custom Software Development</a><a href="#" class="serv-projects">Industries<span class="serv-span">:12</span></a><a id="w-node-_1223488a-8650-1ebc-1d48-71d2a33c8c8d-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:2</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0ee-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0f7-57d32ccb" class="serv-item"><a id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0f8-57d32ccb" href="#" class="serv-link">CRM Development</a><a href="#" class="serv-projects">Industries<span class="serv-span">:1</span></a><a id="w-node-_96eef098-5e33-79b5-1ee5-4794d4d3037a-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:8</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0fe-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0ff-57d32ccb" class="serv-item"><a href="#" class="serv-link">WEB Development</a><a href="#" class="serv-projects">Industries<span class="serv-span">:2</span></a><a id="w-node-bb195a6e-aa6f-222d-97af-d3e5d168fb54-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:1</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd106-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd10f-57d32ccb" class="serv-item"><a href="#" class="serv-link">Mobile App Development</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-_3beab6e2-2827-e03f-eef7-d757888fa258-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd116-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-c94dc203-f598-60f8-dc35-b56df49ad4cf-57d32ccb" class="serv-item"><a href="#" class="serv-link">SaaS Development</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-c94dc203-f598-60f8-dc35-b56df49ad4d6-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-c94dc203-f598-60f8-dc35-b56df49ad4da-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-e7cb59e9-fb00-9169-2e9d-5a416189cd4a-57d32ccb" class="serv-item"><a href="#" class="serv-link">Cloud Development</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-e7cb59e9-fb00-9169-2e9d-5a416189cd51-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-e7cb59e9-fb00-9169-2e9d-5a416189cd55-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_1136a086-f7e4-6c5b-d712-a306a1851d11-57d32ccb" class="serv-item"><a href="#" class="serv-link">MVP Development</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-_1136a086-f7e4-6c5b-d712-a306a1851d18-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-_1136a086-f7e4-6c5b-d712-a306a1851d1c-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_1ca58393-a567-4fb7-536e-3bbf7de73470-57d32ccb" class="serv-item"><a href="#" class="serv-link">Cross-Platform Solutions</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-_1ca58393-a567-4fb7-536e-3bbf7de73477-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-_1ca58393-a567-4fb7-536e-3bbf7de7347b-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_6384c687-b58d-563d-c303-f8b58cd0ce11-57d32ccb" class="serv-item"><a href="#" class="serv-link">Database Management</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-_6384c687-b58d-563d-c303-f8b58cd0ce18-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-_6384c687-b58d-563d-c303-f8b58cd0ce1c-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_424f3112-5305-c617-2184-81e64085e9ba-57d32ccb" class="serv-item"><a href="#" class="serv-link">API Integration</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-_424f3112-5305-c617-2184-81e64085e9c1-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-_424f3112-5305-c617-2184-81e64085e9c5-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-c7f92c89-77fe-cc19-32c6-5dfff5c256dc-57d32ccb" class="serv-item"><a href="#" class="serv-link">Support & Maintenance</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-c7f92c89-77fe-cc19-32c6-5dfff5c256e3-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-c7f92c89-77fe-cc19-32c6-5dfff5c256e7-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_13d6a8d6-3cc5-9698-7018-188378f5006c-57d32ccb" class="serv-item"><a href="#" class="serv-link">Technology Consulting</a><a href="#" class="serv-projects">Industries<span class="serv-span">:3</span></a><a id="w-node-_13d6a8d6-3cc5-9698-7018-188378f50073-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-_13d6a8d6-3cc5-9698-7018-188378f50077-57d32ccb" class="obs-link-tracker"></div>
+						<?php
+						$services = get_terms(
+							array(
+								'taxonomy'   => 'service',
+								'hide_empty' => false, // TODO: set to true
+							)
+						);
+
+						if ( ! empty( $services ) ) :
+							?>
+							<div class="cats-scroller">
+								<h3 class="h3">Services</h3>
+								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e6-57d32ccb" class="serv-core server">
+									<?php foreach ( $services as $service ) : ?>
+										<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e7-57d32ccb" class="serv-item">
+											<a id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e8-57d32ccb" href="#" class="serv-link"><?php echo esc_html( $service->name ); ?></a>
+											<?php
+											$projects = attolabs_get_projects_by_term( $service );
+											?>
+											<a href="#" class="serv-projects">Industries<span class="serv-span">:<?php echo esc_html( attolabs_get_project_industry_number( $projects ) ); ?></span></a>
+											<a id="w-node-_1223488a-8650-1ebc-1d48-71d2a33c8c8d-57d32ccb" href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?services=' . $service->term_id ); ?>" class="serv-projects ll">View Projects<span class="serv-span">:<?php echo count( $projects ); ?></span></a>
+											<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0ee-57d32ccb" class="obs-link-tracker"></div>
+										</div>
+									<?php endforeach; ?>
 								</div>
 							</div>
-						</div>
-						<div class="cats-scroller">
-							<h3 class="h3">Industries</h3>
-							<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11a-57d32ccb" class="serv-core">
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11b-57d32ccb" class="serv-item"><a href="#" class="serv-link">Agritech</a><a href="#" class="serv-projects">Services<span class="serv-span">:1</span></a><a id="w-node-_6ac1f909-6525-b9ed-30fd-a9774858d522-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:7</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd122-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd123-57d32ccb" class="serv-item"><a href="#" class="serv-link">Consulting</a><a href="#" class="serv-projects">Services<span class="serv-span">:9</span></a><a id="w-node-_7dbf5198-894d-2a05-edb6-6ba9a40c24f2-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:5</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd12a-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd12b-57d32ccb" class="serv-item"><a href="#" class="serv-link">Education</a><a href="#" class="serv-projects">Services<span class="serv-span">:3</span></a><a id="w-node-f6166b46-040b-5761-e2f5-e072aa890d51-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:22</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd132-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd133-57d32ccb" class="serv-item"><a href="#" class="serv-link">Energy</a><a href="#" class="serv-projects">Services<span class="serv-span">:5</span></a><a id="w-node-_2c9f6583-4582-6283-01cb-e04a45cf288b-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:74</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd13a-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd13b-57d32ccb" class="serv-item"><a href="#" class="serv-link">Finance</a><a href="#" class="serv-projects">Services<span class="serv-span">:12</span></a><a id="w-node-b13e12b8-8a04-0824-9d36-4c481aebf9eb-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:2</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd142-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd143-57d32ccb" class="serv-item"><a href="#" class="serv-link">Fintech</a><a href="#" class="serv-projects">Services<span class="serv-span">:2</span></a><a id="w-node-_34ac5a0c-223d-b692-b25c-ac54a11c3877-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:41</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd14a-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd14b-57d32ccb" class="serv-item"><a href="#" class="serv-link">Healthcare</a><a href="#" class="serv-projects">Services<span class="serv-span">:4</span></a><a id="w-node-_2e4c4617-6613-fa98-7094-e948d9074ca7-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:5</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd152-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd153-57d32ccb" class="serv-item"><a href="#" class="serv-link">Logistic</a><a href="#" class="serv-projects">Services<span class="serv-span">:10</span></a><a id="w-node-b51e91d8-d23b-35cd-3e54-5007b13bf88d-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:13</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd15a-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd15b-57d32ccb" class="serv-item"><a href="#" class="serv-link">Non-profit organization</a><a href="#" class="serv-projects">Services<span class="serv-span">:9</span></a><a id="w-node-a991940a-0e10-a36c-2b51-f41ba2d30a03-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:4</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd162-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd163-57d32ccb" class="serv-item"><a href="#" class="serv-link">Retail and E-commerce</a><a href="#" class="serv-projects">Services<span class="serv-span">:4</span></a><a id="w-node-_1882a52a-1a71-d024-8ae4-0af00187df18-57d32ccb" href="/projects" class="serv-projects ll">View Projects<span class="serv-span">:32</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd16a-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd16b-57d32ccb" class="serv-item"><a href="#" class="serv-link">Travel and Tourism</a><a href="#" class="serv-projects">Services<span class="serv-span">:2</span></a><a id="w-node-fc342b4b-e65d-a910-ab01-1ba736ebefc3-57d32ccb" href="#" class="serv-projects ll">View Projects<span class="serv-span">:18</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd172-57d32ccb" class="obs-link-tracker"></div>
-								</div>
-								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd173-57d32ccb" class="serv-item"><a href="#" class="serv-link">EU Projects</a><a href="#" class="serv-projects">Services<span class="serv-span">:15</span></a><a id="w-node-_6658d68a-01a5-63a1-4ffd-213d3641f405-57d32ccb" href="#" class="serv-projects ll">View Projects<span class="serv-span">:3</span></a>
-									<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd17a-57d32ccb" class="obs-link-tracker"></div>
+						<?php endif; ?>
+						<?php
+						$industries = get_terms(
+							array(
+								'taxonomy'   => 'industry',
+								'hide_empty' => false, // TODO: set to true
+							)
+						);
+
+						if ( ! empty( $industries ) ) :
+							?>
+							<div class="cats-scroller">
+								<h3 class="h3">Industries</h3>
+								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11a-57d32ccb" class="serv-core">
+									<?php foreach ( $industries as $industry ) : ?>
+										<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11b-57d32ccb" class="serv-item">
+											<a href="#" class="serv-link"><?php echo esc_html( $industry->name ); ?></a>
+											<?php
+											$projects = attolabs_get_projects_by_term( $industry );
+											?>
+											<a href="#" class="serv-projects">Services<span class="serv-span">:<?php echo esc_html( attolabs_get_project_services_number( $projects ) ); ?></span></a>
+											<a id="w-node-_6ac1f909-6525-b9ed-30fd-a9774858d522-57d32ccb" href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?industries=' . $service->term_id ); ?>" class="serv-projects ll">View Projects<span class="serv-span">:<?php echo count( $projects ); ?></span></a>
+											<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd122-57d32ccb" class="obs-link-tracker"></div>
+										</div>
+									<?php endforeach; ?>
 								</div>
 							</div>
-						</div>
+						<?php endif; ?>
 						<div class="closes">
 							<div class="closes-1 _1">
 								<div class="skyt-top"></div>
@@ -517,8 +153,11 @@ textarea {
 										<div class="_0w">
 											<div class="text-block">Industry:</div>
 											<div class="text-block">Custom Software Development</div>
-										</div><a href="/project-single" class="project-link">Learn more</a></div>
-									<div class="project-img homep"><img src="<?php echo get_template_directory_uri() ?>/images/65e9d31bbc0384e115c2b4f8_image2022720(4).webp" loading="eager" alt class="img-cover pixel">
+										</div>
+										<a href="/project-single" class="project-link">Learn more</a>
+									</div>
+									<div class="project-img homep">
+										<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d31bbc0384e115c2b4f8_image2022720(4).webp" loading="eager" alt class="img-cover pixel">
 										<div class="canvas-tops">
 											<div id="w-node-_4e48d67b-52a7-c2ef-6192-c0983d9ec77f-57d32ccb" class="blt"></div>
 											<div id="w-node-f55d94d4-88be-9f33-1c0f-c8e6cbdb0daa-57d32ccb" class="blt"></div>
@@ -540,8 +179,11 @@ textarea {
 										<p class="p-18-120 mmax">The modernization of the platform helped to speed up the search for documentation, the search for volunteers and the necessary data about them, in the database on the Unified Volunteer Platform for efficient and fast operation of the platform.</p>
 										<div class="_0w">
 											<div class="text-block">Industry:<br>Fintech</div>
-										</div><a href="/project-single" class="project-link">Learn more</a></div>
-									<div class="project-img _2 homep"><img src="<?php echo get_template_directory_uri() ?>/images/65ae36374e9b439983d212e7_image2022720(1).webp" loading="eager" alt class="img-cover pixel">
+										</div>
+										<a href="/project-single" class="project-link">Learn more</a>
+									</div>
+									<div class="project-img _2 homep">
+										<img src="<?php echo get_template_directory_uri(); ?>/images/65ae36374e9b439983d212e7_image2022720(1).webp" loading="eager" alt class="img-cover pixel">
 										<div class="canvas-tops">
 											<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a2c-57d32ccb" class="blt"></div>
 											<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a2d-57d32ccb" class="blt"></div>
@@ -563,8 +205,11 @@ textarea {
 										<p class="p-18-120 mmax">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
 										<div class="_0w">
 											<div class="text-block">Industry:<br>Fintech</div>
-										</div><a href="/project-single" class="project-link">Learn more</a></div>
-									<div class="project-img _3 homep"><img src="<?php echo get_template_directory_uri() ?>/images/65e9d38498a521ef243a6cf9_image2022720(5).webp" loading="eager" alt class="img-cover pixel">
+										</div>
+										<a href="/project-single" class="project-link">Learn more</a>
+									</div>
+									<div class="project-img _3 homep">
+										<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d38498a521ef243a6cf9_image2022720(5).webp" loading="eager" alt class="img-cover pixel">
 										<div class="canvas-tops">
 											<div id="w-node-_06edf520-4c10-5c72-361c-1558d4168439-57d32ccb" class="blt"></div>
 											<div id="w-node-_06edf520-4c10-5c72-361c-1558d416843a-57d32ccb" class="blt"></div>
@@ -593,7 +238,7 @@ textarea {
 									<h2 id="lo" class="p-76-92"><span class="red"><strong class="bold-text">ATTOLABS is a global leader in IT consulting, prioritizing seamless optimization of clients' business processes. Our unwavering commitment to employee comfort and top-notch performance positions us as a key player in the high-tech industry.</strong></span></h2>
 								</div>
 								<div class="fw-div">
-									<p class="paragraph p-18-120 styks">Hear directly from our team about their experiences at <span class="atto">AttoLabs</span></p>
+									<p class="paragraph p-18-120 styks">Hear directly from our team about their experiences at <span class="atto">AttoLabs</span></p>
 									<div id="w-node-_334cdc74-10ec-548f-cf64-8ad297d50458-57d32ccb" class="citas">
 										<div id="w-node-_3f682a01-b8c5-416c-5cb1-dbadb4d0a908-57d32ccb" class="cita">
 											<div class="p-18-120 blk">Innovation at the Core</div>
@@ -627,7 +272,9 @@ textarea {
 					</div>
 				</div>
 				<div id="styker" class="div-block-3 obsf ob1">
-					<div class="form-tracker"></div><a id="idid" href="#">Text Link</a></div>
+					<div class="form-tracker"></div>
+					<a id="idid" href="#">Text Link</a>
+				</div>
 				<div class="styk-form">
 					<div class="form-ceeper">
 						<div class="styk-form-mom _1 w-form">
@@ -637,17 +284,20 @@ textarea {
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Empower the Future with Us</div>
-<textarea required autofocus="true" placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea></div>
+												<textarea required autofocus="true" placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required></div>
+												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required></div>
+												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+											</div>
 										</div>
 									</div>
 									<div class="l-arrow w-slider-arrow-left">
@@ -659,7 +309,8 @@ textarea {
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit"></form>
+								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
 									<div class="text-field">Thank you! <br>Your submission has been received!</div>
@@ -676,17 +327,20 @@ textarea {
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">share your vision</div>
-<textarea required autofocus="true" placeholder="How do you envision shaping the future with us?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea></div>
+												<textarea required autofocus="true" placeholder="How do you envision shaping the future with us?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required></div>
+												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required></div>
+												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+											</div>
 										</div>
 									</div>
 									<div class="l-arrow w-slider-arrow-left">
@@ -698,7 +352,8 @@ textarea {
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit"></form>
+								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
 									<div class="text-field">Thank you! <br>Your submission has been received!</div>
@@ -715,17 +370,20 @@ textarea {
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Describe your project</div>
-<textarea required autofocus="true" placeholder="What is special about what you’re doing?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea></div>
+												<textarea required autofocus="true" placeholder="What is special about what you’re doing?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required></div>
+												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required></div>
+												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+											</div>
 										</div>
 									</div>
 									<div class="l-arrow w-slider-arrow-left">
@@ -737,7 +395,8 @@ textarea {
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit"></form>
+								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
 									<div class="text-field">Thank you! <br>Your submission has been received!</div>
@@ -748,13 +407,21 @@ textarea {
 							</div>
 						</div>
 						<div class="top-stykert">
-							<div class="tline ll"><a href="#" class="tlink main-tlink formpp">Empower the Future with Us</a><a href="#" class="tlink main-tlink formpp">share your vision</a><a href="#" class="tlink main-tlink formpp">Describe your project</a>
-								<div class="div-block-2"></div><a href="/projects" class="tlink">All projects</a></div><a href="#" class="close-form w-inline-block"><div class="text-block-5">CLOSE</div></a></div>
+							<div class="tline ll">
+								<a href="#" class="tlink main-tlink formpp">Empower the Future with Us</a><a href="#" class="tlink main-tlink formpp">share your vision</a><a href="#" class="tlink main-tlink formpp">Describe your project</a>
+								<div class="div-block-2"></div>
+								<a href="/projects" class="tlink">All projects</a>
+							</div>
+							<a href="#" class="close-form w-inline-block">
+								<div class="text-block-5">CLOSE</div>
+							</a>
+						</div>
 					</div>
 				</div>
 				<footer class="footer">
 					<div class="container foo-core">
-						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1c4-fce8b1c2" class="vert"><a href="/" aria-current="page" class="w-inline-block w--current"><img src="<?php echo get_template_directory_uri() ?>/images/65defa42e065c3584e54a6fb_AttoLabs_logo.png" loading="lazy" alt class="logo-foo"></a>
+						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1c4-fce8b1c2" class="vert">
+							<a href="/" aria-current="page" class="w-inline-block w--current"><img src="<?php echo get_template_directory_uri(); ?>/images/65defa42e065c3584e54a6fb_AttoLabs_logo.png" loading="lazy" alt class="logo-foo"></a>
 							<div class="menu-vert"><a href="/" aria-current="page" class="foo-link w--current">Home</a><a href="/projects" class="foo-link">What We Do</a><a href="/about" class="foo-link">Who We Are</a><a href="/work-with-us" class="foo-link">Work With Us</a><a href="/jobs" class="foo-link">Jobs</a></div>
 						</div>
 						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d2-fce8b1c2" class="aress-core">
@@ -791,14 +458,31 @@ textarea {
 								</div>
 							</div>
 						</div>
-						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b208-fce8b1c2" class="vert"><a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a>
+						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b208-fce8b1c2" class="vert">
+							<a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a>
 							<div class="foo-text _23">Attolabs, 2024</div>
 						</div>
-						<div id="w-node-fb29d952-ecc1-f9d0-1692-f48fbb5e21a0-fce8b1c2" class="vert foo-hirz"><a href="#" class="foo-link_2 soc-links">Linkedin</a><a href="#" class="foo-link_2 soc-links">Facebook</a><a href="#" class="foo-link_2 soc-links">Instagram</a><a href="#" class="foo-link_2 soc-links">X (Twitter)</a>
+						<div id="w-node-fb29d952-ecc1-f9d0-1692-f48fbb5e21a0-fce8b1c2" class="vert foo-hirz">
+							<a href="#" class="foo-link_2 soc-links">Linkedin</a><a href="#" class="foo-link_2 soc-links">Facebook</a><a href="#" class="foo-link_2 soc-links">Instagram</a><a href="#" class="foo-link_2 soc-links">X (Twitter)</a>
 							<div data-hover="false" data-delay="0" class="dropdown foodrop w-dropdown">
 								<div class="navlink lang-drop foo-frop w-dropdown-toggle">
-									<div>ENG</div><img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh"></div>
-								<nav class="dropdown-list foo-drop w-dropdown-list"><a href="#" class="lang-line active w-inline-block"><div>English</div><div class="radio-button"></div></a><a href="#" class="lang-line w-inline-block"><div>German</div><div class="radio-button"></div></a><a href="#" class="lang-line w-inline-block"><div>Russian</div><div class="radio-button"></div></a></nav>
+									<div>ENG</div>
+									<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
+								</div>
+								<nav class="dropdown-list foo-drop w-dropdown-list">
+									<a href="#" class="lang-line active w-inline-block">
+										<div>English</div>
+										<div class="radio-button"></div>
+									</a>
+									<a href="#" class="lang-line w-inline-block">
+										<div>German</div>
+										<div class="radio-button"></div>
+									</a>
+									<a href="#" class="lang-line w-inline-block">
+										<div>Russian</div>
+										<div class="radio-button"></div>
+									</a>
+								</nav>
 							</div>
 						</div>
 					</div>
@@ -806,6 +490,6 @@ textarea {
 			</div>
 		</div>
 		<!-- FOOTER CODE -->
-		<?php get_template_part("footer_block", ""); ?>
+		<?php get_template_part( 'footer_block', '' ); ?>
 	</body>
 </html>

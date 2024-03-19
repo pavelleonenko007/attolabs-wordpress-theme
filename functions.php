@@ -276,6 +276,14 @@ function attolabs_add_site_scripts() {
 	wp_enqueue_script( 'splitting', '//unpkg.com/splitting/dist/splitting.min.js', array( 'main' ), time(), true );
 	wp_enqueue_script( 'formsubmit', '//cdn.jsdelivr.net/npm/@finsweet/attributes-formsubmit@1/formsubmit.js', array( 'splitting' ), time(), true );
 	wp_enqueue_script( 'scripts', '//thevogne.ru/clients/vosk-clients/atto/scripts.js', array( 'formsubmit' ), time(), true );
+	wp_enqueue_script( 'bundle', TEMPLATE_PATH . '/build/js/bundle.js', array( 'scripts' ), time(), true );
+	wp_localize_script(
+		'bundle',
+		'ATTO',
+		array(
+			'AJAX_URL' => admin_url( 'admin-ajax.php' ),
+		)
+	);
 }
 
 add_filter( 'wp_default_scripts', 'attolabs_remove_jquery_migrate' );
@@ -672,4 +680,193 @@ function attolabs_register_post_types(): void {
 			'query_var'     => true,
 		)
 	);
+}
+
+function attolabs_head_code(): void {
+	if ( function_exists( 'get_field' ) ) {
+		echo get_field( 'head_code', 'option' );
+	}
+}
+
+function attolabs_after_body(): void {
+	wp_body_open();
+	if ( function_exists( 'get_field' ) ) {
+		echo get_field( 'body_code', 'option' );
+	}
+}
+
+function attolabs_get_posts_terms( string $taxonomy, array $posts ): array {
+	$items = array();
+
+	foreach ( $posts as $post ) {
+		$terms = get_the_terms( $post, $taxonomy );
+
+		if ( is_wp_error( $terms ) ) {
+			continue;
+		}
+
+		$items = array_merge( $items, $terms );
+	}
+
+	return array_unique( $items, SORT_REGULAR );
+}
+
+function attolabs_get_project_taxonomy_number( string $taxonomy, array $posts ): int {
+	$items = attolabs_get_posts_terms( $taxonomy, $posts );
+
+	return count( $items );
+}
+
+function attolabs_get_project_industry_number( array $posts ): int {
+	return attolabs_get_project_taxonomy_number( 'industry', $posts );
+}
+
+function attolabs_get_project_services_number( array $posts ): int {
+	return attolabs_get_project_taxonomy_number( 'service', $posts );
+}
+
+function attolabs_get_posts_by_term( string $post_type = 'post', WP_Term $term ): array {
+	$posts = get_posts(
+		array(
+			'post_type' => $post_type,
+			'tax_query' => array(
+				array(
+					'taxonomy' => $term->taxonomy,
+					'field'    => 'term_id',
+					'terms'    => array( $term->term_id ),
+				),
+			),
+		)
+	);
+
+	return $posts;
+}
+
+function attolabs_get_projects_by_term( WP_Term $term ): array {
+	return attolabs_get_posts_by_term( 'project', $term );
+}
+
+add_action( 'wp_ajax_filter_projects', 'attolabs_filter_projects_via_ajax' );
+add_action( 'wp_ajax_nopriv_filter_projects', 'attolabs_filter_projects_via_ajax' );
+function attolabs_filter_projects_via_ajax(): void {
+	if ( ! isset( $_POST['filter_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['filter_nonce'] ) ), 'attolabs_filter_projects' ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Bad request',
+			),
+			400
+		);
+	}
+
+	$query_args = array(
+		'post_type'      => 'project',
+		'posts_per_page' => -1,
+	);
+
+	if ( isset( $_POST['services'] ) && is_array( $_POST['services'] ) && ! empty( $_POST['services'] ) ) {
+		$query_args['tax_query'][] = array(
+			'taxonomy' => 'service',
+			'field'    => 'term_id',
+			'terms'    => $_POST['services'],
+		);
+	}
+
+	if ( isset( $_POST['industries'] ) && is_array( $_POST['industries'] ) && ! empty( $_POST['industries'] ) ) {
+		$query_args['tax_query'][] = array(
+			'taxonomy' => 'industry',
+			'field'    => 'term_id',
+			'terms'    => $_POST['industries'],
+		);
+	}
+
+	$query = new WP_Query( $query_args );
+
+	if ( ! $query->have_posts() ) {
+		wp_send_json_success(
+			array(
+				'projects'    => '<p>No projects with this filters</p>',
+				'filter-form' => '',
+			)
+		);
+	}
+
+	$data = array();
+
+	ob_start();
+
+	while ( $query->have_posts() ) {
+		$query->the_post();
+		get_template_part( 'components/project' );
+	}
+
+	wp_reset_postdata();
+
+	$projects_html = ob_get_clean();
+
+	$data['projects'] = $projects_html;
+
+	$services   = attolabs_get_posts_terms( 'service', $query->posts );
+	$industries = attolabs_get_posts_terms( 'industry', $query->posts );
+
+	// wp_send_json($query_args);
+
+	$filters_html = '';
+
+	if ( ! empty( $services ) ) {
+		$filters_html .= '<div class="droper-filter">
+			<div class="drpoter-block">
+				<div class="p-12-120">Services (<span class="count">' . count( $services ) . '</span>)</div>
+				<img src="' . esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ) . '" loading="lazy" alt class="image-2">
+			</div>
+			<div class="droper-content">';
+
+		foreach ( $services as $service ) {
+			$checked       = ( isset( $_POST['services'] ) && is_array( $_POST['services'] ) && in_array( $service->term_id, $_POST['services'] ) ) ? 'checked' : '';
+			$filters_html .= '<label class="w-checkbox rdb">
+				<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="' . esc_attr( 'service_' . $service->term_id ) . '"></div>
+				<input 
+					type="checkbox" 
+					id="' . esc_attr( 'service_' . $service->term_id ) . '" 
+					name="services[]" 
+					value="' . esc_attr( $service->term_id ) . '"
+					' . $checked . '
+				/>
+				<span class="radio-button-label w-form-label" for="' . esc_attr( 'service_' . $service->term_id ) . '">' . esc_html( $service->name ) . '</span>
+			</label>';
+		}
+
+		$filters_html .= '</div>
+		</div>';
+	}
+
+	if ( ! empty( $industries ) ) {
+		$filters_html .= '<div class="droper-filter">
+			<div class="drpoter-block">
+				<div class="p-12-120">Industries (<span class="count">' . count( $industries ) . '</span>)</div>
+				<img src="' . esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ) . '" loading="lazy" alt class="image-2">
+			</div>
+			<div class="droper-content">';
+
+		foreach ( $industries as $industry ) {
+			$checked       = ( isset( $_POST['industries'] ) && is_array( $_POST['industries'] ) && in_array( $industry->term_id, $_POST['industries'] ) ) ? 'checked' : '';
+			$filters_html .= '<label class="w-checkbox rdb">
+					<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="' . esc_attr( 'industry_' . $industry->term_id ) . '"></div>
+					<input 
+						type="checkbox" 
+						id="' . esc_attr( 'industry_' . $industry->term_id ) . '" 
+						name="industries[]" 
+						value="' . esc_attr( $industry->term_id ) . '"
+						' . $checked . '
+					/>
+					<span class="radio-button-label w-form-label" for="' . esc_attr( 'industry_' . $industry->term_id ) . '">' . esc_html( $industry->name ) . '</span>
+				</label>';
+		}
+
+		$filters_html .= '</div>
+			</div>';
+	}
+
+	$data['filter-form'] = $filters_html;
+
+	wp_send_json_success( $data );
 }

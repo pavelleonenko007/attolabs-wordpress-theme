@@ -1,5 +1,21 @@
 @import url('../../css/main.css');
+@import url('../../css/custom.css');
+@import url('./filter-form/index.scss');
 
-body {
-	color: red;
+
+.projects-core {
+	display: flex;
+}
+.projects-container {
+	width: 100%;
+	grid-column-gap: 20rem;
+	grid-row-gap: 160rem;
+	flex-wrap: wrap;
+	grid-template-rows: auto;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-columns: 1fr;
+	align-content: flex-start;
+	align-items: start;
+	margin-top: 274rem;
+	display: grid;
 }

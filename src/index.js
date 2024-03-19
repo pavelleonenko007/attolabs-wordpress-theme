@@ -1,8 +1,6 @@
+import { initProjectsFilterForm } from './components/projectsFilterForm';
 import './styles/index.scss';
-const saySomething = ( words ) => {
-	console.log( words );
-};
 
-window.addEventListener( 'load', () => {
-	saySomething( 'AttoLabs' );
-} );
+window.addEventListener('load', () => {
+	initProjectsFilterForm();
+});
