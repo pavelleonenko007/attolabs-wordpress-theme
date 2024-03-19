@@ -1,333 +1,39 @@
 <?php
-/*
-Template name: project-single
-*/
-?>
-    <!DOCTYPE html>
+	/*
+	Template name: project-single
+	*/
+	?>
+<!DOCTYPE html>
 <html data-wf-page="65e6e55dc3be5eb2532b9878" data-wf-site="65ae21eab8e90d9757d32cc8">
 	<?php get_template_part("header_block", ""); ?>
 	<body class="body">
 		<?php if(function_exists('get_field')) { echo get_field('body_code', 'option'); } ?>
-		<div class="css w-embed">
-			<style>
-html{font-size:calc(100vw / 1600)}
-
-@media screen and (max-width: 1280px) { 
- html{font-size:calc(100vw / 1280)}
-}
-
-
-@media screen and (max-width: 992px) { 
- html{font-size:calc(100vw / 695)}
-}
-
-@media screen and (max-width: 495px) { 
- html{font-size:calc(100vw / 375)}
-}
-
-
-::-webkit-scrollbar {
-height:0;
-width:0
-}
-
-::-webkit-scrollbar-track {
-background:black
-}
-
-::-webkit-scrollbar-thumb {
-background-color:#c1c1c1;
-border-radius:0;
-border:0 solid #c1c1c1
-}
-
-
-.taba{pointer-events:none}
-.styk-form {bottom: calc(-100vh + 36rem)}
-
-.adress-item_bottom *{
-color: #292525;
-font-size: 12rem;
-line-height: 120%;
-letter-spacing: 0.12rem;
-text-decoration-line: none;
-}
-
-.lang-line.active .radio-button {background-color: var(--grey-black);}
-
-.closes{}
-
-.serv-item .serv-projects{opacity:0}
-.serv-item.active .serv-projects{opacity:1}
-
-.lang-sh{filter:invert(1)}
-
-.obs-link-tracker{height:calc(100vh - 21rem)}
-
-.active .img-addr{opacity:1}
-
-.tlink.prt{width: calc(50vw - 1px);}
-
-.serv-item:hover *{opacity:1; color:var(--red)}
-
-
-.serv-item *{padding-top:8px;padding-bottom:8px}
-
-.imger-mom{pointer-events:none}
-
-.imger.active{opacity:1}
-
-.whitespace:after{content:' '}
-
-.blackmenu nav a {
-    color: rgba(41, 37, 37, 1);   
-}
-
-.blackmenu .logo{filter:invert(1)}
-
-.project-in_item:nth-child(6n+1) {
-    
-    grid-column-start: span 2 !important;
-    grid-column-end: span 2 !important;
-    display: flex;
-    min-height:800rem;
-}
-
-.project-in_item:nth-child(6n+2) {
-    
-    grid-column-start: span 1 !important;
-    grid-column-end: span 1 !important;
-    display: flex;
-    min-height:400rem;
- 
-}
-
-
-.project-in_item:nth-child(6n+2) .prjr{
- font-size: 18rem;
- line-height: 120%;
- letter-spacing: 0;
- color:white;
-}
-
-.project-in_item:nth-child(6n+3) {
-    
-    grid-column-start: span 3 !important;
-    grid-column-end: span 3 !important;
-    display: flex;
-    min-height:800rem;
-}
-
-.project-in_item:nth-child(6n+4) {
-    
-    grid-column-start: span 1 !important;
-    grid-column-end: span 1 !important;
-    display: flex;
-    min-height:400rem;
-}
-
-.project-in_item:nth-child(6n+4) .prjr{
- font-size: 18rem;
- line-height: 120%;
- letter-spacing: 0;
- color:white;
-}
-
-.project-in_item:nth-child(6n+5) {
-    
-    grid-column-start: span 2 !important;
-    grid-column-end: span 2 !important;
-    display: flex;
-    min-height:800rem;
-}
-
-.project-in_item:nth-child(6n+6) {
-    
-    grid-column-start: span 3 !important;
-    grid-column-end: span 3 !important;
-    display: flex;
-    min-height:800rem;
-}
-
-.project-in_item:nth-child(6n+2) *,
-.project-in_item:nth-child(6n+4) *,
-.project-in_item:nth-child(6n+3) img + * *,
-.project-in_item:nth-child(6n+6) img + * *
-{color:white}
-
-.project-in_item:nth-child(6n+3) .p-76-92.prjr,
-.project-in_item:nth-child(6n+6) .p-76-92.prjr{width:50%;padding-left:10rem; margin-left:auto}
-
-
-.project-in_item:nth-child(18n+2) {
-    background:rgba(48, 119, 255, 1);
-    
-}
-
-.project-in_item:nth-child(18n+4) {
-    background:rgba(251, 77, 64, 1);
-}
-
-.project-in_item:nth-child(18n+8) {
-    background:rgba(13, 170, 94, 1);
-}
-
-.project-in_item:nth-child(18n+10) {
-    background:rgba(48, 119, 255, 1);
-}
-
-.project-in_item:nth-child(18n+14) {
-    background:rgba(251, 77, 64, 1);
-}
-
-.project-in_item:nth-child(18n+16) {
-    background:rgba(13, 170, 94, 1);
-}
-
-.cat-core *:after, .last-jbcol *:after, .jil *:after{content:', '}
-.cat-core *:nth-last-child(1):after, .last-jbcol *:nth-last-child(1):after, .jil *:nth-last-child(1):after{content:''}
-
-.droper-content:after{content:"";height:40px}
-
-.rdb:hover .radio-button{background:#fb4d40}
-.rdb:hover .radio-button-label{color:#fb4d40}
-
-
-
-textarea {
-  resize: none;
-}
-
-.project-img .img-cover {
-    opacity: 0;
-}
-
-.img-addr .blt{background:white}
-
-.form-ceeper, .close-form, .tline.ll {transition: all 300ms ease}
-
-.form-ceeper.openforms{transform: translateY(calc(-100vh + 36rem))}
-
-.openforms .close-form{opacity:1; display: flex}
-.openforms .tline.ll{opacity:0}
-
-.word {
-    display: contents;
-    float: left;
-}
-
-.word:after{content:" ";display:inline}
-
-
-
-.uls-mom{ 
-  counter-reset: count;
-}
-.uls {
-  counter-increment: count;
-}
-.uls::before {
-  content: counter(count, decimal) '.';
-}
-
-.project-img + .resoults .paragraph.p-18-120.styks.single-p{
-    width: 50%;
-    max-width: 50%;
-    margin-right: 10rem;
-}
-
-.project-img + .resoults .resoultes-core{max-width: 671rem;
-    grid-column-gap: 44rem;
-    grid-row-gap: 44rem;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.project-img + .resoults .resoult{flex-direction: row;}
-.project-img + .resoults .p-18-120.blk.resoult {
-    max-width: 178rem;
-    min-width: 178rem;
-    margin-bottom: 0;
-}
-
-.w-form-formradioinput--inputType-custom.w--redirected-checked + * + *{color:white}
-
-.l-arrow {
-    width: calc(50% + 1px);
-    }
-@media screen and (max-width: 992px) { 
-
-.taba{pointer-events:all}
-
-
-.project-in_item:nth-child(6n+1),
-.project-in_item:nth-child(6n+2),
-.project-in_item:nth-child(6n+3),
-.project-in_item:nth-child(6n+4),
-.project-in_item:nth-child(6n+5),
-.project-in_item:nth-child(6n+6){
-    min-height:480rem;
-}
-
-
-
-.project-in_item:nth-child(6n+2) .prjr,.project-in_item:nth-child(6n+4) .prjr{
- font-size: 13rem;
- line-height: 16rem;
-}
-
-.blackmenu .dot-m {
-    filter: invert(1);
-}
-
-
-.project-img.img-man.rel .img-cover {
-    opacity: 1;
-}
-
-.project-img.img-man.rel canvas,.project-img.img-man.rel .canvas-tops {
-      opacity: 0;
-}
-
-.project-in_item:nth-child(6n+3) .p-76-92.prjr, .project-in_item:nth-child(6n+6) .p-76-92.prjr{
-    width: 100%;
-    padding-left: 0rem;
-    margin-left: auto;
-}
-
-
-
-
-}    
-
-@media screen and (max-width: 495px) { 
-
-.serv-item *{
-    grid-area: span 1 / span 2 / span 1 / span 2;
-    justify-self: stretch;
-}
-
-textarea {
-    min-height: 120rem;
-}
-
-.form-ceeper.openforms {
-    transform: translateY(calc(-100dvh + 36rem));
-}
-
-}
-			
-			</style>
-		</div>
 		<div class="wrapper">
 			<div class="barba-container blackmenu">
 				<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
-					<header class="header"><a href="/" class="brand w-nav-brand"><img src="<?php echo get_template_directory_uri() ?>/images/65e02d40c169cf7705bd3a4a_logo.svg" loading="lazy" alt class="logo"></a>
-						<nav role="navigation" class="w-nav-menu"><a href="/projects" class="navlink w-nav-link">What we do</a><a href="/about" class="navlink w-nav-link">Who we are</a><a href="/work-with-us" class="navlink w-nav-link">Work with us</a><a href="/jobs" class="navlink w-nav-link">Jobs</a>
+					<header class="header">
+						<a href="/" class="brand w-nav-brand"><img src="<?php echo get_template_directory_uri() ?>/images/65e02d40c169cf7705bd3a4a_logo.svg" loading="lazy" alt class="logo"></a>
+						<nav role="navigation" class="w-nav-menu">
+							<a href="/projects" class="navlink w-nav-link">What we do</a><a href="/about" class="navlink w-nav-link">Who we are</a><a href="/work-with-us" class="navlink w-nav-link">Work with us</a><a href="/jobs" class="navlink w-nav-link">Jobs</a>
 							<div data-hover="false" data-delay="0" class="dropdown w-dropdown">
 								<div class="navlink lang-drop w-dropdown-toggle">
-									<div>ENG</div><img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh"></div>
-								<nav class="dropdown-list w-dropdown-list"><a href="#" class="lang-line active w-inline-block"><div>English</div><div class="radio-button"></div></a><a href="#" class="lang-line w-inline-block"><div>German</div><div class="radio-button"></div></a><a href="#" class="lang-line w-inline-block"><div>Russian</div><div class="radio-button"></div></a></nav>
+									<div>ENG</div>
+									<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
+								</div>
+								<nav class="dropdown-list w-dropdown-list">
+									<a href="#" class="lang-line active w-inline-block">
+										<div>English</div>
+										<div class="radio-button"></div>
+									</a>
+									<a href="#" class="lang-line w-inline-block">
+										<div>German</div>
+										<div class="radio-button"></div>
+									</a>
+									<a href="#" class="lang-line w-inline-block">
+										<div>Russian</div>
+										<div class="radio-button"></div>
+									</a>
+								</nav>
 							</div>
 						</nav>
 						<div class="menu-b">
@@ -335,7 +41,9 @@ textarea {
 							<div class="dot-m _2"></div>
 							<div class="dot-m _3"></div>
 							<div class="dot-m _4"></div>
-						</div><a href="#" class="close-menu">Close</a></header>
+						</div>
+						<a href="#" class="close-menu">Close</a>
+					</header>
 					<div class="menu-block">
 						<div class="div-block-13"><a href="/" class="menu-link">Home</a><a href="/projects" class="menu-link">What we do</a><a href="/about" class="menu-link">Who we are</a><a href="/work-with-us" class="menu-link">Work with us</a><a href="/jobs" class="menu-link">Jobs</a></div>
 						<div class="bottom-nav">
@@ -357,25 +65,26 @@ textarea {
 					<div class="stik-diver">
 						<section class="section">
 							<div class="container single-page">
-								<div class="h2 single-p">Street lighting control system, Kaliningrad, Russia </div>
-								<p class="p-76-92">The Street Lighting Control System in Kaliningrad, Russia, implemented from February 2020 to October 2020, is a sophisticated infrastructure utilizing ESP32 modules and FreeRtos.</p>
+								<div class="h2 single-p">Street lighting control system, Kaliningrad, Russia </div>
+								<p class="p-76-92">The Street Lighting Control System in Kaliningrad, Russia, implemented from February 2020 to October 2020, is a sophisticated infrastructure utilizing ESP32 modules and FreeRtos.</p>
 								<div class="_2cols">
 									<h2 class="h2 cont-line">Goals</h2>
 									<div id="w-node-_1b799962-3628-1129-b54f-22fac9184453-532b9878" class="rich-text-block w-richtext">
 										<ol start role="list">
-											<li>Enhance energy efficiency in street lighting</li>
+											<li>Enhance energy efficiency in street lighting</li>
 											<li>Provide automated control based on sunset/sunrise times</li>
 											<li>Establish a robust telemetry system for continuous monitoring</li>
-											<li>Enable remote configuration through a centralized server</li>
+											<li>Enable remote configuration through a centralized server</li>
 											<li>Ensure reliable and secure communication protocols</li>
 										</ol>
 										<p>The primary objective was to design a smart street lighting control system capable of optimizing energy consumption and ensuring timely and accurate adjustments based on natural light conditions. The system aimed to collect telemetry data for comprehensive monitoring and facilitate remote configuration through a centralized server. The use of ESP32, FreeRtos, and various communication protocols was pivotal in achieving these goals.</p>
-										<p>The Street Lighting Control System in Kaliningrad, Russia, implemented from February 2020 to October 2020, is a sophisticated infrastructure utilizing ESP32 modules and FreeRtos.</p>
+										<p>The Street Lighting Control System in Kaliningrad, Russia, implemented from February 2020 to October 2020, is a sophisticated infrastructure utilizing ESP32 modules and FreeRtos.</p>
 									</div>
 								</div>
 							</div>
 							<div class="single-var">
-								<div class="project-img single"><img src="<?php echo get_template_directory_uri() ?>/images/65e9d44dea9896c214e81550_image2022720(6).webp" loading="eager" alt class="img-cover pixel-single">
+								<div class="project-img single">
+									<img src="<?php echo get_template_directory_uri() ?>/images/65e9d44dea9896c214e81550_image2022720(6).webp" loading="eager" alt class="img-cover pixel-single">
 									<div class="canvas-tops">
 										<div id="w-node-c577df9d-e982-17e9-a3a7-25e79a8dbf72-532b9878" class="blt"></div>
 										<div id="w-node-c577df9d-e982-17e9-a3a7-25e79a8dbf73-532b9878" class="blt"></div>
@@ -394,7 +103,8 @@ textarea {
 									<div class="fw-div single-page">
 										<h2 id="w-node-d845f0d9-7c2b-0b05-afb7-8c90a1720e76-532b9878" class="paragraph p-18-120 styks single-p">Solutions</h2>
 										<div class="mom-imgs _22wewsd _2 zvz">
-											<div class="project-img single _2 zvz"><img src="<?php echo get_template_directory_uri() ?>/images/65e9b6298f896456b5c8c552_GettyImages-906499516-5bc6570d46e0fb0026d6f1e0202222.webp" loading="eager" width="375" alt class="img-cover pixel-single">
+											<div class="project-img single _2 zvz">
+												<img src="<?php echo get_template_directory_uri() ?>/images/65e9b6298f896456b5c8c552_GettyImages-906499516-5bc6570d46e0fb0026d6f1e0202222.webp" loading="eager" width="375" alt class="img-cover pixel-single">
 												<div class="canvas-tops">
 													<div id="w-node-_4f6f21dc-aef3-96b7-101d-dd4f62e4b707-532b9878" class="blt"></div>
 													<div id="w-node-_4f6f21dc-aef3-96b7-101d-dd4f62e4b708-532b9878" class="blt"></div>
@@ -511,7 +221,7 @@ textarea {
 									<p class="p-76-92 prj">Project Delivers Optimized Energy Consumption and Reliable Communication for Urban Lighting Efficiency</p>
 								</div>
 								<div class="fw-div _2">
-									<p class="paragraph p-18-120 styks m-none"> </p>
+									<p class="paragraph p-18-120 styks m-none"> </p>
 									<div id="w-node-_04fa4a65-d6b0-d774-a6fe-964b206fa7b5-532b9878" class="citas uls-mom">
 										<div id="w-node-_04fa4a65-d6b0-d774-a6fe-964b206fa7b6-532b9878" class="cita">
 											<div class="p-12-120 uper03 uls">Optimized Energy Consumption</div>
@@ -558,15 +268,50 @@ textarea {
 							</div>
 							<div class="styk-btm _2">
 								<div class="form-block">
-									<div class="text-block-4 _2">Street lighting control system, Kaliningrad, Russia </div>
-									<div class="archors-core"><a id="w-node-cee6474c-699a-06ef-472c-d53c4ca4e34e-532b9878" href="#" class="link-block w-inline-block"><div>Overview</div><div class="html-embed-2 svggs w-embed"><svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path></svg></div></a><a id="w-node-b380f585-15c5-fa2f-0e7f-5c5a2ddb9359-532b9878" href="#" class="link-block w-inline-block"><div>Goals</div><div class="html-embed-2 svggs w-embed"><svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path></svg></div></a><a id="w-node-_9f5f1990-e4f5-02c3-1f49-620ecc92f83d-532b9878" href="#" class="link-block w-inline-block"><div>Solutions</div><div class="html-embed-2 svggs w-embed"><svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path></svg></div></a><a id="w-node-ef3c24e0-107a-e228-abd6-5c3a3bfc40b6-532b9878" href="#" class="link-block w-inline-block"><div>Results</div><div class="html-embed-2 svggs w-embed"><svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path></svg></div></a></div>
+									<div class="text-block-4 _2">Street lighting control system, Kaliningrad, Russia </div>
+									<div class="archors-core">
+										<a id="w-node-cee6474c-699a-06ef-472c-d53c4ca4e34e-532b9878" href="#" class="link-block w-inline-block">
+											<div>Overview</div>
+											<div class="html-embed-2 svggs w-embed">
+												<svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path>
+												</svg>
+											</div>
+										</a>
+										<a id="w-node-b380f585-15c5-fa2f-0e7f-5c5a2ddb9359-532b9878" href="#" class="link-block w-inline-block">
+											<div>Goals</div>
+											<div class="html-embed-2 svggs w-embed">
+												<svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path>
+												</svg>
+											</div>
+										</a>
+										<a id="w-node-_9f5f1990-e4f5-02c3-1f49-620ecc92f83d-532b9878" href="#" class="link-block w-inline-block">
+											<div>Solutions</div>
+											<div class="html-embed-2 svggs w-embed">
+												<svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path>
+												</svg>
+											</div>
+										</a>
+										<a id="w-node-ef3c24e0-107a-e228-abd6-5c3a3bfc40b6-532b9878" href="#" class="link-block w-inline-block">
+											<div>Results</div>
+											<div class="html-embed-2 svggs w-embed">
+												<svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path>
+												</svg>
+											</div>
+										</a>
+									</div>
 								</div>
 							</div>
 						</section>
 					</div>
 				</div>
 				<div id="styker" class="div-block-3 obsf ob1">
-					<div class="form-tracker"></div><a id="idid" href="#">Text Link</a></div>
+					<div class="form-tracker"></div>
+					<a id="idid" href="#">Text Link</a>
+				</div>
 				<div class="styk-form">
 					<div class="styk-form-mom _1 w-form">
 						<form method="get" fs-formsubmit-element="form-1" name="email-form" data-name="Email Form" id="email-form" fs-formsubmit-reset="4000" class="form" data-wf-page-id="65e6e55dc3be5eb2532b9878" data-wf-element-id="95b803ee-0670-c38f-aaee-058f9e5ce4ad">
@@ -575,17 +320,20 @@ textarea {
 									<div class="form-slide w-slide">
 										<div class="_100vhctnter _1st">
 											<div class="p-12-120 whtx">Empower the Future with Us</div>
-<textarea required autofocus="true" placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea></div>
+											<textarea required autofocus="true" placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+										</div>
 									</div>
 									<div class="form-slide w-slide">
 										<div class="_100vhctnter">
 											<div class="p-12-120 whtx">How to get in touch with you?</div>
-<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required></div>
+											<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+										</div>
 									</div>
 									<div class="form-slide w-slide">
 										<div class="_100vhctnter">
 											<div class="p-12-120 whtx">What can I call you?</div>
-<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required></div>
+											<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+										</div>
 									</div>
 								</div>
 								<div class="l-arrow w-slider-arrow-left">
@@ -597,7 +345,8 @@ textarea {
 								</div>
 								<div class="none w-slider-nav w-round w-num"></div>
 							</div>
-<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit"></form>
+							<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+						</form>
 						<div class="success-message w-form-done">
 							<div class="div-block-8">
 								<div class="text-field">Thank you! <br>Your submission has been received!</div>
@@ -608,12 +357,20 @@ textarea {
 						</div>
 					</div>
 					<div class="top-stykert">
-						<div class="tline ll"><a href="#" class="tlink main-tlink formpp">Empower the Future with Us</a>
-							<div class="div-block-2"></div><a href="#" class="tlink">All projects</a></div><a href="#" class="close-form w-inline-block"><div class="text-block-5">CLOSE</div></a></div>
+						<div class="tline ll">
+							<a href="#" class="tlink main-tlink formpp">Empower the Future with Us</a>
+							<div class="div-block-2"></div>
+							<a href="#" class="tlink">All projects</a>
+						</div>
+						<a href="#" class="close-form w-inline-block">
+							<div class="text-block-5">CLOSE</div>
+						</a>
+					</div>
 				</div>
 				<footer class="footer">
 					<div class="container foo-core">
-						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1c4-fce8b1c2" class="vert"><a href="/" class="w-inline-block"><img src="<?php echo get_template_directory_uri() ?>/images/65defa42e065c3584e54a6fb_AttoLabs_logo.png" loading="lazy" alt class="logo-foo"></a>
+						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1c4-fce8b1c2" class="vert">
+							<a href="/" class="w-inline-block"><img src="<?php echo get_template_directory_uri() ?>/images/65defa42e065c3584e54a6fb_AttoLabs_logo.png" loading="lazy" alt class="logo-foo"></a>
 							<div class="menu-vert"><a href="/" class="foo-link">Home</a><a href="/projects" class="foo-link">What We Do</a><a href="/about" class="foo-link">Who We Are</a><a href="/work-with-us" class="foo-link">Work With Us</a><a href="/jobs" class="foo-link">Jobs</a></div>
 						</div>
 						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d2-fce8b1c2" class="aress-core">
@@ -650,14 +407,31 @@ textarea {
 								</div>
 							</div>
 						</div>
-						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b208-fce8b1c2" class="vert"><a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a>
+						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b208-fce8b1c2" class="vert">
+							<a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a>
 							<div class="foo-text _23">Attolabs, 2024</div>
 						</div>
-						<div id="w-node-fb29d952-ecc1-f9d0-1692-f48fbb5e21a0-fce8b1c2" class="vert foo-hirz"><a href="#" class="foo-link_2 soc-links">Linkedin</a><a href="#" class="foo-link_2 soc-links">Facebook</a><a href="#" class="foo-link_2 soc-links">Instagram</a><a href="#" class="foo-link_2 soc-links">X (Twitter)</a>
+						<div id="w-node-fb29d952-ecc1-f9d0-1692-f48fbb5e21a0-fce8b1c2" class="vert foo-hirz">
+							<a href="#" class="foo-link_2 soc-links">Linkedin</a><a href="#" class="foo-link_2 soc-links">Facebook</a><a href="#" class="foo-link_2 soc-links">Instagram</a><a href="#" class="foo-link_2 soc-links">X (Twitter)</a>
 							<div data-hover="false" data-delay="0" class="dropdown foodrop w-dropdown">
 								<div class="navlink lang-drop foo-frop w-dropdown-toggle">
-									<div>ENG</div><img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh"></div>
-								<nav class="dropdown-list foo-drop w-dropdown-list"><a href="#" class="lang-line active w-inline-block"><div>English</div><div class="radio-button"></div></a><a href="#" class="lang-line w-inline-block"><div>German</div><div class="radio-button"></div></a><a href="#" class="lang-line w-inline-block"><div>Russian</div><div class="radio-button"></div></a></nav>
+									<div>ENG</div>
+									<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
+								</div>
+								<nav class="dropdown-list foo-drop w-dropdown-list">
+									<a href="#" class="lang-line active w-inline-block">
+										<div>English</div>
+										<div class="radio-button"></div>
+									</a>
+									<a href="#" class="lang-line w-inline-block">
+										<div>German</div>
+										<div class="radio-button"></div>
+									</a>
+									<a href="#" class="lang-line w-inline-block">
+										<div>Russian</div>
+										<div class="radio-button"></div>
+									</a>
+								</nav>
 							</div>
 						</div>
 					</div>
