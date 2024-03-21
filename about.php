@@ -2,23 +2,26 @@
 	/*
 	Template name: About
 	*/
-	?>
+?>
 <!DOCTYPE html>
 <html data-wf-page="65ae67e0e00057e5d2111407" data-wf-site="65ae21eab8e90d9757d32cc8">
-	<?php get_template_part("header_block", ""); ?>
+	<?php get_template_part( 'header_block', '' ); ?>
 	<body class="body">
-		<?php if(function_exists('get_field')) { echo get_field('body_code', 'option'); } ?>
+		<?php
+		if ( function_exists( 'get_field' ) ) {
+			echo get_field( 'body_code', 'option' ); }
+		?>
 		<div class="wrapper">
 			<div class="barba-container">
 				<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
 					<header class="header">
-						<a href="/" class="brand w-nav-brand"><img src="<?php echo get_template_directory_uri() ?>/images/65e02d40c169cf7705bd3a4a_logo.svg" loading="lazy" alt class="logo"></a>
+						<a href="/" class="brand w-nav-brand"><img src="<?php echo get_template_directory_uri(); ?>/images/65e02d40c169cf7705bd3a4a_logo.svg" loading="lazy" alt class="logo"></a>
 						<nav role="navigation" class="w-nav-menu">
 							<a href="/projects" class="navlink w-nav-link">What we do</a><a href="/about" aria-current="page" class="navlink w-nav-link w--current">Who we are</a><a href="/work-with-us" class="navlink w-nav-link">Work with us</a><a href="/jobs" class="navlink w-nav-link">Jobs</a>
 							<div data-hover="false" data-delay="0" class="dropdown w-dropdown">
 								<div class="navlink lang-drop w-dropdown-toggle">
 									<div>ENG</div>
-									<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
+									<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
 								</div>
 								<nav class="dropdown-list w-dropdown-list">
 									<a href="#" class="lang-line active w-inline-block">
@@ -66,7 +69,7 @@
 							<div class="anima-scroll">
 								<section data-w-id="55190ab3-513e-5d8f-8125-8044187d946c" class="section main-section _2">
 									<div data-w-id="79284580-e454-7642-0e1a-43be8a2c8342" class="main-bg-opsd">
-										<div class="main-img_2"><img src="<?php echo get_template_directory_uri() ?>/images/65e9d44dea9896c214e81550_image2022720(6).webp" loading="eager" alt class="img-cover"></div>
+										<div class="main-img_2"><img src="<?php echo get_template_directory_uri(); ?>/images/65e9d44dea9896c214e81550_image2022720(6).webp" loading="eager" alt class="img-cover"></div>
 									</div>
 								</section>
 							</div>
@@ -122,7 +125,7 @@
 						<div class="imger">
 							<div class="verter">
 								<div class="project-img img-man rel">
-									<img src="<?php echo get_template_directory_uri() ?>/images/65ae36374e9b439983d212e7_image2022720(1).webp" loading="eager" alt class="img-cover pixel-abo">
+									<img src="<?php echo get_template_directory_uri(); ?>/images/65ae36374e9b439983d212e7_image2022720(1).webp" loading="eager" alt class="img-cover pixel-abo">
 									<div class="canvas-tops">
 										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3638-d2111407" class="blt"></div>
 										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3639-d2111407" class="blt"></div>
@@ -143,7 +146,7 @@
 						<div class="imger">
 							<div class="verter _2">
 								<div class="project-img img-man rel">
-									<img src="<?php echo get_template_directory_uri() ?>/images/65e9d38498a521ef243a6cf9_image2022720(5).webp" loading="eager" alt class="img-cover pixel-abo">
+									<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d38498a521ef243a6cf9_image2022720(5).webp" loading="eager" alt class="img-cover pixel-abo">
 									<div class="canvas-tops">
 										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f7f-d2111407" class="blt"></div>
 										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f80-d2111407" class="blt"></div>
@@ -211,7 +214,7 @@
 												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dee-d2111407">contact@attolabs.de</div>
 											</div>
 											<div class="project-img img-addr">
-												<img src="<?php echo get_template_directory_uri() ?>/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp" loading="eager" alt class="img-cover pixel-addr">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp" loading="eager" alt class="img-cover pixel-addr">
 												<div class="canvas-tops">
 													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a49-d2111407" class="blt"></div>
 													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4a-d2111407" class="blt"></div>
@@ -269,7 +272,7 @@
 												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f21a-d2111407">contact@attolabs.de</div>
 											</div>
 											<div class="project-img img-addr _2">
-												<img src="<?php echo get_template_directory_uri() ?>/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp" loading="eager" alt class="img-cover pixel-addr">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp" loading="eager" alt class="img-cover pixel-addr">
 												<div class="canvas-tops">
 													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd6-d2111407" class="blt"></div>
 													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd7-d2111407" class="blt"></div>
@@ -439,78 +442,4 @@
 						</div>
 					</div>
 				</div>
-				<footer class="footer">
-					<div class="container foo-core">
-						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1c4-fce8b1c2" class="vert">
-							<a href="/" class="w-inline-block"><img src="<?php echo get_template_directory_uri() ?>/images/65defa42e065c3584e54a6fb_AttoLabs_logo.png" loading="lazy" alt class="logo-foo"></a>
-							<div class="menu-vert"><a href="/" class="foo-link">Home</a><a href="/projects" class="foo-link">What We Do</a><a href="/about" aria-current="page" class="foo-link w--current">Who We Are</a><a href="/work-with-us" class="foo-link">Work With Us</a><a href="/jobs" class="foo-link">Jobs</a></div>
-						</div>
-						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d2-fce8b1c2" class="aress-core">
-							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d3-fce8b1c2" class="adress-item">
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d4-fce8b1c2" class="p-18-120"><span class="atto">Switzerland</span></div>
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d7-fce8b1c2" class="adress-item_bottom">
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d8-fce8b1c2">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1da-fce8b1c2" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1df-fce8b1c2">contact@attolabs.de</div>
-								</div>
-							</div>
-							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e1-fce8b1c2" class="adress-item">
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e2-fce8b1c2" class="p-18-120">Germany</div>
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e4-fce8b1c2" class="adress-item_bottom">
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e5-fce8b1c2">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e7-fce8b1c2" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1ec-fce8b1c2">contact@attolabs.de</div>
-								</div>
-							</div>
-							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1ee-fce8b1c2" class="adress-item">
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1ef-fce8b1c2" class="p-18-120">Türkiye</div>
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1f1-fce8b1c2" class="adress-item_bottom">
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1f2-fce8b1c2">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1f4-fce8b1c2" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1f9-fce8b1c2">contact@attolabs.de</div>
-								</div>
-							</div>
-							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1fb-fce8b1c2" class="adress-item">
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1fc-fce8b1c2" class="p-18-120">Tojikiston</div>
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1fe-fce8b1c2" class="adress-item_bottom">
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1ff-fce8b1c2">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b201-fce8b1c2" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b206-fce8b1c2">contact@attolabs.de</div>
-								</div>
-							</div>
-						</div>
-						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b208-fce8b1c2" class="vert">
-							<a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a>
-							<div class="foo-text _23">Attolabs, 2024</div>
-						</div>
-						<div id="w-node-fb29d952-ecc1-f9d0-1692-f48fbb5e21a0-fce8b1c2" class="vert foo-hirz">
-							<a href="#" class="foo-link_2 soc-links">Linkedin</a><a href="#" class="foo-link_2 soc-links">Facebook</a><a href="#" class="foo-link_2 soc-links">Instagram</a><a href="#" class="foo-link_2 soc-links">X (Twitter)</a>
-							<div data-hover="false" data-delay="0" class="dropdown foodrop w-dropdown">
-								<div class="navlink lang-drop foo-frop w-dropdown-toggle">
-									<div>ENG</div>
-									<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
-								</div>
-								<nav class="dropdown-list foo-drop w-dropdown-list">
-									<a href="#" class="lang-line active w-inline-block">
-										<div>English</div>
-										<div class="radio-button"></div>
-									</a>
-									<a href="#" class="lang-line w-inline-block">
-										<div>German</div>
-										<div class="radio-button"></div>
-									</a>
-									<a href="#" class="lang-line w-inline-block">
-										<div>Russian</div>
-										<div class="radio-button"></div>
-									</a>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</footer>
-			</div>
-		</div>
-		<!-- FOOTER CODE -->
-		<?php get_template_part("footer_block", ""); ?>
-	</body>
-</html>
+				<?php get_footer(); ?>

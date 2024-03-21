@@ -284,6 +284,10 @@ function attolabs_add_site_scripts() {
 			'AJAX_URL' => admin_url( 'admin-ajax.php' ),
 		)
 	);
+
+	// <script defer src="https://unpkg.com/splitting/dist/splitting.min.js"></script> ????
+	// <script defer src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-formsubmit@1/formsubmit.js"></script> ????
+	// <script defer src="https://thevogne.ru/clients/vosk-clients/atto/scripts.js" type="text/javascript"></script> ????
 }
 
 add_filter( 'wp_default_scripts', 'attolabs_remove_jquery_migrate' );
@@ -692,6 +696,12 @@ function attolabs_after_body(): void {
 	wp_body_open();
 	if ( function_exists( 'get_field' ) ) {
 		echo get_field( 'body_code', 'option' );
+	}
+}
+
+function attolabs_footer_code(): void {
+	if ( function_exists( 'get_field' ) ) {
+		echo get_field( 'footer_code', 'option' );
 	}
 }
 
