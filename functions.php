@@ -870,3 +870,20 @@ function attolabs_filter_projects_via_ajax(): void {
 
 	wp_send_json_success( $data );
 }
+
+function attolabs_get_project_title_with_address( int|WP_Post $post ): string {
+	$title = get_the_title( $post );
+
+	$city    = get_field( 'city', $post );
+	$country = get_field( 'country', $post );
+
+	if ( ! empty( $city ) ) {
+		$title .= ", $city";
+	}
+
+	if ( ! empty( $country ) ) {
+		$title .= ", $country";
+	}
+
+	return $title;
+}
