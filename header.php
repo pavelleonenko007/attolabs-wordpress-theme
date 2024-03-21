@@ -27,7 +27,7 @@ if ( ! empty( $args['container-extra-classes'] ) ) {
 		attolabs_head_code();
 		?>
 	</head>
-	<body class="body">
+	<body <?php body_class("body"); ?>>
 		<?php attolabs_after_body(); ?>
 		<div class="wrapper">
 			<div class="<?php echo esc_attr( $container_classes ); ?>">

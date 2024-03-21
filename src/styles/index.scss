@@ -2,6 +2,9 @@
 @import url('../../css/custom.css');
 @import url('./filter-form/index.scss');
 
+body.admin-bar .nav {
+	margin-top: 32rem;
+}
 
 .projects-core {
 	display: flex;
