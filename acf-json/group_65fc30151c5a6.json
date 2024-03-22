@@ -1,0 +1,178 @@
+{
+    "key": "group_65fc30151c5a6",
+    "title": "Globals",
+    "fields": [
+        {
+            "key": "field_65fc301522090",
+            "label": "Branches",
+            "name": "branches",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_65fc31489ea2a",
+                    "label": "Country",
+                    "name": "country",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65fc301522090"
+                },
+                {
+                    "key": "field_65fc303422091",
+                    "label": "Address Name",
+                    "name": "address_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Add address name.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65fc301522090"
+                },
+                {
+                    "key": "field_65fc305b22092",
+                    "label": "Contact Phones",
+                    "name": "contact_phones",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add phone",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_65fc308522093",
+                            "label": "Phone number",
+                            "name": "phone_number",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Add phone number.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_65fc305b22092"
+                        }
+                    ],
+                    "parent_repeater": "field_65fc301522090"
+                },
+                {
+                    "key": "field_65fc30a922094",
+                    "label": "Contact Email",
+                    "name": "contact_email",
+                    "aria-label": "",
+                    "type": "email",
+                    "instructions": "Add contact email.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65fc301522090"
+                },
+                {
+                    "key": "field_65fc30e87a112",
+                    "label": "Display in footer",
+                    "name": "display_in_footer",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Switch toggle to Yes option if this address should be displayed in footer.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
+                    "parent_repeater": "field_65fc301522090"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1711119087
+}
