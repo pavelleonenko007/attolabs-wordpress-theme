@@ -1,203 +1,217 @@
 <?php
-	/*
-	Template name: About
-	*/
+/**
+ * Template name: About
+ *
+ * @package 0.0.1
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+get_header(
+	null,
+	array(
+		'data-wf-page' => '65ae67e0e00057e5d2111407',
+	)
+);
+
+the_post();
+$tabs             = get_field( 'tabs' );
+$text_section     = get_field( 'text_section' );
+$our_values_block = get_field( 'our_values_block' );
+$branches         = get_field( 'branches', 'option' );
 ?>
-<!DOCTYPE html>
-<html data-wf-page="65ae67e0e00057e5d2111407" data-wf-site="65ae21eab8e90d9757d32cc8">
-	<?php get_template_part( 'header_block', '' ); ?>
-	<body class="body">
-		<?php
-		if ( function_exists( 'get_field' ) ) {
-			echo get_field( 'body_code', 'option' ); }
-		?>
-		<div class="wrapper">
-			<div class="barba-container">
-				<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
-					<header class="header">
-						<a href="/" class="brand w-nav-brand"><img src="<?php echo get_template_directory_uri(); ?>/images/65e02d40c169cf7705bd3a4a_logo.svg" loading="lazy" alt class="logo"></a>
-						<nav role="navigation" class="w-nav-menu">
-							<a href="/projects" class="navlink w-nav-link">What we do</a><a href="/about" aria-current="page" class="navlink w-nav-link w--current">Who we are</a><a href="/work-with-us" class="navlink w-nav-link">Work with us</a><a href="/jobs" class="navlink w-nav-link">Jobs</a>
-							<div data-hover="false" data-delay="0" class="dropdown w-dropdown">
-								<div class="navlink lang-drop w-dropdown-toggle">
-									<div>ENG</div>
-									<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
-								</div>
-								<nav class="dropdown-list w-dropdown-list">
-									<a href="#" class="lang-line active w-inline-block">
-										<div>English</div>
-										<div class="radio-button"></div>
-									</a>
-									<a href="#" class="lang-line w-inline-block">
-										<div>German</div>
-										<div class="radio-button"></div>
-									</a>
-									<a href="#" class="lang-line w-inline-block">
-										<div>Russian</div>
-										<div class="radio-button"></div>
-									</a>
-								</nav>
-							</div>
-						</nav>
-						<div class="menu-b">
-							<div class="dot-m _1"></div>
-							<div class="dot-m _2"></div>
-							<div class="dot-m _3"></div>
-							<div class="dot-m _4"></div>
-						</div>
-						<a href="#" class="close-menu">Close</a>
-					</header>
-					<div class="menu-block">
-						<div class="div-block-13"><a href="/" class="menu-link">Home</a><a href="/projects" class="menu-link">What we do</a><a href="/about" aria-current="page" class="menu-link w--current">Who we are</a><a href="/work-with-us" class="menu-link">Work with us</a><a href="/jobs" class="menu-link">Jobs</a></div>
-						<div class="bottom-nav">
-							<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188996-58975f82" class="adress-item">
-								<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188997-58975f82" class="p-18-120 _222">Contacts</div>
-								<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188999-58975f82" class="adress-item_bottom">
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899a-58975f82">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899c-58975f82" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b61889a1-58975f82">contact@attolabs.de</div>
-								</div>
-							</div>
-							<div id="w-node-_6f0c7519-0018-f7f0-0117-8a8f518ee231-58975f82" class="vert"><a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a></div>
-							<div id="w-node-_6d4226e5-071d-3179-c4da-f21becda97b7-58975f82" class="foo-text">Attolabs, 2024</div>
-						</div>
-					</div>
-				</div>
 				<div data-w-id="f63cc638-65a6-6b47-a6cb-493087ba41e4" class="scroll-mom-container">
 					<div class="styk-anim">
 						<div class="ovf-a">
 							<div class="anima-scroll">
 								<section data-w-id="55190ab3-513e-5d8f-8125-8044187d946c" class="section main-section _2">
 									<div data-w-id="79284580-e454-7642-0e1a-43be8a2c8342" class="main-bg-opsd">
-										<div class="main-img_2"><img src="<?php echo get_template_directory_uri(); ?>/images/65e9d44dea9896c214e81550_image2022720(6).webp" loading="eager" alt class="img-cover"></div>
+										<div class="main-img_2">
+											<?php
+											the_post_thumbnail(
+												'full',
+												array(
+													'loading' => 'eager',
+													'class'   => 'img-cover',
+												)
+											);
+											?>
+										</div>
 									</div>
 								</section>
 							</div>
 						</div>
 					</div>
 					<div class="styk-container">
-						<p id="w-node-eb2db2d6-7b50-331a-6394-29520d486fe3-d2111407" class="paragraph-2 p-18-120">At AttoLabs, we redefine excellence in IT consulting. Our commitment to cutting-edge solutions and employee well-being sets us apart. Experience the future of business optimization with us.</p>
-						<div id="w-node-_154d0722-9e61-5b06-6ddd-c00ecc8ec810-d2111407" data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
-							<div class="tabs-menu w-tab-menu">
-								<a data-w-tab="Tab 1" class="taba w-inline-block w-tab-link w--current">
-									<div>Employees</div>
-								</a>
-								<a data-w-tab="Tab 2" class="taba w-inline-block w-tab-link">
-									<div>Projects</div>
-								</a>
-								<a data-w-tab="Tab 3" class="taba w-inline-block w-tab-link">
-									<div>Branches</div>
-								</a>
+						<?php
+						$description = get_field( 'description' );
+						if ( ! empty( $description ) ) :
+							?>
+							<p id="w-node-eb2db2d6-7b50-331a-6394-29520d486fe3-d2111407" class="paragraph-2 p-18-120"><?php echo esc_html( $description ); ?></p>
+							<?php
+						endif;
+						unset( $description );
+						?>
+						<?php if ( ! empty( $tabs ) ) : ?>
+							<div id="w-node-_154d0722-9e61-5b06-6ddd-c00ecc8ec810-d2111407" data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
+								<div class="tabs-menu w-tab-menu">
+									<?php foreach ( $tabs as $index => $tab ) : ?>
+										<a data-w-tab="Tab <?php echo esc_attr( $index + 1 ); ?>" class="taba w-inline-block w-tab-link <?php echo 0 === $index ? 'w--current' : ''; ?>">
+											<div><?php echo esc_html( $tab['name'] ); ?></div>
+										</a>
+									<?php endforeach; ?>
+								</div>
+								<div class="w-tab-content">
+									<?php foreach ( $tabs as $index => $tab ) : ?>
+										<div data-w-tab="Tab <?php echo esc_attr( $index + 1 ); ?>" class="w-tab-pane <?php echo 0 === $index ? 'w--tab-active' : ''; ?>">
+											<div class="text-block-2"><?php echo esc_html( $tab['content'] ); ?></div>
+										</div>
+									<?php endforeach; ?>
+								</div>
 							</div>
-							<div class="w-tab-content">
-								<div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
-									<div class="text-block-2">50</div>
-								</div>
-								<div data-w-tab="Tab 2" class="w-tab-pane">
-									<div class="text-block-2">40+</div>
-								</div>
-								<div data-w-tab="Tab 3" class="w-tab-pane">
-									<div class="text-block-2">6</div>
-								</div>
-							</div>
-						</div>
+						<?php endif; ?>
 						<div class="red-scroll-line"></div>
 					</div>
-					<div class="tabs-trugger">
-						<div class="tabs-trigger"></div>
-						<div class="tabs-trigger"></div>
-						<div class="tabs-trigger"></div>
-						<div data-w-id="3b7c657b-d33f-64bc-6cf3-257acbe9bf04" class="div-block-12"></div>
-					</div>
+					<?php if ( ! empty( $tabs ) ) : ?>
+						<div class="tabs-trugger">
+							<?php foreach ( $tabs as $tab ) : ?>
+								<div class="tabs-trigger"></div>
+							<?php endforeach; ?>
+							<div data-w-id="3b7c657b-d33f-64bc-6cf3-257acbe9bf04" class="div-block-12"></div>
+						</div>
+					<?php endif; ?>
 					<div class="div-block-11">
-						<h1 class="h1-btn">Engineers for new era embodying real mastery</h1>
+						<h1 class="h1-btn"><?php the_title(); ?></h1>
 					</div>
 				</div>
-				<section class="section bg--fff7f3">
-					<div class="styk-100vh">
-						<div class="container secnd _23">
-							<h2 class="h2">Making Impact Across Industries</h2>
-							<p class="p-76-92 wht">At AttoLabs, we transformE-Government and Logistics through projects like <a href="#" class="scroll-link abo-ix">the Unified Volunteer Platform</a> and <a href="#" class="scroll-link abo-ix">Smart Logistics Network</a>, optimizing information retrieval, enhancing community engagement, and streamlining operations.</p>
-							<p class="p-18-120 blk under">Our commitment to impactful solutions shapes the future of diverse sectors, reflecting innovation that translates into positive change.</p>
+				<?php
+				if ( ! empty( $text_section['content'] ) ) :
+					$small_heading = $text_section['small_heading'];
+					$content       = $text_section['content'];
+					$description   = $text_section['description'];
+					$hover_images  = $text_section['hover_images'];
+					?>
+					<section class="section bg--fff7f3">
+						<div class="styk-100vh">
+							<div class="container secnd _23">
+								<?php if ( ! empty( $small_heading ) ) : ?>
+									<h2 class="h2"><?php echo esc_html( $small_heading ); ?></h2>
+								<?php endif; ?>
+								<div class="p-76-92 wht"><?php echo apply_filters( 'text_with_hover_links', $content ); ?></div>
+								<!-- <p class="p-76-92 wht">At AttoLabs, we transformE-Government and Logistics through projects like <a href="#" class="scroll-link abo-ix">the Unified Volunteer Platform</a> and <a href="#" class="scroll-link abo-ix">Smart Logistics Network</a>, optimizing information retrieval, enhancing community engagement, and streamlining operations.</p> -->
+								<?php if ( ! empty( $description ) ) : ?>
+									<p class="p-18-120 blk under"><?php echo esc_html( $description ); ?></p>
+								<?php endif; ?>
+							</div>
 						</div>
-					</div>
-					<div class="imger-mom">
-						<div class="imger">
-							<div class="verter">
-								<div class="project-img img-man rel">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/65ae36374e9b439983d212e7_image2022720(1).webp" loading="eager" alt class="img-cover pixel-abo">
-									<div class="canvas-tops">
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3638-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3639-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363a-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363b-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363c-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363d-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363e-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363f-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3640-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3641-d2111407" class="blt"></div>
-										<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3642-d2111407" class="blt"></div>
+						<?php if ( ! empty( $hover_images ) ) : ?>
+							<div class="imger-mom">
+								<?php foreach ( $hover_images as $index => $hover_image ) : ?>
+									<div class="imger">
+										<?php
+										$classes = 'verter';
+										if ( $index > 0 ) {
+											$classes .= ' _' . $index + 1;
+										}
+										?>
+										<div class="<?php echo esc_attr( $classes ); ?>">
+											<div class="project-img img-man rel">
+												<?php
+												echo wp_get_attachment_image(
+													$hover_image['image'],
+													'full',
+													false,
+													array(
+														'loading' => 'eager',
+														'class'   => 'img-cover pixel-abo',
+													)
+												);
+												?>
+												<div class="canvas-tops">
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3638-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3639-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363a-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363b-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363c-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363d-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363e-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc363f-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3640-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3641-d2111407" class="blt"></div>
+													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3642-d2111407" class="blt"></div>
+												</div>
+											</div>
+											<div class="p-12-120 absp">Unified Volunteer Platform</div>
+										</div>
 									</div>
-								</div>
-								<div class="p-12-120 absp">Unified Volunteer Platform</div>
-							</div>
-						</div>
-						<div class="imger">
-							<div class="verter _2">
-								<div class="project-img img-man rel">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d38498a521ef243a6cf9_image2022720(5).webp" loading="eager" alt class="img-cover pixel-abo">
-									<div class="canvas-tops">
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f7f-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f80-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f81-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f82-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f83-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f84-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f85-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f86-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f87-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f88-d2111407" class="blt"></div>
-										<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f89-d2111407" class="blt"></div>
+								<?php endforeach; ?>
+								<!-- <div class="imger">
+									<div class="verter _2">
+										<div class="project-img img-man rel">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d38498a521ef243a6cf9_image2022720(5).webp" loading="eager" alt class="img-cover pixel-abo">
+											<div class="canvas-tops">
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f7f-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f80-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f81-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f82-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f83-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f84-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f85-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f86-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f87-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f88-d2111407" class="blt"></div>
+												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f89-d2111407" class="blt"></div>
+											</div>
+										</div>
+										<div class="p-12-120 absp">Smart Logistics Network</div>
 									</div>
+								</div> -->
+							</div>
+						<?php endif; ?>
+					</section>
+					<?php
+				endif;
+				if ( ! empty( $our_values_block['values'] ) ) :
+					$values = $our_values_block['values'];
+					?>
+					<section class="section bg--fff7f3-2 _3">
+						<div class="container secnd _3 abpage">
+							<?php
+							$heading = $our_values_block['heading'];
+							if ( ! empty( $heading ) ) :
+								?>
+								<h2 class="p-76-92"><?php echo esc_html( $heading ); ?></h2>
+							<?php endif; ?>
+							<div class="fw-div _2">
+								<h2 class="p-18-120 n-pc">Our values</h2>
+								<p class="paragraph p-18-120 n-mob"> </p>
+								<div id="w-node-b16eb019-dbb6-68af-5eed-55fb4de5cc77-d2111407" class="citas _2">
+									<?php foreach ( $values as $index => $value ) : ?>
+										<div id="w-node-b16eb019-dbb6-68af-5eed-55fb4de5cc78-d2111407" class="cita">
+											<?php
+											$name        = $value['name'];
+											$description = $value['description'];
+											if ( ! empty( $name ) ) :
+												?>
+												<div class="p-12-120 red"><?php echo esc_html( $index + 1 ); ?>: <?php echo esc_html( $name ); ?></div>
+												<?php
+											endif;
+											if ( ! empty( $description ) ) :
+												?>
+												<p class="p-18-120 blk vals"><?php echo esc_html( $description ); ?></p>
+											<?php endif; ?>
+										</div>
+									<?php endforeach; ?>
 								</div>
-								<div class="p-12-120 absp">Smart Logistics Network</div>
 							</div>
 						</div>
-					</div>
-				</section>
-				<section class="section bg--fff7f3-2 _3">
-					<div class="container secnd _3 abpage">
-						<h2 class="p-76-92">Beyond Boundaries:Crafting Tomorrow with Technology and Humanity</h2>
-						<div class="fw-div _2">
-							<h2 class="p-18-120 n-pc">Our values</h2>
-							<p class="paragraph p-18-120 n-mob"> </p>
-							<div id="w-node-b16eb019-dbb6-68af-5eed-55fb4de5cc77-d2111407" class="citas _2">
-								<div id="w-node-b16eb019-dbb6-68af-5eed-55fb4de5cc78-d2111407" class="cita">
-									<div class="p-12-120 red">1: Flexible approach to projects</div>
-									<p class="p-18-120 blk vals">We don't follow predefined patterns; instead, each project is treated as unique. Through in-depth diagnostics of the client's problem, we create bespoke solutions tailored to their specific needs. Our approach, crafted for individuality, ensures tangible results, optimization, and success.</p>
-								</div>
-								<div id="w-node-_85bed481-a982-b5dc-d46f-735a4e43afcc-d2111407" class="cita">
-									<div class="p-12-120 red">2: Human-centered culture</div>
-									<p class="p-18-120 blk vals">We value each member of our team, fostering collaboration among smart, creative engineers, analysts, developers, and managers. This collaboration takes place in an atmosphere that prioritizes their talents and professional growth. Our technologies go beyond mere modernity; they are designed to enhance people's lives by addressing their problems and needs.</p>
-								</div>
-								<div id="w-node-_0a92b758-8542-ca0b-40a7-827afa61432d-d2111407" class="cita">
-									<div class="p-12-120 red">3: High quality and results</div>
-									<p class="p-18-120 blk vals">Our pursuit of excellence is evident in every solution we deliver. Our commitment to clients goes beyond mere words; we are dedicated to achieving tangible results. Our solutions are not only aesthetically pleasing but also highly practical, offering reliability and efficiency. The value of our solutions far exceeds their price.</p>
-								</div>
-								<div id="w-node-e8153088-0873-e846-bb93-47f1c18b0b93-d2111407" class="cita">
-									<div class="p-12-120 red">4: Advanced technologies</div>
-									<p class="p-18-120 blk vals">Our products are crafted using cutting-edge technology stacks, enabling the creation of innovative solutions and the transformation of outdated concepts. Our technological infrastructure aligns with the latest trends and embraces an innovative vision.</p>
-								</div>
+						<div class="abs">
+							<div class="styk-block">
+								<h2 class="p-18-120">Our values</h2>
 							</div>
 						</div>
-					</div>
-					<div class="abs">
-						<div class="styk-block">
-							<h2 class="p-18-120">Our values</h2>
-						</div>
-					</div>
-				</section>
+					</section>
+				<?php endif; ?>
 				<div class="div-block-4">
 					<div class="div-block-6"></div>
 					<div class="stik-diver">
@@ -214,7 +228,7 @@
 												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dee-d2111407">contact@attolabs.de</div>
 											</div>
 											<div class="project-img img-addr">
-												<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp" loading="eager" alt class="img-cover pixel-addr">
+												<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
 												<div class="canvas-tops">
 													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a49-d2111407" class="blt"></div>
 													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4a-d2111407" class="blt"></div>
@@ -272,7 +286,7 @@
 												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f21a-d2111407">contact@attolabs.de</div>
 											</div>
 											<div class="project-img img-addr _2">
-												<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp" loading="eager" alt class="img-cover pixel-addr">
+												<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
 												<div class="canvas-tops">
 													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd6-d2111407" class="blt"></div>
 													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd7-d2111407" class="blt"></div>

@@ -897,3 +897,23 @@ function attolabs_get_project_title_with_address( int|WP_Post $post ): string {
 
 	return $title;
 }
+
+add_filter( 'text_with_hover_links', 'attolabs_format_links' );
+function attolabs_format_links( $content ) {
+	$dom = new DOMDocument();
+	$dom->loadHTML( $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+
+	// Получаем все ссылки
+	$links = $dom->getElementsByTagName( 'a' );
+
+	// Обходим все ссылки и добавляем классы
+	foreach ( $links as $link ) {
+		$link_classes  = $link->getAttribute( 'class' );
+		$link_classes .= ' scroll-link abo-ix'; // Добавляем новые классы
+		$link->setAttribute( 'class', $link_classes );
+	}
+
+	$updated_content = $dom->saveHTML();
+
+	return $updated_content;
+}
