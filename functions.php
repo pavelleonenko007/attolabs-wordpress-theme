@@ -917,3 +917,31 @@ function attolabs_format_links( $content ) {
 
 	return $updated_content;
 }
+
+function attolabs_format_phone_link( string $phone_number ): string {
+	if ( empty( $phone_number ) ) {
+		return '';
+	}
+
+	return 'tel:' . preg_replace( '/[^0-9+]/', '', $phone_number );
+}
+
+function attolabs_format_email_link( string $email, string $subject = '' ): string {
+	$email_link = "mailto:{$email}";
+
+	if ( ! empty( $subject ) ) {
+		$email_link .= "?subject={$subject}";
+	}
+
+	return $email_link;
+}
+
+function attolabs_get_page_title( int|WP_Post $post_id ): string {
+	$title = get_field( 'title', $post_id );
+
+	if ( empty( $title ) ) {
+		return get_the_title( $post_id );
+	}
+
+	return $title;
+}
