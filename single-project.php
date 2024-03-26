@@ -52,9 +52,8 @@ the_post();
 										</div>
 										<?php
 									elseif ( 'solutions' === $projects_section['acf_fc_layout'] ) :
-										$section_classes = has_post_thumbnail() ? 'single-var' : 'single-var none';
 										?>
-										<div class="<?php echo esc_attr( $section_classes ); ?>">
+										<div class="single-var">
 											<?php if ( has_post_thumbnail() ) : ?>
 												<div class="project-img single">
 													<?php
