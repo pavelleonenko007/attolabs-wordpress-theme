@@ -154,6 +154,26 @@
                     "parent_repeater": "field_65fc301522090"
                 }
             ]
+        },
+        {
+            "key": "field_66028b05c32b0",
+            "label": "Copyright",
+            "name": "copyright",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Add copyright. No needs to add year.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -174,5 +194,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711119087
+    "modified": 1711442722
 }

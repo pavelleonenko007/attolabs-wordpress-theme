@@ -15,6 +15,7 @@ function attolabs_after_setup_theme() {
 	add_theme_support( 'menus' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'editor-styles' );
+	add_theme_support( 'custom-logo' );
 }
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -380,7 +381,7 @@ function attolabs_get_current_url( $include_params = false ) {
 }
 
 function attolabs_is_current_url( string $test_url, $include_params = false ) {
-	return vosk_get_current_url( $include_params ) === $test_url;
+	return attolabs_get_current_url( $include_params ) === $test_url;
 }
 
 add_filter( 'upload_mimes', 'attolabs_myme_types', 1, 1 );
@@ -944,4 +945,22 @@ function attolabs_get_page_title( int|WP_Post $post_id ): string {
 	}
 
 	return $title;
+}
+
+function attolabs_get_site_logo(): string {
+	$logo_id = get_theme_mod( 'custom_logo' );
+
+	if ( ! empty( $logo_id ) ) {
+		return wp_get_attachment_image(
+			$logo_id,
+			'full',
+			false,
+			array(
+				'loading' => 'lazy',
+				'class'   => 'logo',
+			)
+		);
+	}
+
+	return '';
 }
