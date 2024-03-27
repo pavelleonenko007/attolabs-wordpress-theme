@@ -964,3 +964,23 @@ function attolabs_get_site_logo(): string {
 
 	return '';
 }
+
+add_action( 'init', 'attolabs_add_rewrite_rules' );
+function attolabs_add_rewrite_rules() {
+	add_rewrite_rule( 'jobs/(.+)[/]?$', 'index.php?job=$matches[1]', 'top' );
+}
+
+add_filter( 'query_vars', 'attolabs_custom_query_vars' );
+function attolabs_custom_query_vars( $query_vars ) {
+	$query_vars[] = 'job';
+	return $query_vars;
+}
+
+add_action( 'template_include', 'attolabs_render_custom_template' );
+function attolabs_render_custom_template( $template ) {
+	if ( ! empty( get_query_var( 'job' ) ) ) {
+		return get_template_directory() . '/single-job.php';
+	}
+
+	return $template;
+}

@@ -1,65 +1,19 @@
 <?php
-	/*
-	Template name: jobs
-	*/
-	?>
-<!DOCTYPE html>
-<html data-wf-page="65dc28b2adbd672d4103d4fe" data-wf-site="65ae21eab8e90d9757d32cc8">
-	<?php get_template_part("header_block", ""); ?>
-	<body class="body">
-		<?php if(function_exists('get_field')) { echo get_field('body_code', 'option'); } ?>
-		<div class="wrapper">
-			<div class="barba-container blackmenu">
-				<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
-					<header class="header">
-						<a href="/" class="brand w-nav-brand"><img src="<?php echo get_template_directory_uri() ?>/images/65e02d40c169cf7705bd3a4a_logo.svg" loading="lazy" alt class="logo"></a>
-						<nav role="navigation" class="w-nav-menu">
-							<a href="/projects" class="navlink w-nav-link">What we do</a><a href="/about" class="navlink w-nav-link">Who we are</a><a href="/work-with-us" class="navlink w-nav-link">Work with us</a><a href="/jobs" aria-current="page" class="navlink w-nav-link w--current">Jobs</a>
-							<div data-hover="false" data-delay="0" class="dropdown w-dropdown">
-								<div class="navlink lang-drop w-dropdown-toggle">
-									<div>ENG</div>
-									<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
-								</div>
-								<nav class="dropdown-list w-dropdown-list">
-									<a href="#" class="lang-line active w-inline-block">
-										<div>English</div>
-										<div class="radio-button"></div>
-									</a>
-									<a href="#" class="lang-line w-inline-block">
-										<div>German</div>
-										<div class="radio-button"></div>
-									</a>
-									<a href="#" class="lang-line w-inline-block">
-										<div>Russian</div>
-										<div class="radio-button"></div>
-									</a>
-								</nav>
-							</div>
-						</nav>
-						<div class="menu-b">
-							<div class="dot-m _1"></div>
-							<div class="dot-m _2"></div>
-							<div class="dot-m _3"></div>
-							<div class="dot-m _4"></div>
-						</div>
-						<a href="#" class="close-menu">Close</a>
-					</header>
-					<div class="menu-block">
-						<div class="div-block-13"><a href="/" class="menu-link">Home</a><a href="/projects" class="menu-link">What we do</a><a href="/about" class="menu-link">Who we are</a><a href="/work-with-us" class="menu-link">Work with us</a><a href="/jobs" aria-current="page" class="menu-link w--current">Jobs</a></div>
-						<div class="bottom-nav">
-							<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188996-58975f82" class="adress-item">
-								<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188997-58975f82" class="p-18-120 _222">Contacts</div>
-								<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188999-58975f82" class="adress-item_bottom">
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899a-58975f82">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899c-58975f82" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-eedec887-cf2f-9a27-6944-d976b61889a1-58975f82">contact@attolabs.de</div>
-								</div>
-							</div>
-							<div id="w-node-_6f0c7519-0018-f7f0-0117-8a8f518ee231-58975f82" class="vert"><a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a></div>
-							<div id="w-node-_6d4226e5-071d-3179-c4da-f21becda97b7-58975f82" class="foo-text">Attolabs, 2024</div>
-						</div>
-					</div>
-				</div>
+/**
+ * Template name: Jobs
+ *
+ * @package 0.0.1
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+get_header(
+	null,
+	array(
+		'data-wf-page'            => '65dc28b2adbd672d4103d4fe',
+		'container-extra-classes' => 'blackmenu',
+	)
+); ?>
 				<section class="section main-section jobs-pager">
 					<div class="container _100vh jobs-page">
 						<div>
@@ -89,7 +43,7 @@
 										<div class="droper-filter">
 											<div class="drpoter-block">
 												<div class="p-12-120">Department (4)</div>
-												<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 no-mob">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 no-mob">
 											</div>
 											<div class="droper-content">
 												<label class="w-checkbox rdb">
@@ -113,7 +67,7 @@
 										<div class="droper-filter">
 											<div class="drpoter-block">
 												<div class="p-12-120">Location (4)</div>
-												<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 no-mob">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 no-mob">
 											</div>
 											<div class="droper-content">
 												<label class="w-checkbox rdb">
@@ -137,7 +91,7 @@
 										<div class="droper-filter">
 											<div class="drpoter-block">
 												<div class="p-12-120">Job type</div>
-												<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 no-mob">
+												<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 no-mob">
 											</div>
 											<div class="droper-content">
 												<label class="w-checkbox rdb">
@@ -170,7 +124,7 @@
 										<div class="job-droper-a">
 											<div class="p-12-120 uper">Department</div>
 											<div class="p-12-120 top-counter"></div>
-											<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2">
 										</div>
 										<div class="job-droper-in">
 											<div class="job-droper-in_content">
@@ -199,7 +153,7 @@
 									<div class="job-droper">
 										<div class="job-droper-a">
 											<div class="p-12-120 uper">Location</div>
-											<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2">
 										</div>
 										<div class="job-droper-in">
 											<div class="job-droper-in_content">
@@ -229,7 +183,7 @@
 										<div class="job-droper-a">
 											<div class="p-12-120 uper">Job type</div>
 											<div class="p-12-120 top-counter"><sup>3</sup></div>
-											<img src="<?php echo get_template_directory_uri() ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2">
+											<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2">
 										</div>
 										<div class="job-droper-in">
 											<div class="job-droper-in_content">
