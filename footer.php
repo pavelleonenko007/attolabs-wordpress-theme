@@ -10,69 +10,105 @@ defined( 'ABSPATH' ) || exit;
 				<footer class="footer">
 					<div class="container foo-core">
 						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1c4-fce8b1c2" class="vert">
-							<a href="/" aria-current="page" class="w-inline-block w--current"><img src="<?php echo get_template_directory_uri(); ?>/images/65defa42e065c3584e54a6fb_AttoLabs_logo.png" loading="lazy" alt class="logo-foo"></a>
-							<div class="menu-vert"><a href="/" aria-current="page" class="foo-link w--current">Home</a><a href="/projects" class="foo-link">What We Do</a><a href="/about" class="foo-link">Who We Are</a><a href="/work-with-us" class="foo-link">Work With Us</a><a href="/jobs" class="foo-link">Jobs</a></div>
+							<a href="<?php echo esc_url( get_home_url( null, '/' ) ); ?>" class="w-inline-block">
+								<img src="<?php echo get_template_directory_uri(); ?>/images/65defa42e065c3584e54a6fb_AttoLabs_logo.png" loading="lazy" alt class="logo-foo">
+							</a>
+							<?php
+							$footer_menu_items = wp_get_nav_menu_items( 'Footer Menu' );
+							if ( ! empty( $footer_menu_items ) ) :
+								?>
+								<div class="menu-vert">
+									<?php foreach ( $footer_menu_items as $footer_menu_item ) : ?>
+										<a href="<?php echo esc_url( $footer_menu_item->url ); ?>" class="foo-link"><?php echo esc_html( $footer_menu_item->title ); ?></a>
+									<?php endforeach; ?>
+								</div>
+								<?php endif; ?>
 						</div>
-						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d2-fce8b1c2" class="aress-core">
-							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d3-fce8b1c2" class="adress-item">
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d4-fce8b1c2" class="p-18-120"><span class="atto">Switzerland</span></div>
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d7-fce8b1c2" class="adress-item_bottom">
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d8-fce8b1c2">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1da-fce8b1c2" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1df-fce8b1c2">contact@attolabs.de</div>
-								</div>
+						<?php
+						$branches = get_field( 'branches', 'option' );
+						$branches = array_filter(
+							$branches,
+							function ( $branch ) {
+								return $branch['display_in_footer'];
+							}
+						);
+						if ( ! empty( $branches ) ) :
+							?>
+							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d2-fce8b1c2" class="aress-core">
+								<?php
+								foreach ( $branches as $branch ) :
+									$country        = $branch['country'];
+									$address_name   = $branch['address_name'];
+									$contact_phones = $branch['contact_phones'];
+									$contact_email  = $branch['contact_email'];
+									?>
+									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d3-fce8b1c2" class="adress-item">
+										<?php if ( ! empty( $country ) ) : ?>
+											<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d4-fce8b1c2" class="p-18-120"><span class="atto"><?php echo esc_html( $country ); ?></span></div>
+										<?php endif; ?>
+										<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d7-fce8b1c2" class="adress-item_bottom">
+											<?php if ( ! empty( $address_name ) ) : ?>
+												<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1d8-fce8b1c2"><?php echo esc_html( $address_name ); ?></div>
+											<?php endif; ?>
+											<?php if ( ! empty( $contact_phones ) ) : ?>
+												<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1da-fce8b1c2" class="adress-item_bottom_ver">
+													<?php foreach ( $contact_phones as $contact_phone ) : ?>
+														<a href="<?php echo esc_url( attolabs_format_phone_link( $contact_phone['phone_number'] ) ); ?>"><?php echo esc_html( $contact_phone['phone_number'] ); ?></a>
+													<?php endforeach; ?>
+												</div>
+											<?php endif; ?>
+											<?php if ( ! empty( $contact_email ) ) : ?>
+												<a href="<?php echo esc_url( attolabs_format_email_link( $contact_email ) ); ?>" id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1df-fce8b1c2"><?php echo esc_html( $contact_email ); ?></a>
+											<?php endif; ?>
+										</div>
+									</div>
+								<?php endforeach; ?>
 							</div>
-							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e1-fce8b1c2" class="adress-item">
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e2-fce8b1c2" class="p-18-120">Germany</div>
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e4-fce8b1c2" class="adress-item_bottom">
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e5-fce8b1c2">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1e7-fce8b1c2" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1ec-fce8b1c2">contact@attolabs.de</div>
-								</div>
-							</div>
-							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1ee-fce8b1c2" class="adress-item">
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1ef-fce8b1c2" class="p-18-120">Türkiye</div>
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1f1-fce8b1c2" class="adress-item_bottom">
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1f2-fce8b1c2">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1f4-fce8b1c2" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1f9-fce8b1c2">contact@attolabs.de</div>
-								</div>
-							</div>
-							<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1fb-fce8b1c2" class="adress-item">
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1fc-fce8b1c2" class="p-18-120">Tojikiston</div>
-								<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1fe-fce8b1c2" class="adress-item_bottom">
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1ff-fce8b1c2">Schanzenstraße 41 51063 Köln, Germany</div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b201-fce8b1c2" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-									<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b206-fce8b1c2">contact@attolabs.de</div>
-								</div>
-							</div>
-						</div>
+						<?php endif; ?>
 						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b208-fce8b1c2" class="vert">
-							<a href="#" class="foo-link_2">Cookie settings</a><a href="#" class="foo-link_2">Privacy policy</a>
-							<div class="foo-text _23">Attolabs, 2024</div>
+							<a href="#" class="foo-link_2">Cookie settings</a>
+							<a href="#" class="foo-link_2">Privacy policy</a>
+							<?php
+							$copyright = get_field( 'copyright', 'option' );
+							if ( ! empty( $copyright ) ) :
+								?>
+								<div class="foo-text _23"><?php echo esc_html( $copyright ); ?>, <?php echo esc_html( gmdate( 'Y' ) ); ?></div>
+							<?php endif; ?>
 						</div>
+						
 						<div id="w-node-fb29d952-ecc1-f9d0-1692-f48fbb5e21a0-fce8b1c2" class="vert foo-hirz">
-							<a href="#" class="foo-link_2 soc-links">Linkedin</a><a href="#" class="foo-link_2 soc-links">Facebook</a><a href="#" class="foo-link_2 soc-links">Instagram</a><a href="#" class="foo-link_2 soc-links">X (Twitter)</a>
-							<div data-hover="false" data-delay="0" class="dropdown foodrop w-dropdown">
-								<div class="navlink lang-drop foo-frop w-dropdown-toggle">
-									<div>ENG</div>
-									<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 lang-sh">
+						<?php
+						$socials = wp_get_nav_menu_items( 'Socials' );
+						if ( ! empty( $socials ) ) :
+							foreach ( $socials as $social ) :
+								?>
+								<a href="<?php echo esc_url( $social->url ); ?>" target="_blank" rel="nofollow" class="foo-link_2 soc-links"><?php echo esc_html( $social->title ); ?></a>
+								<?php
+								endforeach;
+							endif;
+						?>
+							<?php
+							$languages = pll_the_languages( array( 'raw' => 1 ) );
+							if ( ! empty( $languages ) ) :
+								?>
+								<div data-hover="false" data-delay="0" class="dropdown foodrop w-dropdown">
+									<div class="navlink lang-drop foo-frop w-dropdown-toggle">
+										<div><?php echo esc_html( pll_current_language() ); ?></div>
+										<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 lang-sh">
+									</div>
+									<nav class="dropdown-list foo-drop w-dropdown-list">
+										<?php
+										foreach ( $languages as $language ) :
+											$classes = attolabs_is_current_url( $language['url'] ) ? 'lang-line active w-inline-block' : 'lang-line w-inline-block';
+											?>
+											<a href="<?php echo esc_url( $language['url'] ); ?>" class="<?php echo esc_attr( $classes ); ?>">
+												<div><?php echo esc_html( $language['name'] ); ?></div>
+												<div class="radio-button"></div>
+											</a>
+										<?php endforeach; ?>
+									</nav>
 								</div>
-								<nav class="dropdown-list foo-drop w-dropdown-list">
-									<a href="#" class="lang-line active w-inline-block">
-										<div>English</div>
-										<div class="radio-button"></div>
-									</a>
-									<a href="#" class="lang-line w-inline-block">
-										<div>German</div>
-										<div class="radio-button"></div>
-									</a>
-									<a href="#" class="lang-line w-inline-block">
-										<div>Russian</div>
-										<div class="radio-button"></div>
-									</a>
-								</nav>
-							</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</footer>
