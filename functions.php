@@ -1023,6 +1023,83 @@ function attolabs_get_job_positions( string $lang = 'en' ): array {
 	return $positions;
 }
 
+function attolabs_get_job_position_by_id( int|string $id, string $lang ): stdClass|null {
+	$positions = attolabs_get_job_positions( $lang );
+
+	$position = array_filter(
+		$positions,
+		function ( $pos ) use ( $id ) {
+			return $pos->id === $id;
+		}
+	);
+
+	return $position[0];
+}
+
+function attolabs_format_job_schedule( stdClass $position, string $lang = 'en' ): string {
+	$translations = array(
+		'full-time' => array(
+			'de' => 'Vollzeit',
+			'en' => 'Full-time',
+			'ru' => 'Полная занятость',
+		),
+		'part-time' => array(
+			'de' => 'Teilzeit',
+			'en' => 'Part-time',
+			'ru' => 'Частичная занятость',
+		),
+		'permanent' => array(
+			'de' => 'Festanstellung',
+			'en' => 'Permanent Employment',
+			'ru' => 'Полная занятость',
+		),
+		'intern'    => array(
+			'de' => 'Praktikum',
+			'en' => 'Internship',
+			'ru' => 'Практика',
+		),
+		'trainee'   => array(
+			'de' => 'Trainee Stelle',
+			'en' => 'Trainee Stelle',
+			'ru' => 'Наставничество',
+		),
+		'freelance' => array(
+			'de' => 'Freelance Position',
+			'en' => 'Freelance Position',
+			'ru' => 'Фриланс',
+		),
+	);
+
+	return $translations[ (string) $position->schedule ][ $lang ];
+}
+
+function attolabs_get_job_content( stdClass $position ): string {
+	$content = '';
+	if ( isset( $position->jobDescriptions ) && ! empty( $position->jobDescriptions->jobDescription ) ) {
+		if ( is_array( $position->jobDescriptions->jobDescription ) ) {
+			foreach ( $position->jobDescriptions->jobDescription as $content_part ) {
+				if ( isset( $content_part->name ) && ! empty( $content_part->name ) ) {
+					$content .= '<h2>' . $content_part->name . '</h2>';
+				}
+
+				if ( isset( $content_part->value ) && ! empty( $content_part->value ) ) {
+					$content .= $content_part->value;
+				}
+			}
+		} else {
+			if ( isset( $position->jobDescriptions->jobDescription->name ) && ! empty( $position->jobDescriptions->jobDescription->name ) ) {
+				$content .= '<h2>' . $position->jobDescriptions->jobDescription->name . '</h2>';
+			}
+
+			if ( isset( $position->jobDescriptions->jobDescription->value ) && ! empty( $position->jobDescriptions->jobDescription->value ) ) {
+				$content .= $position->jobDescriptions->jobDescription->name;
+			}
+		}
+	}
+
+	return apply_filters( 'the_content', $content );
+}
+
 function attolabs_get_job_cities( array $positions ): array {
 	$cities = array();
 
@@ -1051,4 +1128,89 @@ function attolabs_get_job_schedules( array $positions ): array {
 	}
 
 	return array_unique( array_filter( $schedules ) );
+}
+
+add_action( 'wp_ajax_submit_contact_form', 'attolabs_submit_contact_form_via_ajax' );
+add_action( 'wp_ajax_nopriv_submit_contact_form', 'attolabs_submit_contact_form_via_ajax' );
+function attolabs_submit_contact_form_via_ajax(): void {
+}
+
+add_action( 'wp_ajax_submit_job_form', 'attolabs_submit_job_form_via_ajax' );
+add_action( 'wp_ajax_nopriv_submit_job_form', 'attolabs_submit_job_form_via_ajax' );
+function attolabs_submit_job_form_via_ajax(): void {
+	if ( ! isset( $_POST['job_form_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['job_form_nonce'] ) ), '_submit_job_form' ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Bad request',
+			),
+			400
+		);
+	}
+
+	$data = json_decode( wp_json_encode( $_POST ), true );
+
+	unset( $data['action'] );
+	unset( $data['_wp_http_referer'] );
+	unset( $data['job_form_nonce'] );
+
+	$to      = ! empty( get_field( 'job_email', 'option' ) ) ? get_field( 'job_email', 'option' ) : 'pavel.leonenko374@gmail.com';
+	$subject = '';
+	$message = '';
+
+	if ( isset( $_POST['job'] ) && ! empty( $_POST['job'] ) ) {
+		$subject = 'A new response to vacancy: ' . sanitize_text_field( wp_unslash( $_POST['job'] ) );
+	} else {
+		$subject = 'New vacancy';
+	}
+
+	$headers = array(
+		'content-type: text/html',
+	);
+
+	foreach ( $data as $key => $value ) {
+		$message .= '<strong>' . $key . ':</strong> ' . $value . '\n';
+	}
+
+	$attachments      = array();
+	$uploads_dir_path = WP_CONTENT_DIR . '/uploads/';
+
+	if ( ! empty( $_FILES ) && isset( $_FILES['file'] ) && ! empty( $_FILES['file'] ) ) {
+		if ( is_array( $_FILES['file']['name'] ) ) {
+			foreach ( $_FILES['file']['name'] as $index => $file_name ) {
+				$file_path = $uploads_dir_path . $file_name;
+
+				move_uploaded_file( $_FILES['file']['tmp_name'][ $index ], $file_path );
+
+				$attachments[] = $file_path;
+			}
+		} else {
+			$file_name = $_FILES['file']['name'];
+			$file_path = $uploads_dir_path . $file_name;
+
+			move_uploaded_file( $_FILES['file']['tmp_name'], $file_path );
+
+			$attachments[] = $file_path;
+		}
+	}
+
+	$sended = wp_mail( $to, $subject, $message, $headers, $attachments );
+
+	foreach ( $attachments as $attachment ) {
+		unlink( $attachment );
+	}
+
+	// if ( ! $sended ) {
+	// wp_send_json_error(
+	// array(
+	// 'message' => 'Something wrong with sending your vacancy. Try again later!',
+	// ),
+	// 400
+	// );
+	// }
+
+	wp_send_json_success(
+		array(
+			'message' => 'Your message successfully sent!',
+		)
+	);
 }

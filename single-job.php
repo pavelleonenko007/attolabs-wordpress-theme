@@ -12,35 +12,53 @@
 			'data-wf-page'            => '65dc4b44b768e5a87400cdd1',
 			'container-extra-classes' => 'blackmenu',
 		)
-	)
+	);
+
+	$lang     = pll_current_language();
+	$position = attolabs_get_job_position_by_id( get_query_var( 'job' ), $lang );
+
+	if ( null === $position ) {
+		wp_safe_redirect( get_home_url() . '/jobs/', 302 );
+	}
 	?>
 				<section class="section">
 					<div class="container jobs-container">
 						<div class="left-col">
 							<div class="div-block-7">
 								<div id="w-node-_2856db91-e1b6-89d1-b921-c8f464d30f2b-7400cdd1" class="job-row _1">
-									<h1 id="w-node-_015a8304-e077-87c1-e839-dba82f5631bb-7400cdd1" class="h1-job">Senior Software Engineer (Java) / Team Lead</h1>
+									<h1 id="w-node-_015a8304-e077-87c1-e839-dba82f5631bb-7400cdd1" class="h1-job"><?php echo esc_html( $position->name ); ?></h1>
 								</div>
 								<div id="w-node-_6fd8b6f5-1c95-373f-28f3-3842bd9cbd62-7400cdd1" class="job-row">
 									<div id="w-node-_53361b7a-b4fb-1cc6-fc13-f7a3f34e3673-7400cdd1" class="p-12-120 c-grey">Department:</div>
 									<div id="w-node-_895fb078-b3aa-746d-d6df-acdf3bead88b-7400cdd1" class="jil p-12-120">
-										<div>Development</div>
+										<?php if ( ! empty( $position->department ) ) : ?>
+											<div><?php echo esc_html( $position->department ); ?></div>
+										<?php endif; ?>
 									</div>
 								</div>
-								<div class="job-row">
-									<div id="w-node-_1afd2c92-f22d-7e1a-d33f-1b7b27b6782f-7400cdd1" class="p-12-120 c-grey">Location:</div>
-									<div id="w-node-_1afd2c92-f22d-7e1a-d33f-1b7b27b67831-7400cdd1" class="jil p-12-120">
-										<div>Uzbekistan, TashkentTürkiye, İstanbulUzbekistan, Tashkent</div>
+								<?php
+								$offices = attolabs_get_position_offices( $position );
+								if ( ! empty( $offices ) ) :
+									?>
+									<div class="job-row">
+										<div id="w-node-_1afd2c92-f22d-7e1a-d33f-1b7b27b6782f-7400cdd1" class="p-12-120 c-grey">Location:</div>
+										<div id="w-node-_1afd2c92-f22d-7e1a-d33f-1b7b27b67831-7400cdd1" class="jil p-12-120">
+											<div><?php echo esc_html( implode( ', ', $offices ) ); ?></div>
+										</div>
 									</div>
-								</div>
-								<div class="job-row">
-									<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e52-7400cdd1" class="p-12-120 c-grey">Job type:</div>
-									<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e54-7400cdd1" class="jil p-12-120">
-										<div>On-Site</div>
-										<div>Remote</div>
+								<?php endif; ?>
+								<?php
+								$schedule = attolabs_format_job_schedule( $position, $lang );
+								if ( ! empty( $schedule ) ) :
+									?>
+									<div class="job-row">
+										<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e52-7400cdd1" class="p-12-120 c-grey">Job type:</div>
+										<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e54-7400cdd1" class="jil p-12-120">
+											<div><?php echo esc_html( $schedule ); ?></div>
+										</div>
 									</div>
-								</div>
-								<a href="#" class="share-btn p-12-120 w-inline-block">
+								<?php endif; ?>
+								<a href="#" class="share-btn p-12-120 w-inline-block" data-button="copy">
 									<div>Share position</div>
 									<div class="html-embed w-embed">
 										<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,43 +71,7 @@
 						</div>
 						<div class="left-col">
 							<div class="jobs-rich w-richtext">
-								<h2>About the Role</h2>
-								<p>As a Senior Software Engineer at AttoLabs, you will play a key role in developing robust and scalable Java-based applications. You will be part of a dynamic team, contributing to the design and implementation of innovative solutions. This role offers the opportunity to work on cutting-edge projects and drive technological excellence.</p>
-								<h3>Responsibilities</h3>
-								<ul role="list">
-									<li>Development and optimization of IT solutions for our clients;</li>
-									<li>Project management and coordination of the development team's work;</li>
-									<li>Creation of technical specifications, documentation, and test scenarios;</li>
-									<li>Ensuring quality code and timely project delivery;</li>
-									<li>Risk assessment and determination in projects;</li>
-									<li>Continuous learning and development of your own skills.</li>
-								</ul>
-								<h3>Requirements</h3>
-								<ul role="list">
-									<li>5+ years of programming experience;</li>
-									<li>Knowledge of Spring (Core, Boot, MVC, JPA, Security);</li>
-									<li>Knowledge of Jakarta EE (Java EE) and Quarkus is a plus;</li>
-									<li>Understanding of software development lifecycle models;</li>
-									<li>Project management and team leadership experience;</li>
-									<li>Experience with Agile software development methodologies;</li>
-									<li>Experience with Docker/Kubernetes;</li>
-									<li>Understanding of DevOps processes;</li>
-									<li>Experience with frameworks and libraries for integration and unit testing;</li>
-									<li>Knowledge of fundamental algorithms and data structures, design patterns, SOLID principles, clean code practices;</li>
-									<li>Understanding of principles for developing high-performance multithreaded applications;</li>
-									<li>Experience with Angular/React/Vue and deep understanding of their peculiarities for frontend solution development and management;</li>
-									<li>Experience with PostgreSQL/MySQL/MongoDB and deep understanding of their pecu-liarities for database creation and management;</li>
-									<li>Creative problem-solving approach;</li>
-									<li>Responsibility and discipline in work.</li>
-								</ul>
-								<h3>What we offer</h3>
-								<ul role="list">
-									<li>We guarantee a constructive work atmosphere and daily interaction with the best engineers in Germany;</li>
-									<li>We offer continuous salary increase with the growth of professional competencies;</li>
-									<li>We provide opportunities for qualification enhancement in Germany and English lan-guage training funded by the company;</li>
-									<li>We equip employees with modern equipment for first-class work;</li>
-									<li>We create unforgettable experiences for the team through a wide range of corporate events.</li>
-								</ul>
+								<?php echo attolabs_get_job_content( $position ); ?>
 							</div>
 						</div>
 					</div>
@@ -99,42 +81,44 @@
 					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
-					<div class="styk-form-mom _1 w-form">
-						<form method="get" fs-formsubmit-element="form-1" name="email-form" data-name="Email Form" id="email-form" fs-formsubmit-reset="4000" class="form" data-wf-page-id="65dc4b44b768e5a87400cdd1" data-wf-element-id="9f3e7290-dede-9b21-bf0e-914aeb30f89c">
+					<div class="styk-form-mom _1">
+						<form id="job-contact-form" data-form="job-contact" class="form" data-wf-page-id="65dc4b44b768e5a87400cdd1" data-wf-element-id="9f3e7290-dede-9b21-bf0e-914aeb30f89c">
 							<div class="normal-form">
-								<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f89e-7400cdd1" class="p-12-120 ww">GET IN TOUCH with us!</div>
+								<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f89e-7400cdd1" class="p-12-120 ww"><?php echo esc_html( $position->name ); ?></div>
 								<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a0-7400cdd1" class="r-form-vertical">
 									<div class="p-76-92 ww">Join our team:<br>apply now!</div>
 									<div class="form-core">
 										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a4-7400cdd1" class="input-keeper">
 											<div class="form-label">Name</div>
-											<input class="input-normal w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="JOHN JOHNSON" type="text" id="field-4" required>
+											<input class="input-normal w-input" maxlength="256" name="name" placeholder="JOHN JOHNSON" type="text" id="name" required>
 										</div>
 										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a8-7400cdd1" class="input-keeper">
 											<div class="form-label">EMAIL</div>
-											<input class="input-normal w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="ADDRESS@MAIL.COM" type="email" id="field-2" required>
+											<input class="input-normal w-input" maxlength="256" name="email" placeholder="ADDRESS@MAIL.COM" type="email" id="email" required>
 										</div>
 										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8ac-7400cdd1" class="input-keeper">
 											<div class="form-label">PHONE NUMBER</div>
-											<input class="input-normal w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="0617084035" type="tel" id="field-2" required>
+											<input class="input-normal w-input" maxlength="256" name="phone" placeholder="0617084035" type="tel" id="phone" required>
 										</div>
 										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8b0-7400cdd1" class="input-keeper">
 											<div class="form-label">contact preference</div>
 											<div class="horiz-left">
 												<label id="incroyable" class="cont-ref caller w-radio">
 													<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-													<input type="radio" name="connectionref" id="call" data-name="connectionref" style="opacity:0;position:absolute;z-index:-1" value="call"><span class="call-text w-form-label" for="call">Call</span>
+													<input type="radio" name="contact_preference" id="call" style="opacity:0;position:absolute;z-index:-1" value="Call">
+													<span class="call-text w-form-label" for="call">Call</span>
 												</label>
 												<div class="reger"></div>
 												<label class="cont-ref w-radio">
 													<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-													<input type="radio" name="connectionref" id="Messenger" data-name="connectionref" style="opacity:0;position:absolute;z-index:-1" value="Messenger"><span class="call-text w-form-label" for="Messenger">Messenger</span>
+													<input type="radio" name="contact_preference" id="messenger" style="opacity:0;position:absolute;z-index:-1" value="Messenger">
+													<span class="call-text w-form-label" for="Messenger">Messenger</span>
 												</label>
 											</div>
 										</div>
 										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8bd-7400cdd1" class="input-keeper textarer">
 											<div class="form-label">Message</div>
-											<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="field-4" name="field-4" data-name="Field 4" class="input-normal textarea w-input"></textarea>
+											<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="message" name="message" class="input-normal textarea w-input"></textarea>
 										</div>
 										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c1-7400cdd1" class="input-keeper textarer file-mom">
 											<div class="form-label">CV</div>
@@ -147,17 +131,21 @@
 													</div>
 												</div>
 												<div class="p-12-120 ww2 cv-or"> OR </div>
-												<input class="input-normal cv-link w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="INSERT A LINK" type="text" id="field-2" required>
+												<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link">
 											</div>
 										</div>
 										<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="w-checkbox checkbox-field">
-											<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="checkbox"></div>
-											<input type="checkbox" id="checkbox" name="checkbox" data-name="Checkbox" style="opacity:0;position:absolute;z-index:-1"><span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="#" class="link">Privacy Policy</a></span>
+											<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
+											<input type="checkbox" id="user_agreement" name="user_agreement" style="opacity:0;position:absolute;z-index:-1">
+											<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="#" class="link">Privacy Policy</a></span>
 										</label>
 									</div>
 								</div>
 							</div>
-							<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
+							<input type="hidden" name="action" value="submit_job_form">
+							<input type="hidden" name="job" value="<?php echo esc_attr( $position->name ); ?>">
+							<?php wp_nonce_field( '_submit_job_form', 'job_form_nonce' ); ?>
+							<input type="submit" data-wait="Please wait..." class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
 						</form>
 						<div class="success-message w-form-done">
 							<div class="div-block-8">
@@ -170,7 +158,7 @@
 					</div>
 					<div class="top-stykert">
 						<div class="tline ll">
-							<a href="#" class="tlink main-tlink formpp">Didn’t find the desired position?</a>
+							<a href="#" class="tlink main-tlink formpp">Apply</a>
 							<div class="div-block-2"></div>
 							<a href="#" class="tlink">All projects</a>
 						</div>
