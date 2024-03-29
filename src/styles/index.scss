@@ -1,6 +1,8 @@
 @import url('../../css/main.css');
 @import url('../../css/custom.css');
-@import url('./filter-form/index.scss');
+@import url('./projects-filter-form/index.scss');
+@import url('./positions-filter-form/index.scss');
+@import url('./utils/index.scss');
 
 body.admin-bar .nav {
 	margin-top: 32px;

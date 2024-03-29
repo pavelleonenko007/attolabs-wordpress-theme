@@ -984,3 +984,71 @@ function attolabs_render_custom_template( $template ) {
 
 	return $template;
 }
+
+function attolabs_get_position_offices( stdClass $position ): array {
+	$offices = array();
+
+	if ( isset( $position->office ) && ! empty( $position->office ) ) {
+		$offices[] = $position->office;
+	}
+
+	if ( isset( $position->additionalOffices ) && ! empty( $position->additionalOffices->office ) ) {
+		if ( is_array( $position->additionalOffices->office ) ) {
+			$offices = array_merge( $offices, $position->additionalOffices->office );
+		} else {
+			$offices[] = $position->additionalOffices->office;
+		}
+	}
+
+	return array_unique( $offices );
+}
+
+function attolabs_get_job_positions( string $lang = 'en' ): array {
+	$hostname = 'attolabs';
+	$response = simplexml_load_file( 'https://' . $hostname . '.jobs.personio.de/xml?language=' . $lang, null, LIBXML_NOCDATA );
+	// $response     = simplexml_load_file( TEMPLATE_PATH . '/jobs.xml', null, LIBXML_NOCDATA );
+	$json         = wp_json_encode( $response );
+	$decoded_json = json_decode( $json );
+
+	$positions = array();
+
+	if ( isset( $decoded_json->position ) && ! empty( $decoded_json->position ) ) {
+		if ( is_array( $decoded_json->position ) ) {
+			$positions = $decoded_json->position;
+		} else {
+			$positions[] = $decoded_json->position;
+		}
+	}
+
+	return $positions;
+}
+
+function attolabs_get_job_cities( array $positions ): array {
+	$cities = array();
+
+	foreach ( $positions as $position ) {
+		$cities = array_merge( $cities, attolabs_get_position_offices( $position ) );
+	}
+
+	return array_unique( $cities );
+}
+
+function attolabs_get_job_departments( array $positions ): array {
+	$departments = array();
+
+	foreach ( $positions as $position ) {
+		$departments[] = $position->department;
+	}
+
+	return array_unique( array_filter( $departments ) );
+}
+
+function attolabs_get_job_schedules( array $positions ): array {
+	$schedules = array();
+
+	foreach ( $positions as $position ) {
+		$schedules[] = $position->schedule;
+	}
+
+	return array_unique( array_filter( $schedules ) );
+}
