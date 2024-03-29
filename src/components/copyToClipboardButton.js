@@ -6,11 +6,12 @@ export const initCopyToClipboardButtons = () => {
 	buttons.forEach((button) => {
 		button.addEventListener('click', (event) => {
 			event.preventDefault();
-			const prevText = button.textContent;
+			const textNode = button.querySelector('div:first-child');
+			const prevText = textNode.textContent;
 			navigator.clipboard.writeText(window.location.href).then(() => {
 				button.textContent = 'Copied to clipboard!';
 				setTimeout(() => {
-					button.textContent = prevText;
+					textNode.textContent = prevText;
 				}, 300);
 			});
 		});
