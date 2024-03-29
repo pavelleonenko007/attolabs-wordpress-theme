@@ -1199,14 +1199,14 @@ function attolabs_submit_job_form_via_ajax(): void {
 		unlink( $attachment );
 	}
 
-	// if ( ! $sended ) {
-	// wp_send_json_error(
-	// array(
-	// 'message' => 'Something wrong with sending your vacancy. Try again later!',
-	// ),
-	// 400
-	// );
-	// }
+	if ( ! $sended ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Something wrong with sending your vacancy. Try again later!',
+			),
+			400
+		);
+	}
 
 	wp_send_json_success(
 		array(
