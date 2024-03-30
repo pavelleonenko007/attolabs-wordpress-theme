@@ -317,8 +317,8 @@ $translations = array(
 				</div>
 				<div class="styk-form">
 					<div class="form-ceeper">
-						<div class="styk-form-mom _1 w-form">
-							<form method="get" fs-formsubmit-element="form-1" name="email-form" data-name="Email Form" id="email-form" fs-formsubmit-reset="4000" class="form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="2918af35-b134-b011-bc88-063920f2dc7f">
+						<div class="styk-form-mom _1">
+							<form id="job-contact-form" data-form="job-contact" class="form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="2918af35-b134-b011-bc88-063920f2dc7f" novalidate>
 								<div class="normal-form">
 									<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc81-4103d4fe" class="p-12-120 ww">GET IN TOUCH with us!</div>
 									<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc83-4103d4fe" class="r-form-vertical">
@@ -326,33 +326,33 @@ $translations = array(
 										<div class="form-core">
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc87-4103d4fe" class="input-keeper">
 												<div class="form-label">Name</div>
-												<input class="input-normal w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="JOHN JOHNSON" type="text" id="field-4" required>
+												<input class="input-normal w-input" maxlength="256" name="name" placeholder="JOHN JOHNSON" type="text" id="name" required>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc8b-4103d4fe" class="input-keeper">
 												<div class="form-label">EMAIL</div>
-												<input class="input-normal w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="ADDRESS@MAIL.COM" type="email" id="field-2" required>
+												<input class="input-normal w-input" maxlength="256" name="email" placeholder="ADDRESS@MAIL.COM" type="email" id="email" required>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc8f-4103d4fe" class="input-keeper">
 												<div class="form-label">PHONE NUMBER</div>
-												<input class="input-normal w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="0617084035" type="tel" id="field-2" required>
+												<input class="input-normal w-input" maxlength="256" name="phone" placeholder="0617084035" type="tel" id="phone" required>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc93-4103d4fe" class="input-keeper">
 												<div class="form-label">contact preference</div>
 												<div class="horiz-left">
 													<label id="incroyable" class="cont-ref caller w-radio">
 														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-														<input type="radio" name="connectionref" id="call" data-name="connectionref" style="opacity:0;position:absolute;z-index:-1" value="call"><span class="call-text w-form-label" for="call">Call</span>
+														<input type="radio" name="contact_preference" id="call" style="opacity:0;position:absolute;z-index:-1" value="call"><span class="call-text w-form-label" for="call">Call</span>
 													</label>
 													<div class="reger"></div>
 													<label class="cont-ref w-radio">
 														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-														<input type="radio" name="connectionref" id="Messenger" data-name="connectionref" style="opacity:0;position:absolute;z-index:-1" value="Messenger"><span class="call-text w-form-label" for="Messenger">Messenger</span>
+														<input type="radio" name="contact_preference" id="messenger" style="opacity:0;position:absolute;z-index:-1" value="Messenger"><span class="call-text w-form-label" for="Messenger">Messenger</span>
 													</label>
 												</div>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dca0-4103d4fe" class="input-keeper textarer">
 												<div class="form-label">Message</div>
-												<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="field-4" name="field-4" data-name="Field 4" class="input-normal textarea w-input"></textarea>
+												<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="message" name="message" class="input-normal textarea w-input"></textarea>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dca4-4103d4fe" class="input-keeper textarer file-mom">
 												<div class="form-label">CV</div>
@@ -365,12 +365,12 @@ $translations = array(
 														</div>
 													</div>
 													<div class="p-12-120 ww2 cv-or"> OR </div>
-													<input class="input-normal cv-link w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="INSERT A LINK" type="text" id="field-2" required>
+													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link" required>
 												</div>
 											</div>
 											<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="w-checkbox checkbox-field">
-												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="checkbox-3"></div>
-												<input type="checkbox" id="checkbox-3" name="checkbox-3" data-name="Checkbox 3" style="opacity:0;position:absolute;z-index:-1"><span class="p-12-120 ww fomr-c w-form-label" for="checkbox-3">I agree with the <a href="#" class="link">Privacy Policy</a></span>
+												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
+												<input type="checkbox" id="user_agreement" name="user_agreement" style="opacity:0;position:absolute;z-index:-1"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="#" class="link">Privacy Policy</a></span>
 											</label>
 										</div>
 									</div>

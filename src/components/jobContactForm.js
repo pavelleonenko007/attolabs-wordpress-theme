@@ -1,3 +1,5 @@
+import { validateForm } from "../utils";
+
 const JOB_CONTACT_FORM_SELECTOR = '[data-form="job-contact"]';
 
 export const initJobContactForm = () => {
@@ -9,6 +11,12 @@ export const initJobContactForm = () => {
 	const submitHandler = async (event) => {
 		event.preventDefault();
 		const form = event.target.closest('form');
+		const isValid = validateForm(form);
+
+		if (!isValid) {
+			return;
+		}
+
 		const formData = new FormData(form);
 
 		const submitButton = form.querySelector('[type="submit"]');
