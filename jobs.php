@@ -316,84 +316,86 @@ $translations = array(
 					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
-					<div class="styk-form-mom _1 w-form">
-						<form method="get" fs-formsubmit-element="form-1" name="email-form" data-name="Email Form" id="email-form" fs-formsubmit-reset="4000" class="form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="2918af35-b134-b011-bc88-063920f2dc7f">
-							<div class="normal-form">
-								<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc81-4103d4fe" class="p-12-120 ww">GET IN TOUCH with us!</div>
-								<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc83-4103d4fe" class="r-form-vertical">
-									<div class="p-76-92 ww">What role are you seeking for?</div>
-									<div class="form-core">
-										<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc87-4103d4fe" class="input-keeper">
-											<div class="form-label">Name</div>
-											<input class="input-normal w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="JOHN JOHNSON" type="text" id="field-4" required>
-										</div>
-										<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc8b-4103d4fe" class="input-keeper">
-											<div class="form-label">EMAIL</div>
-											<input class="input-normal w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="ADDRESS@MAIL.COM" type="email" id="field-2" required>
-										</div>
-										<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc8f-4103d4fe" class="input-keeper">
-											<div class="form-label">PHONE NUMBER</div>
-											<input class="input-normal w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="0617084035" type="tel" id="field-2" required>
-										</div>
-										<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc93-4103d4fe" class="input-keeper">
-											<div class="form-label">contact preference</div>
-											<div class="horiz-left">
-												<label id="incroyable" class="cont-ref caller w-radio">
-													<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-													<input type="radio" name="connectionref" id="call" data-name="connectionref" style="opacity:0;position:absolute;z-index:-1" value="call"><span class="call-text w-form-label" for="call">Call</span>
-												</label>
-												<div class="reger"></div>
-												<label class="cont-ref w-radio">
-													<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-													<input type="radio" name="connectionref" id="Messenger" data-name="connectionref" style="opacity:0;position:absolute;z-index:-1" value="Messenger"><span class="call-text w-form-label" for="Messenger">Messenger</span>
-												</label>
+					<div class="form-ceeper">
+						<div class="styk-form-mom _1 w-form">
+							<form method="get" fs-formsubmit-element="form-1" name="email-form" data-name="Email Form" id="email-form" fs-formsubmit-reset="4000" class="form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="2918af35-b134-b011-bc88-063920f2dc7f">
+								<div class="normal-form">
+									<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc81-4103d4fe" class="p-12-120 ww">GET IN TOUCH with us!</div>
+									<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc83-4103d4fe" class="r-form-vertical">
+										<div class="p-76-92 ww">What role are you seeking for?</div>
+										<div class="form-core">
+											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc87-4103d4fe" class="input-keeper">
+												<div class="form-label">Name</div>
+												<input class="input-normal w-input" maxlength="256" name="field-4" data-name="Field 4" placeholder="JOHN JOHNSON" type="text" id="field-4" required>
 											</div>
-										</div>
-										<div id="w-node-_2918af35-b134-b011-bc88-063920f2dca0-4103d4fe" class="input-keeper textarer">
-											<div class="form-label">Message</div>
-											<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="field-4" name="field-4" data-name="Field 4" class="input-normal textarea w-input"></textarea>
-										</div>
-										<div id="w-node-_2918af35-b134-b011-bc88-063920f2dca4-4103d4fe" class="input-keeper textarer file-mom">
-											<div class="form-label">CV</div>
-											<div class="cv-line">
-												<div class="w-embed">
-													<div class="input-file-row">
-														<label class="input-file"> 
-														<input type="file" name="file[]" multiple> <span>ATTACH A FILE</span> </label>
-														<div class="input-file-list"></div>
-													</div>
+											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc8b-4103d4fe" class="input-keeper">
+												<div class="form-label">EMAIL</div>
+												<input class="input-normal w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="ADDRESS@MAIL.COM" type="email" id="field-2" required>
+											</div>
+											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc8f-4103d4fe" class="input-keeper">
+												<div class="form-label">PHONE NUMBER</div>
+												<input class="input-normal w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="0617084035" type="tel" id="field-2" required>
+											</div>
+											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc93-4103d4fe" class="input-keeper">
+												<div class="form-label">contact preference</div>
+												<div class="horiz-left">
+													<label id="incroyable" class="cont-ref caller w-radio">
+														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
+														<input type="radio" name="connectionref" id="call" data-name="connectionref" style="opacity:0;position:absolute;z-index:-1" value="call"><span class="call-text w-form-label" for="call">Call</span>
+													</label>
+													<div class="reger"></div>
+													<label class="cont-ref w-radio">
+														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
+														<input type="radio" name="connectionref" id="Messenger" data-name="connectionref" style="opacity:0;position:absolute;z-index:-1" value="Messenger"><span class="call-text w-form-label" for="Messenger">Messenger</span>
+													</label>
 												</div>
-												<div class="p-12-120 ww2 cv-or"> OR </div>
-												<input class="input-normal cv-link w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="INSERT A LINK" type="text" id="field-2" required>
 											</div>
+											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dca0-4103d4fe" class="input-keeper textarer">
+												<div class="form-label">Message</div>
+												<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="field-4" name="field-4" data-name="Field 4" class="input-normal textarea w-input"></textarea>
+											</div>
+											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dca4-4103d4fe" class="input-keeper textarer file-mom">
+												<div class="form-label">CV</div>
+												<div class="cv-line">
+													<div class="w-embed">
+														<div class="input-file-row">
+															<label class="input-file"> 
+															<input type="file" name="file[]" multiple> <span>ATTACH A FILE</span> </label>
+															<div class="input-file-list"></div>
+														</div>
+													</div>
+													<div class="p-12-120 ww2 cv-or"> OR </div>
+													<input class="input-normal cv-link w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="INSERT A LINK" type="text" id="field-2" required>
+												</div>
+											</div>
+											<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="w-checkbox checkbox-field">
+												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="checkbox-3"></div>
+												<input type="checkbox" id="checkbox-3" name="checkbox-3" data-name="Checkbox 3" style="opacity:0;position:absolute;z-index:-1"><span class="p-12-120 ww fomr-c w-form-label" for="checkbox-3">I agree with the <a href="#" class="link">Privacy Policy</a></span>
+											</label>
 										</div>
-										<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="w-checkbox checkbox-field">
-											<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="checkbox-3"></div>
-											<input type="checkbox" id="checkbox-3" name="checkbox-3" data-name="Checkbox 3" style="opacity:0;position:absolute;z-index:-1"><span class="p-12-120 ww fomr-c w-form-label" for="checkbox-3">I agree with the <a href="#" class="link">Privacy Policy</a></span>
-										</label>
 									</div>
 								</div>
+								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
+							</form>
+							<div class="success-message w-form-done">
+								<div class="div-block-8">
+									<div class="text-field">Thank you! <br>Your submission has been received!</div>
+								</div>
 							</div>
-							<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
-						</form>
-						<div class="success-message w-form-done">
-							<div class="div-block-8">
-								<div class="text-field">Thank you! <br>Your submission has been received!</div>
+							<div class="w-form-fail">
+								<div>Oops! Something went wrong while submitting the form.</div>
 							</div>
 						</div>
-						<div class="w-form-fail">
-							<div>Oops! Something went wrong while submitting the form.</div>
+						<div class="top-stykert">
+							<div class="tline ll">
+								<a href="#" class="tlink main-tlink formpp">Didn’t find the desired position?</a>
+								<div class="div-block-2"></div>
+								<a href="#" class="tlink">All projects</a>
+							</div>
+							<a href="#" class="close-form w-inline-block">
+								<div class="text-block-5">CLOSE</div>
+							</a>
 						</div>
-					</div>
-					<div class="top-stykert">
-						<div class="tline ll">
-							<a href="#" class="tlink main-tlink formpp">Didn’t find the desired position?</a>
-							<div class="div-block-2"></div>
-							<a href="#" class="tlink">All projects</a>
-						</div>
-						<a href="#" class="close-form w-inline-block">
-							<div class="text-block-5">CLOSE</div>
-						</a>
 					</div>
 				</div>
 				<?php get_footer(); ?>

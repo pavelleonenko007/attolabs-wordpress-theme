@@ -234,66 +234,68 @@ the_post();
 					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
-					<div class="styk-form-mom _1">
-						<form id="contact-form" class="form" data-wf-page-id="65e6e55dc3be5eb2532b9878" data-wf-element-id="95b803ee-0670-c38f-aaee-058f9e5ce4ad">
-							<div data-delay="4000" data-animation="slide" class="form-slider first-slide w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="0" data-infinite="true">
-								<div class="w-slider-mask">
-									<div class="form-slide w-slide">
-										<div class="_100vhctnter _1st">
-											<div class="p-12-120 whtx">Empower the Future with Us</div>
-											<textarea 
-												required 
-												autofocus="true" 
-												placeholder="tell us how we could help you to empower the future?" 
-												maxlength="5000" 
-												id="contact-comment" 
-												name="comment" 
-												class="text-field w-input"
-											></textarea>
+					<div class="form-ceeper">
+						<div class="styk-form-mom _1">
+							<form id="contact-form" class="form" data-wf-page-id="65e6e55dc3be5eb2532b9878" data-wf-element-id="95b803ee-0670-c38f-aaee-058f9e5ce4ad">
+								<div data-delay="4000" data-animation="slide" class="form-slider first-slide w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="0" data-infinite="true">
+									<div class="w-slider-mask">
+										<div class="form-slide w-slide">
+											<div class="_100vhctnter _1st">
+												<div class="p-12-120 whtx">Empower the Future with Us</div>
+												<textarea 
+													required 
+													autofocus="true" 
+													placeholder="tell us how we could help you to empower the future?" 
+													maxlength="5000" 
+													id="contact-comment" 
+													name="comment" 
+													class="text-field w-input"
+												></textarea>
+											</div>
+										</div>
+										<div class="form-slide w-slide">
+											<div class="_100vhctnter">
+												<div class="p-12-120 whtx">How to get in touch with you?</div>
+												<input class="text-field w-input" autofocus="true" maxlength="256" name="email" placeholder="Enter your email" type="email" id="contact-email" required>
+											</div>
+										</div>
+										<div class="form-slide w-slide">
+											<div class="_100vhctnter">
+												<div class="p-12-120 whtx">What can I call you?</div>
+												<input class="text-field w-input" autofocus="true" maxlength="256" name="name" placeholder="Enter your name" type="text" id="contact-name" required>
+											</div>
 										</div>
 									</div>
-									<div class="form-slide w-slide">
-										<div class="_100vhctnter">
-											<div class="p-12-120 whtx">How to get in touch with you?</div>
-											<input class="text-field w-input" autofocus="true" maxlength="256" name="email" placeholder="Enter your email" type="email" id="contact-email" required>
-										</div>
+									<div class="l-arrow w-slider-arrow-left">
+										<div class="red-form-line"></div>
+										<div class="text-block-6">Back</div>
 									</div>
-									<div class="form-slide w-slide">
-										<div class="_100vhctnter">
-											<div class="p-12-120 whtx">What can I call you?</div>
-											<input class="text-field w-input" autofocus="true" maxlength="256" name="name" placeholder="Enter your name" type="text" id="contact-name" required>
-										</div>
+									<div class="right-arrow w-slider-arrow-right">
+										<div>Next</div>
 									</div>
+									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-								<div class="l-arrow w-slider-arrow-left">
-									<div class="red-form-line"></div>
-									<div class="text-block-6">Back</div>
+								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+							</form>
+							<div class="success-message w-form-done">
+								<div class="div-block-8">
+									<div class="text-field">Thank you! <br>Your submission has been received!</div>
 								</div>
-								<div class="right-arrow w-slider-arrow-right">
-									<div>Next</div>
-								</div>
-								<div class="none w-slider-nav w-round w-num"></div>
 							</div>
-							<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
-						</form>
-						<div class="success-message w-form-done">
-							<div class="div-block-8">
-								<div class="text-field">Thank you! <br>Your submission has been received!</div>
+							<div class="w-form-fail">
+								<div>Oops! Something went wrong while submitting the form.</div>
 							</div>
 						</div>
-						<div class="w-form-fail">
-							<div>Oops! Something went wrong while submitting the form.</div>
+						<div class="top-stykert">
+							<div class="tline ll">
+								<a href="#" class="tlink main-tlink formpp">Empower the Future with Us</a>
+								<div class="div-block-2"></div>
+								<a href="#" class="tlink">All projects</a>
+							</div>
+							<a href="#" class="close-form w-inline-block">
+								<div class="text-block-5">CLOSE</div>
+							</a>
 						</div>
-					</div>
-					<div class="top-stykert">
-						<div class="tline ll">
-							<a href="#" class="tlink main-tlink formpp">Empower the Future with Us</a>
-							<div class="div-block-2"></div>
-							<a href="#" class="tlink">All projects</a>
-						</div>
-						<a href="#" class="close-form w-inline-block">
-							<div class="text-block-5">CLOSE</div>
-						</a>
 					</div>
 				</div>
 				<?php get_footer(); ?>
