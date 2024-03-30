@@ -76,6 +76,7 @@
 								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e6-57d32ccb" class="serv-core server">
 									<?php foreach ( $services as $service ) : ?>
 										<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e7-57d32ccb" class="serv-item">
+											<a href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?services=' . $service->term_id ); ?>" class="abs-serv-item-link"></a>
 											<a id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e8-57d32ccb" href="#" class="serv-link"><?php echo esc_html( $service->name ); ?></a>
 											<?php
 											$projects = attolabs_get_projects_by_term( $service );
@@ -103,6 +104,7 @@
 								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11a-57d32ccb" class="serv-core">
 									<?php foreach ( $industries as $industry ) : ?>
 										<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11b-57d32ccb" class="serv-item">
+										<a href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?industries=' . $service->term_id ); ?>" class="abs-serv-item-link"></a>
 											<a href="#" class="serv-link"><?php echo esc_html( $industry->name ); ?></a>
 											<?php
 											$projects = attolabs_get_projects_by_term( $industry );
