@@ -147,7 +147,7 @@ the_post();
 										?>
 										<div class="container secnd">
 											<div>
-												<h2 class="paragraph p-18-120">Results</h2>
+												<h2 class="paragraph p-18-120">Project Results</h2>
 												<?php
 												$heading = $projects_section['heading'];
 												if ( ! empty( $heading ) ) :
@@ -216,7 +216,7 @@ the_post();
 											</div>
 										</a>
 										<a id="w-node-ef3c24e0-107a-e228-abd6-5c3a3bfc40b6-532b9878" href="#" class="link-block w-inline-block">
-											<div>Results</div>
+											<div>Project Results</div>
 											<div class="html-embed-2 svggs w-embed">
 												<svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M9.5 5.5L0.500001 8.5L0.500001 2.5L9.5 5.5Z" fill="#292525"></path>
