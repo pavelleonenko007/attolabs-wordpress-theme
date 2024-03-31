@@ -316,7 +316,7 @@ $translations = array(
 					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
-					<div class="form-ceeper">
+					<div class="form-ceeper jobs-core">
 						<div class="styk-form-mom _1">
 							<form id="job-contact-form" data-form="job-contact" class="form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="2918af35-b134-b011-bc88-063920f2dc7f" novalidate>
 								<div class="normal-form">
@@ -360,7 +360,7 @@ $translations = array(
 													<div class="w-embed">
 														<div class="input-file-row">
 															<label class="input-file"> 
-															<input type="file" name="file[]" multiple> <span>ATTACH A FILE</span> </label>
+															<input type="file" name="file" accept="application/pdf,application/vnd.ms-excel,image/jpg,image/jpeg,image/png"><span>ATTACH A FILE (PDF, JPG, PNG)</span> </label>
 															<div class="input-file-list"></div>
 														</div>
 													</div>
@@ -370,12 +370,14 @@ $translations = array(
 											</div>
 											<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="w-checkbox checkbox-field">
 												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
-												<input type="checkbox" id="user_agreement" name="user_agreement" style="opacity:0;position:absolute;z-index:-1"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="#" class="link">Privacy Policy</a></span>
+												<input type="checkbox" id="user_agreement" name="user_agreement"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="#" class="link">Privacy Policy</a></span>
 											</label>
 										</div>
 									</div>
 								</div>
-								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
+								<input type="hidden" name="action" value="submit_job_form">
+								<?php wp_nonce_field( '_submit_job_form', 'job_form_nonce' ); ?>
+								<input type="submit" data-wait="Please wait..." class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">

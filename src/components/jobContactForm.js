@@ -1,4 +1,4 @@
-import { validateForm } from "../utils";
+import { validateForm } from '../utils';
 
 const JOB_CONTACT_FORM_SELECTOR = '[data-form="job-contact"]';
 
@@ -13,14 +13,17 @@ export const initJobContactForm = () => {
 		const form = event.target.closest('form');
 		const isValid = validateForm(form);
 
+		const submitButton = form.querySelector('[type="submit"]');
+		const buttonText = submitButton.value;
+
+		submitButton.value = 'Processing...';
+
 		if (!isValid) {
+			submitButton.value = buttonText;
 			return;
 		}
 
 		const formData = new FormData(form);
-
-		const submitButton = form.querySelector('[type="submit"]');
-		const buttonText = submitButton.value;
 
 		try {
 			const response = await fetch(ATTO.AJAX_URL, {

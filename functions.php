@@ -1133,6 +1133,49 @@ function attolabs_get_job_schedules( array $positions ): array {
 add_action( 'wp_ajax_submit_contact_form', 'attolabs_submit_contact_form_via_ajax' );
 add_action( 'wp_ajax_nopriv_submit_contact_form', 'attolabs_submit_contact_form_via_ajax' );
 function attolabs_submit_contact_form_via_ajax(): void {
+	if ( ! isset( $_POST['_contact_form_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_contact_form_nonce'] ) ), '_submit_contact_form' ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Bad request!',
+			),
+			400
+		);
+	}
+
+	$data = json_decode( wp_json_encode( $_POST ), true );
+
+	unset( $data['action'] );
+	unset( $data['_wp_http_referer'] );
+	unset( $data['job_form_nonce'] );
+
+	$to      = ! empty( get_field( 'job_email', 'option' ) ) ? get_field( 'job_email', 'option' ) : 'pavel.leonenko374@gmail.com';
+	$subject = 'New message from website ' . get_bloginfo( 'name' );
+	$message = '';
+
+	$headers = array(
+		'content-type: text/html',
+	);
+
+	foreach ( $data as $key => $value ) {
+		$message .= '<strong>' . $key . ':</strong> ' . $value . '\n';
+	}
+
+	$sended = wp_mail( $to, $subject, $message, $headers );
+
+	if ( ! $sended ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Something wrong with sending your message. Try again later!',
+			),
+			400
+		);
+	}
+
+	wp_send_json_success(
+		array(
+			'message' => 'Your message successfully sent!',
+		)
+	);
 }
 
 add_action( 'wp_ajax_submit_job_form', 'attolabs_submit_job_form_via_ajax' );

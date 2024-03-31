@@ -81,90 +81,92 @@
 					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
-					<div class="styk-form-mom _1">
-						<form id="job-contact-form" data-form="job-contact" class="form" data-wf-page-id="65dc4b44b768e5a87400cdd1" data-wf-element-id="9f3e7290-dede-9b21-bf0e-914aeb30f89c">
-							<div class="normal-form">
-								<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f89e-7400cdd1" class="p-12-120 ww"><?php echo esc_html( $position->name ); ?></div>
-								<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a0-7400cdd1" class="r-form-vertical">
-									<div class="p-76-92 ww">Join our team:<br>apply now!</div>
-									<div class="form-core">
-										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a4-7400cdd1" class="input-keeper">
-											<div class="form-label">Name</div>
-											<input class="input-normal w-input" maxlength="256" name="name" placeholder="JOHN JOHNSON" type="text" id="name" required>
-										</div>
-										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a8-7400cdd1" class="input-keeper">
-											<div class="form-label">EMAIL</div>
-											<input class="input-normal w-input" maxlength="256" name="email" placeholder="ADDRESS@MAIL.COM" type="email" id="email" required>
-										</div>
-										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8ac-7400cdd1" class="input-keeper">
-											<div class="form-label">PHONE NUMBER</div>
-											<input class="input-normal w-input" maxlength="256" name="phone" placeholder="0617084035" type="tel" id="phone" required>
-										</div>
-										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8b0-7400cdd1" class="input-keeper">
-											<div class="form-label">contact preference</div>
-											<div class="horiz-left">
-												<label id="incroyable" class="cont-ref caller w-radio">
-													<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-													<input type="radio" name="contact_preference" id="call" style="opacity:0;position:absolute;z-index:-1" value="Call">
-													<span class="call-text w-form-label" for="call">Call</span>
-												</label>
-												<div class="reger"></div>
-												<label class="cont-ref w-radio">
-													<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-													<input type="radio" name="contact_preference" id="messenger" style="opacity:0;position:absolute;z-index:-1" value="Messenger">
-													<span class="call-text w-form-label" for="Messenger">Messenger</span>
-												</label>
+					<div class="form-ceeper jobs-core">
+						<div class="styk-form-mom _1">
+							<form id="job-contact-form" data-form="job-contact" class="form" data-wf-page-id="65dc4b44b768e5a87400cdd1" data-wf-element-id="9f3e7290-dede-9b21-bf0e-914aeb30f89c">
+								<div class="normal-form">
+									<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f89e-7400cdd1" class="p-12-120 ww"><?php echo esc_html( $position->name ); ?></div>
+									<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a0-7400cdd1" class="r-form-vertical">
+										<div class="p-76-92 ww">Join our team:<br>apply now!</div>
+										<div class="form-core">
+											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a4-7400cdd1" class="input-keeper">
+												<div class="form-label">Name</div>
+												<input class="input-normal w-input" maxlength="256" name="name" placeholder="JOHN JOHNSON" type="text" id="name" required>
 											</div>
-										</div>
-										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8bd-7400cdd1" class="input-keeper textarer">
-											<div class="form-label">Message</div>
-											<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="message" name="message" class="input-normal textarea w-input"></textarea>
-										</div>
-										<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c1-7400cdd1" class="input-keeper textarer file-mom">
-											<div class="form-label">CV</div>
-											<div class="cv-line">
-												<div class="w-embed">
-													<div class="input-file-row">
-														<label class="input-file"> 
-														<input type="file" name="file[]" multiple> <span>ATTACH A FILE</span> </label>
-														<div class="input-file-list"></div>
-													</div>
+											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a8-7400cdd1" class="input-keeper">
+												<div class="form-label">EMAIL</div>
+												<input class="input-normal w-input" maxlength="256" name="email" placeholder="ADDRESS@MAIL.COM" type="email" id="email" required>
+											</div>
+											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8ac-7400cdd1" class="input-keeper">
+												<div class="form-label">PHONE NUMBER</div>
+												<input class="input-normal w-input" maxlength="256" name="phone" placeholder="0617084035" type="tel" id="phone" required>
+											</div>
+											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8b0-7400cdd1" class="input-keeper">
+												<div class="form-label">contact preference</div>
+												<div class="horiz-left">
+													<label id="incroyable" class="cont-ref caller w-radio">
+														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
+														<input type="radio" name="contact_preference" id="call" style="opacity:0;position:absolute;z-index:-1" value="Call">
+														<span class="call-text w-form-label" for="call">Call</span>
+													</label>
+													<div class="reger"></div>
+													<label class="cont-ref w-radio">
+														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
+														<input type="radio" name="contact_preference" id="messenger" style="opacity:0;position:absolute;z-index:-1" value="Messenger">
+														<span class="call-text w-form-label" for="Messenger">Messenger</span>
+													</label>
 												</div>
-												<div class="p-12-120 ww2 cv-or"> OR </div>
-												<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link">
 											</div>
+											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8bd-7400cdd1" class="input-keeper textarer">
+												<div class="form-label">Message</div>
+												<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="message" name="message" class="input-normal textarea w-input"></textarea>
+											</div>
+											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c1-7400cdd1" class="input-keeper textarer file-mom">
+												<div class="form-label">CV</div>
+												<div class="cv-line">
+													<div class="w-embed">
+														<div class="input-file-row">
+															<label class="input-file"> 
+															<input type="file" name="file[]" multiple> <span>ATTACH A FILE</span> </label>
+															<div class="input-file-list"></div>
+														</div>
+													</div>
+													<div class="p-12-120 ww2 cv-or"> OR </div>
+													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link">
+												</div>
+											</div>
+											<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="w-checkbox checkbox-field">
+												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
+												<input type="checkbox" id="user_agreement" name="user_agreement" style="opacity:0;position:absolute;z-index:-1">
+												<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="#" class="link">Privacy Policy</a></span>
+											</label>
 										</div>
-										<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="w-checkbox checkbox-field">
-											<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
-											<input type="checkbox" id="user_agreement" name="user_agreement" style="opacity:0;position:absolute;z-index:-1">
-											<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="#" class="link">Privacy Policy</a></span>
-										</label>
 									</div>
 								</div>
+								<input type="hidden" name="action" value="submit_job_form">
+								<input type="hidden" name="job" value="<?php echo esc_attr( $position->name ); ?>">
+								<?php wp_nonce_field( '_submit_job_form', 'job_form_nonce' ); ?>
+								<input type="submit" data-wait="Please wait..." class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
+							</form>
+							<div class="success-message w-form-done">
+								<div class="div-block-8">
+									<div class="text-field">Thank you! <br>Your submission has been received!</div>
+								</div>
 							</div>
-							<input type="hidden" name="action" value="submit_job_form">
-							<input type="hidden" name="job" value="<?php echo esc_attr( $position->name ); ?>">
-							<?php wp_nonce_field( '_submit_job_form', 'job_form_nonce' ); ?>
-							<input type="submit" data-wait="Please wait..." class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
-						</form>
-						<div class="success-message w-form-done">
-							<div class="div-block-8">
-								<div class="text-field">Thank you! <br>Your submission has been received!</div>
+							<div class="w-form-fail">
+								<div>Oops! Something went wrong while submitting the form.</div>
 							</div>
 						</div>
-						<div class="w-form-fail">
-							<div>Oops! Something went wrong while submitting the form.</div>
+						<div class="top-stykert">
+							<div class="tline ll">
+								<a href="#" class="tlink main-tlink formpp">Apply</a>
+								<div class="div-block-2"></div>
+								<a href="#" class="tlink">All projects</a>
+							</div>
+							<a href="#" class="close-form w-inline-block">
+								<div class="text-block-5">CLOSE</div>
+							</a>
 						</div>
-					</div>
-					<div class="top-stykert">
-						<div class="tline ll">
-							<a href="#" class="tlink main-tlink formpp">Apply</a>
-							<div class="div-block-2"></div>
-							<a href="#" class="tlink">All projects</a>
-						</div>
-						<a href="#" class="close-form w-inline-block">
-							<div class="text-block-5">CLOSE</div>
-						</a>
 					</div>
 				</div>
 				<?php get_footer(); ?>

@@ -22,7 +22,7 @@ class FormValidator {
 }
 
 export const validateForm = (form) => {
-	const requiredInputs = form.querySelectorAll('input[required]');
+	const requiredInputs = form.querySelectorAll('[required]');
 	let isValid = true;
 
 	for (let i = 0; i < requiredInputs.length; i++) {
