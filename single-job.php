@@ -20,6 +20,8 @@
 	if ( null === $position ) {
 		wp_safe_redirect( get_home_url() . '/jobs/', 302 );
 	}
+
+	$offices = attolabs_get_position_offices( $position );
 	?>
 				<section class="section">
 					<div class="container jobs-container">
@@ -37,7 +39,6 @@
 									</div>
 								</div>
 								<?php
-								$offices = attolabs_get_position_offices( $position );
 								if ( ! empty( $offices ) ) :
 									?>
 									<div class="job-row">
@@ -97,6 +98,17 @@
 												<div class="form-label">EMAIL</div>
 												<input class="input-normal w-input" maxlength="256" name="email" placeholder="ADDRESS@MAIL.COM" type="email" id="email" required>
 											</div>
+											<?php if ( count( $offices ) > 1 ) : ?>
+												<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a8-7400cdd1" class="input-keeper">
+													<div class="form-label">Work Location</div>
+													<select name="city" data-field="select" required>
+														<option>Select office</option>
+														<?php foreach ( $offices as $office ) : ?>
+															<option value="<?php echo esc_attr( $office ); ?>"><?php echo esc_html( $office ); ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+											<?php endif; ?>
 											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8ac-7400cdd1" class="input-keeper">
 												<div class="form-label">PHONE NUMBER</div>
 												<input class="input-normal w-input" maxlength="256" name="phone" placeholder="0617084035" type="tel" id="phone" required>
@@ -127,7 +139,7 @@
 													<div class="w-embed">
 														<div class="input-file-row">
 															<label class="input-file"> 
-															<input type="file" name="file[]" multiple> <span>ATTACH A FILE</span> </label>
+															<input type="file" name="file" accept="application/pdf,application/vnd.ms-excel,image/jpg,image/jpeg,image/png"><span>ATTACH A FILE (PDF, JPG, PNG)</span> </label>
 															<div class="input-file-list"></div>
 														</div>
 													</div>
@@ -137,7 +149,7 @@
 											</div>
 											<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="w-checkbox checkbox-field">
 												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
-												<input type="checkbox" id="user_agreement" name="user_agreement" style="opacity:0;position:absolute;z-index:-1">
+												<input type="checkbox" id="user_agreement" name="user_agreement">
 												<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="#" class="link">Privacy Policy</a></span>
 											</label>
 										</div>
