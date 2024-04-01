@@ -287,7 +287,7 @@
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Empower the Future with Us</div>
 												<div class="input-keeper bigger">
-													<textarea required autofocus="true" placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
+													<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
 												</div>
 											</div>
 										</div>
@@ -295,7 +295,7 @@
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" autofocus="true" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
+													<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
 												</div>
 											</div>
 										</div>
@@ -303,7 +303,7 @@
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" autofocus="true" maxlength="256" name="name" data-name="Field 3" placeholder="Enter your name" type="text" id="name" required>
+													<input class="text-field w-input" maxlength="256" name="name" data-name="Field 3" placeholder="Enter your name" type="text" id="name" required>
 												</div>
 											</div>
 										</div>
@@ -338,7 +338,7 @@
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">share your vision</div>
 												<div class="input-keeper bigger">
-													<textarea required autofocus="true" placeholder="How do you envision shaping the future with us?" maxlength="5000" id="vision-2" name="vision" class="text-field w-input"></textarea>
+													<textarea required placeholder="How do you envision shaping the future with us?" maxlength="5000" id="vision-2" name="vision" class="text-field w-input"></textarea>
 												</div>
 											</div>
 										</div>
@@ -346,7 +346,7 @@
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" autofocus="true" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email-2" required>
+													<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email-2" required>
 												</div>
 											</div>
 										</div>
@@ -354,7 +354,7 @@
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" autofocus="true" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-2" required>
+													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-2" required>
 												</div>
 											</div>
 										</div>
@@ -389,7 +389,7 @@
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Describe your project</div>
 												<div class="input-keeper bigger">
-													<textarea required autofocus="true" placeholder="What is special about what you’re doing?" maxlength="5000" id="project-3" name="project" class="text-field w-input"></textarea>
+													<textarea required placeholder="What is special about what you’re doing?" maxlength="5000" id="project-3" name="project" class="text-field w-input"></textarea>
 												</div>
 											</div>
 										</div>
@@ -397,7 +397,7 @@
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" autofocus="true" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
+													<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
 												</div>
 											</div>
 										</div>
@@ -405,7 +405,7 @@
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" autofocus="true" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-3" required>
+													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-3" required>
 												</div>
 											</div>
 										</div>

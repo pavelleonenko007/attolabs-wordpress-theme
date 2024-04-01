@@ -322,19 +322,19 @@ $branches         = get_field( 'branches', 'option' );
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Empower the Future with Us</div>
-												<textarea required autofocus="true" placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+												<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
 											</div>
 										</div>
 									</div>
@@ -365,19 +365,19 @@ $branches         = get_field( 'branches', 'option' );
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">share your vision</div>
-												<textarea required autofocus="true" placeholder="How do you envision shaping the future with us?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+												<textarea required placeholder="How do you envision shaping the future with us?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
 											</div>
 										</div>
 									</div>
@@ -408,19 +408,19 @@ $branches         = get_field( 'branches', 'option' );
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Describe your project</div>
-												<textarea required autofocus="true" placeholder="What is special about what you’re doing?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+												<textarea required placeholder="What is special about what you’re doing?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" autofocus="true" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
 											</div>
 										</div>
 									</div>
