@@ -4,9 +4,6 @@ const SLIDER_FORM_SELECTOR = '[data-form="slider"]';
 
 export const initSliderForms = () => {
 	const forms = document.querySelectorAll(SLIDER_FORM_SELECTOR);
-
-	console.log(forms);
-
 	/**
 	 *
 	 * @param {Event} event
@@ -17,10 +14,9 @@ export const initSliderForms = () => {
 		const submitButton = form.querySelector('[type="submit"]');
 		const submitButtonText = submitButton.value;
 
-		const successMessageElement = form.parentNode.querySelector('.success-message');
+		const successMessageElement =
+			form.parentNode.querySelector('.success-message');
 		const failMessageElement = form.parentNode.querySelector('.w-form-fail');
-
-		console.log({ successMessageElement, failMessageElement });
 
 		submitButton.value = 'Processing...';
 
@@ -51,8 +47,6 @@ export const initSliderForms = () => {
 
 			const { data, success } = await response.json();
 
-			console.log(data);
-
 			if (!success) {
 				throw new Error(data.message);
 			}
@@ -74,7 +68,40 @@ export const initSliderForms = () => {
 		}
 	};
 
+	/**
+	 *
+	 * @param {HTMLFormElement} form
+	 */
+	const setSlidesLogic = (form) => {
+		const slides = form.querySelectorAll('.form-slide');
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const $slider = $(entry.target).closest('.form-slider');
+						$slider.removeClass('first-slide');
+						$slider.removeClass('last-slide');
+
+						if ($(entry.target).next().is(':last-child')) {
+							$slider.addClass('last-slide');
+						} else if ($(entry.target).is(':first-child')) {
+							$slider.addClass('first-slide');
+						}
+					}
+				});
+			},
+			{
+				threshold: 0.1,
+				margin: '0px',
+			}
+		);
+		slides.forEach((slide) => {
+			observer.observe(slide);
+		});
+	};
+
 	forms.forEach((form) => {
 		form.addEventListener('submit', handleForm);
+		setSlidesLogic(form);
 	});
 };

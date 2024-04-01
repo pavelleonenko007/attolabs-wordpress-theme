@@ -317,9 +317,9 @@
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
+								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
-								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
@@ -368,9 +368,9 @@
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
+								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
-								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
@@ -419,9 +419,9 @@
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
+								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
-								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
