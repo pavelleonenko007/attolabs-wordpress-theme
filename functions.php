@@ -1143,7 +1143,7 @@ function attolabs_submit_contact_form_via_ajax(): void {
 		);
 	}
 
-	$data = json_decode( wp_json_encode( $_POST ), true );
+	$data = array_filter( json_decode( wp_json_encode( $_POST ), true ) );
 
 	unset( $data['action'] );
 	unset( $data['_wp_http_referer'] );
@@ -1158,7 +1158,8 @@ function attolabs_submit_contact_form_via_ajax(): void {
 	);
 
 	foreach ( $data as $key => $value ) {
-		$message .= '<strong>' . $key . ':</strong> ' . $value . '\n';
+		$formatted_key = ucwords( str_replace( '_', ' ', $key ) );
+		$message      .= '<strong>' . $formatted_key . ':</strong> ' . $value . '<br>';
 	}
 
 	$sended = wp_mail( $to, $subject, $message, $headers );
@@ -1191,7 +1192,7 @@ function attolabs_submit_job_form_via_ajax(): void {
 		);
 	}
 
-	$data = json_decode( wp_json_encode( $_POST ), true );
+	$data = array_filter( json_decode( wp_json_encode( $_POST ), true ) );
 
 	unset( $data['action'] );
 	unset( $data['_wp_http_referer'] );
@@ -1212,7 +1213,8 @@ function attolabs_submit_job_form_via_ajax(): void {
 	);
 
 	foreach ( $data as $key => $value ) {
-		$message .= '<strong>' . $key . ':</strong> ' . $value . '\n';
+		$formatted_key = ucwords( str_replace( '_', ' ', $key ) );
+		$message      .= '<strong>' . $formatted_key . ':</strong> ' . $value . '<br>';
 	}
 
 	$attachments      = array();
