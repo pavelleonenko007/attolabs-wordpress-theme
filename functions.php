@@ -270,7 +270,7 @@ function attolabs_add_site_scripts() {
 	}
 
 	wp_enqueue_style( 'style', TEMPLATE_PATH . '/build/css/style.css', array(), time() );
-	wp_enqueue_style( 'thevogne-style', '//thevogne.ru/clients/vosk-clients/atto/style.css', array('style'), time() );
+	wp_enqueue_style( 'thevogne-style', '//thevogne.ru/clients/vosk-clients/atto/style.css', array( 'style' ), time() );
 	// wp_enqueue_style( 'main', TEMPLATE_PATH . '/css/main.css', array(), time() );
 	wp_enqueue_script( 'main', TEMPLATE_PATH . '/js/main.js', array( 'jquery' ), time(), true );
 	wp_enqueue_script( 'front', TEMPLATE_PATH . '/js/front.js', array( 'main' ), time(), true );
@@ -1257,4 +1257,18 @@ function attolabs_submit_job_form_via_ajax(): void {
 			'message' => 'Your message successfully sent!',
 		)
 	);
+}
+
+add_action( 'phpmailer_init', 'attolabs_smtp_enable' );
+
+function attolabs_smtp_enable( $phpmailer ) {
+	$phpmailer->isSMTP();
+	$phpmailer->SMTPAuth   = true;
+	$phpmailer->Host       = 'mx2e4b.netcup.net';
+	$phpmailer->Port       = 25;
+	$phpmailer->Username   = 'techuser-nosy@albs.tech';
+	$phpmailer->Password   = 'juQ3XJlyC91mBPqgcBYw';
+	$phpmailer->SMTPSecure = 'tls';
+	$phpmailer->From       = 'techuser-nosy@albs.tech';
+	$phpmailer->FromName   = get_bloginfo( 'name' );
 }
