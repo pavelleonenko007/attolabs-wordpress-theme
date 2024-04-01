@@ -9,6 +9,21 @@
 	overflow: visible;
 }
 
+.custom-select__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.custom-select__icon {
+	width: 10rem;
+	height: 10rem;
+}
+
+.custom-select--active .custom-select__icon {
+	transform: rotate(180deg);
+}
+
 .custom-select__options {
 	display: none;
 	width: 100%;

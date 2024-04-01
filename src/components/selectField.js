@@ -45,6 +45,9 @@ class Select {
 				<span data-select="selected" class="select-head__selected">${
 					selectedOption[0].textContent
 				}</span>
+				<svg data-select="icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none" class="custom-select__icon">
+					<path d="M5 10L2 1L8 1L5 10Z" fill="#fff"/>
+				</svg>
 			</div>
 			<ul class="custom-select__options" data-select="list">${options.join('')}</ul>
 		</div>`;
@@ -59,6 +62,7 @@ class Select {
 		this.selectedOptionElement = this.customSelect.querySelector(
 			'[data-select="selected"]'
 		);
+		this.icon = this.customSelect.querySelector('[data-select="icon"]');
 	}
 
 	/**
