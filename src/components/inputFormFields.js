@@ -4,6 +4,7 @@ export const initInputFormFields = () => {
 			const fieldParenNode = input.closest('.input-keeper');
 			if (fieldParenNode) {
 				fieldParenNode.classList.remove('input-keeper--error');
+				input.closest('form')?.classList.remove('form-error');
 			}
 		});
 	});

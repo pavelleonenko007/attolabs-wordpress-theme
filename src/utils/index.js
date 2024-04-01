@@ -52,5 +52,7 @@ export const validateForm = (form) => {
 		}
 	}
 
+	form.classList.toggle('form-error', !isValid);
+
 	return isValid;
-}
+};
