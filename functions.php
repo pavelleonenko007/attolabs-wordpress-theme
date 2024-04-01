@@ -713,7 +713,7 @@ function attolabs_get_posts_terms( string $taxonomy, array $posts ): array {
 	foreach ( $posts as $post ) {
 		$terms = get_the_terms( $post, $taxonomy );
 
-		if ( is_wp_error( $terms ) ) {
+		if ( is_wp_error( $terms ) || false === $terms ) {
 			continue;
 		}
 
@@ -737,7 +737,7 @@ function attolabs_get_project_services_number( array $posts ): int {
 	return attolabs_get_project_taxonomy_number( 'service', $posts );
 }
 
-function attolabs_get_posts_by_term( string $post_type = 'post', WP_Term $term ): array {
+function attolabs_get_posts_by_term( string $post_type, WP_Term $term ): array {
 	$posts = get_posts(
 		array(
 			'post_type' => $post_type,
