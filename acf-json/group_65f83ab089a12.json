@@ -3,6 +3,26 @@
     "title": "Projects",
     "fields": [
         {
+            "key": "field_660bf5aa7ca0b",
+            "label": "Abbreviation",
+            "name": "abbreviation",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Add abbreviation to project. 3-5 symbols.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_65f83ab0c75cc",
             "label": "Short description",
             "name": "short_description",
@@ -386,5 +406,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711119093
+    "modified": 1712059875
 }

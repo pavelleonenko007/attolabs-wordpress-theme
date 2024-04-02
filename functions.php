@@ -1302,3 +1302,5 @@ function attolabs_smtp_enable( $phpmailer ) {
 	$phpmailer->From       = 'techuser-nosy@albs.tech';
 	$phpmailer->FromName   = get_bloginfo( 'name' );
 }
+
+require_once trailingslashit( get_template_directory() ) . 'inc/translations.php';
