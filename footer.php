@@ -10,10 +10,15 @@ defined( 'ABSPATH' ) || exit;
 				<footer class="footer">
 					<div class="container foo-core">
 						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b1c4-fce8b1c2" class="vert">
-							<a href="<?php echo esc_url( get_home_url( null, '/' ) ); ?>" class="w-inline-block">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/65defa42e065c3584e54a6fb_AttoLabs_logo.png" loading="lazy" alt class="logo-foo">
-							</a>
 							<?php
+							$footer_logo_url = get_theme_mod( 'attolabs_footer_logo_settings' );
+							if ( ! empty( $footer_logo_url ) ) :
+								?>
+								<a href="<?php echo esc_url( get_home_url( null, '/' ) ); ?>" class="w-inline-block">
+									<img src="<?php echo esc_url( $footer_logo_url ); ?>" loading="lazy" alt class="logo-foo">
+								</a>
+								<?php
+							endif;
 							$footer_menu_items = wp_get_nav_menu_items( 'Footer Menu' );
 							if ( ! empty( $footer_menu_items ) ) :
 								?>

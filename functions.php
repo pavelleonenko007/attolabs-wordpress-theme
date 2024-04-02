@@ -1261,6 +1261,34 @@ function attolabs_submit_job_form_via_ajax(): void {
 	);
 }
 
+add_action( 'customize_register', 'attolabs_customize_register_func' );
+
+function attolabs_customize_register_func( $wp_customize ) {
+
+	// // Add Customize Section
+	// $wp_customize->add_section('pdn_home_section', array(
+	// 'title' => 'Home',
+	// 'description'   => 'Update home image'
+	// ));
+
+	$wp_customize->add_setting(
+		'attolabs_footer_logo_settings',
+		array()
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'attolabs_footer_logo',
+			array(
+				'label'    => 'Footer Logo',
+				'settings' => 'attolabs_footer_logo_settings',
+				'section'  => 'title_tagline',
+			)
+		)
+	);
+}
+
 add_action( 'phpmailer_init', 'attolabs_smtp_enable' );
 
 function attolabs_smtp_enable( $phpmailer ) {
