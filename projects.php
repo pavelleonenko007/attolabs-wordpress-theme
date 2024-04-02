@@ -232,26 +232,26 @@ get_header(
 				</div>
 				<div class="styk-form">
 					<div class="form-ceeper">
-						<div class="styk-form-mom _1 w-form">
-							<form method="get" fs-formsubmit-element="form-1" name="email-form" data-name="Email Form" id="email-form" fs-formsubmit-reset="4000" class="form" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="977730e5-b10b-94b8-fdb5-049f4c68f4eb">
+						<div class="styk-form-mom _1">
+							<form id="email-form" data-form="slider" class="form" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="977730e5-b10b-94b8-fdb5-049f4c68f4eb" novalidate>
 								<div data-delay="4000" data-animation="slide" class="form-slider first-slide w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="0" data-infinite="true">
 									<div class="w-slider-mask">
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
-												<div class="p-12-120 whtx">Empower the Future with Us</div>
-												<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+												<div class="p-12-120 whtx">Share your vision below</div>
+												<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name" required>
 											</div>
 										</div>
 									</div>
@@ -264,7 +264,9 @@ get_header(
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
@@ -275,39 +277,41 @@ get_header(
 								<div>Oops! Something went wrong while submitting the form.</div>
 							</div>
 						</div>
-						<div class="styk-form-mom _2 w-form">
-							<form method="get" fs-formsubmit-element="form-2" name="email-form" data-name="Email Form" id="email-form2" fs-formsubmit-reset="4000" class="form" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="977730e5-b10b-94b8-fdb5-049f4c68f510">
+						<div class="styk-form-mom _2">
+							<form id="email-form2" data-form="slider" class="form" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="977730e5-b10b-94b8-fdb5-049f4c68f510" novalidate>
 								<div data-delay="4000" data-animation="slide" class="form-slider first-slide w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="0" data-infinite="true">
 									<div class="w-slider-mask">
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">share your vision</div>
-												<textarea required placeholder="How do you envision shaping the future with us?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+												<textarea required placeholder="How do you envision shaping the future with us?" maxlength="5000" id="vision-2" name="vision" class="text-field w-input"></textarea>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email-2" required>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-2" required>
 											</div>
 										</div>
 									</div>
 									<div class="l-arrow w-slider-arrow-left">
 										<div class="red-form-line"></div>
-										<div class="text-block-6">BAck</div>
+										<div class="text-block-6">Back</div>
 									</div>
 									<div class="right-arrow w-slider-arrow-right">
 										<div>Next</div>
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
@@ -318,39 +322,41 @@ get_header(
 								<div>Oops! Something went wrong while submitting the form.</div>
 							</div>
 						</div>
-						<div class="styk-form-mom _3 w-form">
-							<form method="get" fs-formsubmit-element="form-3" name="email-form" data-name="Email Form" id="email-form3" fs-formsubmit-reset="4000" class="form" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="977730e5-b10b-94b8-fdb5-049f4c68f535">
+						<div class="styk-form-mom _3">
+							<form id="email-form3" data-form="slider" class="form" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="977730e5-b10b-94b8-fdb5-049f4c68f535" novalidate>
 								<div data-delay="4000" data-animation="slide" class="form-slider first-slide w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="0" data-infinite="true">
 									<div class="w-slider-mask">
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Describe your project</div>
-												<textarea required placeholder="What is special about what you’re doing?" maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="text-field w-input"></textarea>
+												<textarea required placeholder="What is special about what you’re doing?" maxlength="5000" id="project-3" name="project" class="text-field w-input"></textarea>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your email" type="email" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" maxlength="256" name="field-3" data-name="Field 3" placeholder="Enter your name" type="text" id="field-3" required>
+												<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-3" required>
 											</div>
 										</div>
 									</div>
 									<div class="l-arrow w-slider-arrow-left">
 										<div class="red-form-line"></div>
-										<div class="text-block-6">BAck</div>
+										<div class="text-block-6">Back</div>
 									</div>
 									<div class="right-arrow w-slider-arrow-right">
 										<div>Next</div>
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
@@ -373,4 +379,6 @@ get_header(
 						</div>
 					</div>
 				</div>
+				<a href="#" class="hide-filters buttoner w-inline-block"></a>
+				<a href="#" class="show-filters buttoner w-inline-block"></a>
 				<?php get_footer(); ?>

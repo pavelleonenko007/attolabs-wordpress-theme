@@ -20,35 +20,35 @@
 					<div data-w-id="79284580-e454-7642-0e1a-43be8a2c8342" class="main-bg">
 						<div class="main-img-front">
 							<div class="div-block-9 mainer">
-								<div data-is-ix2-target="1" class="background-video" data-w-id="61920619-552a-3f7a-9b15-5aba781df4d0" data-animation-type="lottie" data-src="https://assets-global.website-files.com/65ae21eab8e90d9757d32cc8/65ead3ac887c200792c713b1_data-sq.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
+								<div data-is-ix2-target="1" class="background-video" data-w-id="61920619-552a-3f7a-9b15-5aba781df4d0" data-animation-type="lottie" data-src="<?php echo esc_url( TEMPLATE_PATH . '/images/lottie.json' ); ?>" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
 							</div>
 						</div>
 						<div class="div-block">
 							<div class="main-ings">
 								<div class="main-img _1 tops">
 									<div class="div-block-9">
-										<div data-is-ix2-target="1" class="background-video" data-w-id="28193263-bdc0-1783-1df5-23f420b09fbb" data-animation-type="lottie" data-src="https://assets-global.website-files.com/65ae21eab8e90d9757d32cc8/65ead3ac887c200792c713b1_data-sq.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
+										<div data-is-ix2-target="1" class="background-video" data-w-id="28193263-bdc0-1783-1df5-23f420b09fbb" data-animation-type="lottie" data-src="<?php echo esc_url( TEMPLATE_PATH . '/images/lottie.json' ); ?>" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
 									</div>
 								</div>
 							</div>
 							<div class="main-ings _2">
 								<div class="main-img _2 bots">
 									<div class="div-block-9">
-										<div data-is-ix2-target="1" class="background-video" data-w-id="6a91be05-4171-5547-a51d-359cdf771640" data-animation-type="lottie" data-src="https://assets-global.website-files.com/65ae21eab8e90d9757d32cc8/65ead3ac887c200792c713b1_data-sq.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
+										<div data-is-ix2-target="1" class="background-video" data-w-id="6a91be05-4171-5547-a51d-359cdf771640" data-animation-type="lottie" data-src="<?php echo esc_url( TEMPLATE_PATH . '/images/lottie.json' ); ?>" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
 									</div>
 								</div>
 							</div>
 							<div class="main-ings _3 tops">
 								<div class="main-img _3 tops">
 									<div class="div-block-9">
-										<div data-is-ix2-target="1" class="background-video" data-w-id="5a479c53-0c88-1e12-732a-92366701d2e6" data-animation-type="lottie" data-src="https://assets-global.website-files.com/65ae21eab8e90d9757d32cc8/65ead3ac887c200792c713b1_data-sq.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
+										<div data-is-ix2-target="1" class="background-video" data-w-id="5a479c53-0c88-1e12-732a-92366701d2e6" data-animation-type="lottie" data-src="<?php echo esc_url( TEMPLATE_PATH . '/images/lottie.json' ); ?>" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
 									</div>
 								</div>
 							</div>
 							<div class="main-ings _4">
 								<div class="main-img _4 bots">
 									<div class="div-block-9">
-										<div data-is-ix2-target="1" class="background-video" data-w-id="f17304dd-c966-91a9-cc48-8f33dfdbd7bb" data-animation-type="lottie" data-src="https://assets-global.website-files.com/65ae21eab8e90d9757d32cc8/65ead3ac887c200792c713b1_data-sq.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
+										<div data-is-ix2-target="1" class="background-video" data-w-id="f17304dd-c966-91a9-cc48-8f33dfdbd7bb" data-animation-type="lottie" data-src="<?php echo esc_url( TEMPLATE_PATH . '/images/lottie.json' ); ?>" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="98" data-duration="0" data-ix2-initial-state="0"></div>
 									</div>
 								</div>
 							</div>
@@ -285,7 +285,7 @@
 									<div class="mask w-slider-mask">
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
-												<div class="p-12-120 whtx">Empower the Future with Us</div>
+												<div class="p-12-120 whtx">Share your vision below</div>
 												<div class="input-keeper bigger">
 													<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
 												</div>
@@ -303,7 +303,7 @@
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" maxlength="256" name="name" data-name="Field 3" placeholder="Enter your name" type="text" id="name" required>
+													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name" required>
 												</div>
 											</div>
 										</div>
