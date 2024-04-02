@@ -257,7 +257,7 @@ get_header(
 									</div>
 									<div class="l-arrow w-slider-arrow-left">
 										<div class="red-form-line"></div>
-										<div class="text-block-6">BAck</div>
+										<div class="text-block-6">Back</div>
 									</div>
 									<div class="right-arrow w-slider-arrow-right">
 										<div>Next</div>

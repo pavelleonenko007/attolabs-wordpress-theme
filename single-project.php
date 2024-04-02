@@ -236,33 +236,25 @@ the_post();
 				<div class="styk-form">
 					<div class="form-ceeper">
 						<div class="styk-form-mom _1">
-							<form id="contact-form" class="form" data-wf-page-id="65e6e55dc3be5eb2532b9878" data-wf-element-id="95b803ee-0670-c38f-aaee-058f9e5ce4ad">
+							<form id="email-form" data-form="slider" class="form" data-wf-page-id="65e6e55dc3be5eb2532b9878" data-wf-element-id="95b803ee-0670-c38f-aaee-058f9e5ce4ad">
 								<div data-delay="4000" data-animation="slide" class="form-slider first-slide w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="0" data-infinite="true">
 									<div class="w-slider-mask">
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
-												<div class="p-12-120 whtx">Empower the Future with Us</div>
-												<textarea 
-													required 
-													autofocus="true" 
-													placeholder="tell us how we could help you to empower the future?" 
-													maxlength="5000" 
-													id="contact-comment" 
-													name="comment" 
-													class="text-field w-input"
-												></textarea>
+												<div class="p-12-120 whtx">Share your vision below</div>
+												<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" autofocus="true" maxlength="256" name="email" placeholder="Enter your email" type="email" id="contact-email" required>
+												<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" autofocus="true" maxlength="256" name="name" placeholder="Enter your name" type="text" id="contact-name" required>
+												<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name" required>
 											</div>
 										</div>
 									</div>
@@ -275,7 +267,9 @@ the_post();
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
