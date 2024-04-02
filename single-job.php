@@ -84,7 +84,7 @@
 				<div class="styk-form">
 					<div class="form-ceeper jobs-core">
 						<div class="styk-form-mom _1">
-							<form id="job-contact-form" data-form="job-contact" class="form" data-wf-page-id="65dc4b44b768e5a87400cdd1" data-wf-element-id="9f3e7290-dede-9b21-bf0e-914aeb30f89c">
+							<form id="job-contact-form" data-form="job-contact" class="form" data-wf-page-id="65dc4b44b768e5a87400cdd1" data-wf-element-id="9f3e7290-dede-9b21-bf0e-914aeb30f89c" novalidate>
 								<div class="normal-form">
 									<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f89e-7400cdd1" class="p-12-120 ww"><?php echo esc_html( $position->name ); ?></div>
 									<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a0-7400cdd1" class="r-form-vertical">
@@ -144,12 +144,12 @@
 														</div>
 													</div>
 													<div class="p-12-120 ww2 cv-or"> OR </div>
-													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link">
+													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link" required>
 												</div>
 											</div>
 											<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="w-checkbox checkbox-field">
 												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
-												<input type="checkbox" id="user_agreement" name="user_agreement">
+												<input type="checkbox" id="user_agreement" name="user_agreement" required>
 												<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="#" class="link">Privacy Policy</a></span>
 											</label>
 										</div>

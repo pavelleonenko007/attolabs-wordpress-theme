@@ -370,7 +370,7 @@ $translations = array(
 											</div>
 											<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="w-checkbox checkbox-field">
 												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
-												<input type="checkbox" id="user_agreement" name="user_agreement"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="#" class="link">Privacy Policy</a></span>
+												<input required type="checkbox" id="user_agreement" name="user_agreement"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="#" class="link">Privacy Policy</a></span>
 											</label>
 										</div>
 									</div>
