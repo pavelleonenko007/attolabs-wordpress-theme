@@ -6,6 +6,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+$current_language = pll_current_language();
 ?>
 				<footer class="footer">
 					<div class="container foo-core">
@@ -19,7 +20,8 @@ defined( 'ABSPATH' ) || exit;
 								</a>
 								<?php
 							endif;
-							$footer_menu_items = wp_get_nav_menu_items( 'Footer Menu' );
+							$footer_menu_name  = 'Footer Menu ' . strtoupper( $current_language );
+							$footer_menu_items = wp_get_nav_menu_items( $footer_menu_name );
 							if ( ! empty( $footer_menu_items ) ) :
 								?>
 								<div class="menu-vert">
@@ -71,8 +73,18 @@ defined( 'ABSPATH' ) || exit;
 							</div>
 						<?php endif; ?>
 						<div id="w-node-_1439d612-918a-ada2-0e4f-0f03fce8b208-fce8b1c2" class="vert">
-							<a href="#" class="foo-link_2">Cookie settings</a>
-							<a href="#" class="foo-link_2">Privacy policy</a>
+							<?php
+							$legal_menu_name = 'Legal menu ' . strtoupper( $current_language );
+
+							$legal_menu_items = wp_get_nav_menu_items( $legal_menu_name );
+							if ( ! empty( $legal_menu_items ) ) :
+								foreach ( $legal_menu_items as $legal_menu_item ) :
+									?>
+								<a href="<?php echo esc_url( $legal_menu_item->url ); ?>" class="foo-link_2"><?php echo esc_html( $legal_menu_item->title ); ?></a>
+									<?php
+									endforeach;
+							endif;
+							?>
 							<?php
 							$copyright = get_field( 'copyright', 'option' );
 							if ( ! empty( $copyright ) ) :
@@ -83,7 +95,8 @@ defined( 'ABSPATH' ) || exit;
 						
 						<div id="w-node-fb29d952-ecc1-f9d0-1692-f48fbb5e21a0-fce8b1c2" class="vert foo-hirz">
 						<?php
-						$socials = wp_get_nav_menu_items( 'Socials' );
+						$socials_menu_name = 'Socials menu ' . strtoupper( $current_language );
+						$socials = wp_get_nav_menu_items( $socials_menu_name );
 						if ( ! empty( $socials ) ) :
 							foreach ( $socials as $social ) :
 								?>
@@ -98,7 +111,7 @@ defined( 'ABSPATH' ) || exit;
 								?>
 								<div data-hover="false" data-delay="0" class="dropdown foodrop w-dropdown">
 									<div class="navlink lang-drop foo-frop w-dropdown-toggle">
-										<div><?php echo esc_html( pll_current_language() ); ?></div>
+										<div><?php echo esc_html( $current_language ); ?></div>
 										<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 lang-sh">
 									</div>
 									<nav class="dropdown-list foo-drop w-dropdown-list">

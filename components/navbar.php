@@ -6,14 +6,19 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+$current_language = pll_current_language();
 ?>
 <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
 	<header class="header">
 		<a href="<?php echo esc_url( get_home_url( null, '/' ) ); ?>" aria-current="page" class="brand w-nav-brand">
-			<?php echo attolabs_get_site_logo(); ?>
+			<?php
+			// @codingStandardsIgnoreStart
+			echo attolabs_get_site_logo();
+			// @codingStandardsIgnoreEnd ?>
 		</a>
 		<?php
-		$header_menu_items = wp_get_nav_menu_items( 'Header Menu' );
+		$header_menu_name  = 'Header menu ' . strtoupper( $current_language );
+		$header_menu_items = wp_get_nav_menu_items( $header_menu_name );
 
 		if ( ! empty( $header_menu_items ) ) :
 			?>
@@ -24,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 				<?php $languages = pll_the_languages( array( 'raw' => 1 ) ); ?>
 				<div data-hover="false" data-delay="0" class="dropdown w-dropdown">
 					<div class="navlink lang-drop w-dropdown-toggle">
-						<div><?php echo esc_html( pll_current_language() ); ?></div>
+						<div><?php echo esc_html( $current_language ); ?></div>
 						<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 lang-sh">
 					</div>
 					<nav class="dropdown-list w-dropdown-list">
@@ -51,7 +56,8 @@ defined( 'ABSPATH' ) || exit;
 	</header>
 	<div class="menu-block">
 		<?php
-		$header_menu_mobile_items = wp_get_nav_menu_items( 'Header Mobile Menu' );
+		$header_mobile_menu_name  = 'Header Mobile menu ' . strtoupper( $current_language );
+		$header_menu_mobile_items = wp_get_nav_menu_items( $header_mobile_menu_name );
 
 		if ( ! empty( $header_menu_mobile_items ) ) :
 			?>
@@ -74,12 +80,17 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			</div>
 			<div id="w-node-_6f0c7519-0018-f7f0-0117-8a8f518ee231-58975f82" class="vert">
-				<a href="#" class="foo-link_2">Cookie settings</a>
 				<?php
-				$privacy_policy_page_id = 3;
-				$privacy_policy_page    = pll_get_post( $privacy_policy_page_id );
+				$legal_menu_name  = 'Legal menu ' . strtoupper( $current_language );
+				$legal_menu_items = wp_get_nav_menu_items( $legal_menu_name );
+				if ( ! empty( $legal_menu_items ) ) :
+					foreach ( $legal_menu_items as $legal_menu_item ) :
+						?>
+						<a href="<?php echo esc_url( $legal_menu_item->url ); ?>" class="foo-link_2"><?php echo esc_html( $legal_menu_item->title ); ?></a>
+						<?php
+						endforeach;
+					endif;
 				?>
-				<a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" class="foo-link_2"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a>
 			</div>
 			<?php
 			$copyright = get_field( 'copyright', 'option' );
