@@ -418,6 +418,77 @@ if ( function_exists( 'acf_add_options_page' ) && current_user_can( 'manage_opti
 			'autoload'        => true,
 		)
 	);
+
+	$languages = pll_the_languages(
+		array( 'raw' => 1 )
+	);
+
+	$cookies_fields = array(
+		array(
+			'key'               => 'cookie_tab',
+			'label'             => 'Cookie Settings',
+			'name'              => '',
+			'type'              => 'tab',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'placement'         => 'top',
+			'endpoint'          => 0,
+		),
+	);
+
+	foreach ( $languages as $slug => $language ) {
+		$cookies_fields[] = array(
+			'key'               => '',
+			'label'             => 'Cookie Dialog content in ' . strtoupper( $slug ),
+			'name'              => 'cookie_text_' . $slug,
+			'type'              => 'textarea',
+			'prefix'            => '',
+			'instructions'      => 'Add content to cookie block.',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'default_value'     => '',
+			'placeholder'       => '',
+			'prepend'           => '',
+			'append'            => '',
+			'maxlength'         => '',
+			'readonly'          => 0,
+			'disabled'          => 0,
+		);
+	}
+
+	acf_add_local_field_group(
+		array(
+			'key'                   => 'option_group',
+			'title'                 => 'Global fields',
+			'fields'                => $cookies_fields,
+			'location'              => array(
+				array(
+					array(
+						'param'    => 'options_page',
+						'operator' => '==',
+						'value'    => 'options',
+					),
+				),
+			),
+			'menu_order'            => 0,
+			'position'              => 'normal',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen'        => '',
+		)
+	);
 }
 
 if ( function_exists( 'acf_add_options_page' ) && current_user_can( 'manage_options' ) ) {

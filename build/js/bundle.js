@@ -2,6 +2,38 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/cookieDialog.js":
+/*!****************************************!*\
+  !*** ./src/components/cookieDialog.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initCookieDialog: () => (/* binding */ initCookieDialog)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils/index.js");
+
+const COOKIE_DIALOG_SELECTOR = '[data-element="cookie"]';
+const COOKIE_ACCEPT_BUTTON_SELECTOR = '[data-button="accept"]';
+const initCookieDialog = () => {
+  const cookie = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getCookie)('terms-of-use');
+  if (cookie && cookie === 'accept') return;
+  const cookieDialog = document.querySelector(COOKIE_DIALOG_SELECTOR);
+  if (!cookieDialog) return;
+  const acceptButton = cookieDialog.querySelector(COOKIE_ACCEPT_BUTTON_SELECTOR);
+  cookieDialog.style.display = 'flex';
+  acceptButton.onclick = event => {
+    event.preventDefault();
+    (0,_utils__WEBPACK_IMPORTED_MODULE_0__.setCookie)('terms-of-use', 'accept', {
+      'max-age': 60
+    });
+    cookieDialog.style.display = 'none';
+  };
+};
+
+/***/ }),
+
 /***/ "./src/components/copyToClipboardButton.js":
 /*!*************************************************!*\
   !*** ./src/components/copyToClipboardButton.js ***!
@@ -563,7 +595,10 @@ const initSliderForms = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   deleteCookie: () => (/* binding */ deleteCookie),
+/* harmony export */   getCookie: () => (/* binding */ getCookie),
 /* harmony export */   refreshWebflowScripts: () => (/* binding */ refreshWebflowScripts),
+/* harmony export */   setCookie: () => (/* binding */ setCookie),
 /* harmony export */   validateForm: () => (/* binding */ validateForm)
 /* harmony export */ });
 const refreshWebflowScripts = () => {
@@ -610,6 +645,33 @@ const validateForm = form => {
   form.classList.toggle('form-error', !isValid);
   return isValid;
 };
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+function setCookie(name, value, options = {}) {
+  options = {
+    path: '/',
+    ...options
+  };
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+  let updatedCookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+  for (let optionKey in options) {
+    updatedCookie += '; ' + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += '=' + optionValue;
+    }
+  }
+  document.cookie = updatedCookie;
+}
+function deleteCookie(name) {
+  setCookie(name, '', {
+    'max-age': -1
+  });
+}
 
 /***/ }),
 
@@ -688,14 +750,16 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_copyToClipboardButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/copyToClipboardButton */ "./src/components/copyToClipboardButton.js");
-/* harmony import */ var _components_inputFormFields__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/inputFormFields */ "./src/components/inputFormFields.js");
-/* harmony import */ var _components_jobContactForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/jobContactForm */ "./src/components/jobContactForm.js");
-/* harmony import */ var _components_positionsFilterForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/positionsFilterForm */ "./src/components/positionsFilterForm.js");
-/* harmony import */ var _components_projectsFilterForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/projectsFilterForm */ "./src/components/projectsFilterForm.js");
-/* harmony import */ var _components_selectField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/selectField */ "./src/components/selectField.js");
-/* harmony import */ var _components_sliderForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/sliderForm */ "./src/components/sliderForm.js");
-/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/index.scss */ "./src/styles/index.scss");
+/* harmony import */ var _components_cookieDialog__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/cookieDialog */ "./src/components/cookieDialog.js");
+/* harmony import */ var _components_copyToClipboardButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/copyToClipboardButton */ "./src/components/copyToClipboardButton.js");
+/* harmony import */ var _components_inputFormFields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/inputFormFields */ "./src/components/inputFormFields.js");
+/* harmony import */ var _components_jobContactForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/jobContactForm */ "./src/components/jobContactForm.js");
+/* harmony import */ var _components_positionsFilterForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/positionsFilterForm */ "./src/components/positionsFilterForm.js");
+/* harmony import */ var _components_projectsFilterForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/projectsFilterForm */ "./src/components/projectsFilterForm.js");
+/* harmony import */ var _components_selectField__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/selectField */ "./src/components/selectField.js");
+/* harmony import */ var _components_sliderForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/sliderForm */ "./src/components/sliderForm.js");
+/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/index.scss */ "./src/styles/index.scss");
+
 
 
 
@@ -705,14 +769,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('load', () => {
-  (0,_components_selectField__WEBPACK_IMPORTED_MODULE_5__.initCustomSelects)();
-  (0,_components_inputFormFields__WEBPACK_IMPORTED_MODULE_1__.initInputFormFields)();
-  (0,_components_inputFormFields__WEBPACK_IMPORTED_MODULE_1__.initFileInputs)();
-  (0,_components_sliderForm__WEBPACK_IMPORTED_MODULE_6__.initSliderForms)();
-  (0,_components_projectsFilterForm__WEBPACK_IMPORTED_MODULE_4__.initProjectsFilterForm)();
-  (0,_components_positionsFilterForm__WEBPACK_IMPORTED_MODULE_3__.initPositionsFilterForm)();
-  (0,_components_jobContactForm__WEBPACK_IMPORTED_MODULE_2__.initJobContactForm)();
-  (0,_components_copyToClipboardButton__WEBPACK_IMPORTED_MODULE_0__.initCopyToClipboardButtons)();
+  (0,_components_cookieDialog__WEBPACK_IMPORTED_MODULE_0__.initCookieDialog)();
+  (0,_components_selectField__WEBPACK_IMPORTED_MODULE_6__.initCustomSelects)();
+  (0,_components_inputFormFields__WEBPACK_IMPORTED_MODULE_2__.initInputFormFields)();
+  (0,_components_inputFormFields__WEBPACK_IMPORTED_MODULE_2__.initFileInputs)();
+  (0,_components_sliderForm__WEBPACK_IMPORTED_MODULE_7__.initSliderForms)();
+  (0,_components_projectsFilterForm__WEBPACK_IMPORTED_MODULE_5__.initProjectsFilterForm)();
+  (0,_components_positionsFilterForm__WEBPACK_IMPORTED_MODULE_4__.initPositionsFilterForm)();
+  (0,_components_jobContactForm__WEBPACK_IMPORTED_MODULE_3__.initJobContactForm)();
+  (0,_components_copyToClipboardButton__WEBPACK_IMPORTED_MODULE_1__.initCopyToClipboardButtons)();
 });
 })();
 

@@ -1,3 +1,4 @@
+import { initCookieDialog } from './components/cookieDialog';
 import { initCopyToClipboardButtons } from './components/copyToClipboardButton';
 import {
 	initFileInputs,
@@ -11,6 +12,7 @@ import { initSliderForms } from './components/sliderForm';
 import './styles/index.scss';
 
 window.addEventListener('load', () => {
+	initCookieDialog();
 	initCustomSelects();
 	initInputFormFields();
 	initFileInputs();

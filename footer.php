@@ -96,7 +96,7 @@ $current_language = pll_current_language();
 						<div id="w-node-fb29d952-ecc1-f9d0-1692-f48fbb5e21a0-fce8b1c2" class="vert foo-hirz">
 						<?php
 						$socials_menu_name = 'Socials menu ' . strtoupper( $current_language );
-						$socials = wp_get_nav_menu_items( $socials_menu_name );
+						$socials           = wp_get_nav_menu_items( $socials_menu_name );
 						if ( ! empty( $socials ) ) :
 							foreach ( $socials as $social ) :
 								?>
@@ -132,6 +132,18 @@ $current_language = pll_current_language();
 				</footer>
 			</div>
 		</div>
+		<?php
+		$cookie_content = get_field( 'cookie_text_' . $current_language, 'option' );
+		if ( ! empty( $cookie_content ) ) :
+			?>
+			<div class="coocy-block" data-element="cookie">
+				<p class="p-12-120 c-grey m10"><?php echo esc_html( $cookie_content ); ?></p>
+				<div class="flex-horiz">
+					<a href="#" data-button="accept" class="a-12-120"><?php pll_e('Accept'); ?></a>
+					<a href="#" class="a-12-120 grey"><?php pll_e('Learn more'); ?></a>
+				</div>
+			</div>
+		<?php endif; ?>
 		<!-- FOOTER CODE -->
 		<?php
 		wp_footer();
