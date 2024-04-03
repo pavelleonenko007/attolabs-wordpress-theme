@@ -21,13 +21,12 @@ if ( ! empty( $args['container-extra-classes'] ) ) {
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
-		<link href="https://thevogne.ru/clients/vosk-clients/atto/style.css" rel="stylesheet" type="text/css">
 		<?php
 		wp_head();
 		attolabs_head_code();
 		?>
 	</head>
-	<body <?php body_class("body"); ?>>
+	<body <?php body_class( 'body' ); ?>>
 		<?php attolabs_after_body(); ?>
 		<div class="wrapper">
 			<div class="<?php echo esc_attr( $container_classes ); ?>">
