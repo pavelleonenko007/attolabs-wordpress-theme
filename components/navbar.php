@@ -92,12 +92,31 @@ $current_language = pll_current_language();
 					endif;
 				?>
 			</div>
-			<?php
-			$copyright = get_field( 'copyright', 'option' );
-			if ( ! empty( $copyright ) ) :
-				?>
-				<div id="w-node-_6d4226e5-071d-3179-c4da-f21becda97b7-58975f82" class="foo-text"><?php echo esc_html( $copyright ); ?>, <?php echo esc_html( gmdate( 'Y' ) ); ?></div>
-			<?php endif; ?>
+			<div id="w-node-_361313a5-ad3c-622a-9008-c37e7f652dde-58975f82" class="vert">
+				<div data-hover="false" data-delay="0" id="w-node-ef7076de-199d-fee8-d99b-dd93be478f9e-58975f82" class="dropdown foodrop mober w-dropdown" style="z-index: 901;">
+					<div class="navlink lang-drop foo-frop mob-l w-dropdown-toggle" id="w-dropdown-toggle-1" aria-controls="w-dropdown-list-1" aria-haspopup="menu" aria-expanded="true" role="button" tabindex="0">
+						<div class="op30"><?php echo esc_html( $current_language ); ?></div>
+						<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt="" class="image-2 lang-sh ops">
+					</div>
+					<nav class="dropdown-list foo-drop mob-lang w-dropdown-list" id="w-dropdown-list-1" aria-labelledby="w-dropdown-toggle-1">
+						<?php
+						foreach ( $languages as $language ) :
+							$classes = attolabs_is_current_url( $language['url'] ) ? 'lang-line active w-inline-block' : 'lang-line w-inline-block';
+							?>
+							<a href="<?php echo esc_url( $language['url'] ); ?>" class="<?php echo esc_attr( $classes ); ?>" tabindex="0">
+								<div><?php echo esc_html( $language['name'] ); ?></div>
+								<div class="radio-button"></div>
+							</a>
+						<?php endforeach; ?>
+					</nav>
+				</div>
+				<?php
+				$copyright = get_field( 'copyright', 'option' );
+				if ( ! empty( $copyright ) ) :
+					?>
+					<div id="w-node-_6d4226e5-071d-3179-c4da-f21becda97b7-58975f82" class="foo-text"><?php echo esc_html( $copyright ); ?>, <?php echo esc_html( gmdate( 'Y' ) ); ?></div>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </div>
