@@ -1605,7 +1605,7 @@ function attolabs_smtp_enable( $phpmailer ) {
 function attolabs_get_branches_by_lang( string $lang ): array {
 	$branches = get_field( 'branches', 'option' );
 
-	if ( empty( $branches ) ) {
+	if ( empty( $branches ) || ! is_array( $branches ) ) {
 		return array();
 	}
 
