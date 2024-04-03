@@ -18,7 +18,8 @@ the_post();
 $tabs             = get_field( 'tabs' );
 $text_section     = get_field( 'text_section' );
 $our_values_block = get_field( 'our_values_block' );
-$branches         = get_field( 'branches', 'option' );
+$current_language = pll_current_language();
+$branches         = attolabs_get_branches_by_lang( $current_language );
 ?>
 				<div data-w-id="f63cc638-65a6-6b47-a6cb-493087ba41e4" class="scroll-mom-container">
 					<div class="styk-anim">

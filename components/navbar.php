@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 $current_language = pll_current_language();
-$languages = pll_the_languages( array( 'raw' => 1 ) );
+$languages        = pll_the_languages( array( 'raw' => 1 ) );
 ?>
 <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
 	<header class="header">
@@ -68,17 +68,41 @@ $languages = pll_the_languages( array( 'raw' => 1 ) );
 			</div>
 		<?php endif; ?>
 		<div class="bottom-nav">
-			<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188996-58975f82" class="adress-item">
-				<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188997-58975f82" class="p-18-120 _222">Contacts</div>
-				<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188999-58975f82" class="adress-item_bottom">
-					<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899a-58975f82">Schanzenstraße 41 51063 Köln, Germany</div>
-					<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899c-58975f82" class="adress-item_bottom_ver">
-						<a href="#">+49 176 4445 0770</a>
-						<a href="#">+49 2238 4780 6118</a>
+			<?php
+			$addresses         = attolabs_get_branches_by_lang( $current_language );
+			$address_in_header = array_filter(
+				$addresses,
+				function ( $branch ) {
+					return $branch['display_in_header'];
+				}
+			);
+
+			if ( ! empty( $address_in_header ) ) :
+				?>
+				<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188996-58975f82" class="adress-item">
+					<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188997-58975f82" class="p-18-120 _222">Contacts</div>
+					<?php
+					$address_name = $address_in_header[0]['address_name'];
+					$phones       = $address_in_header[0]['contact_phones'];
+					$email        = $address_in_header[0]['contact_email'];
+					?>
+					<div id="w-node-eedec887-cf2f-9a27-6944-d976b6188999-58975f82" class="adress-item_bottom">
+						<?php if ( ! empty( $address_name ) ) : ?>
+							<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899a-58975f82"><?php echo esc_html( $address_name ); ?></div>
+						<?php endif; ?>
+						<?php if ( ! empty( $phones ) ) : ?>
+							<div id="w-node-eedec887-cf2f-9a27-6944-d976b618899c-58975f82" class="adress-item_bottom_ver">
+								<?php foreach ( $phones as $phone ) : ?>
+									<a href="<?php echo esc_url( attolabs_format_phone_link( $phone['phone_number'] ) ); ?>"><?php echo esc_html( $phone['phone_number'] ); ?></a>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
+						<?php if ( ! empty( $email ) ) : ?>
+							<a href="<?php echo esc_url( attolabs_format_email_link( $email ) ); ?>" id="w-node-eedec887-cf2f-9a27-6944-d976b61889a1-58975f82"><?php echo esc_html( $email ); ?></a>
+						<?php endif; ?>
 					</div>
-					<div id="w-node-eedec887-cf2f-9a27-6944-d976b61889a1-58975f82">contact@attolabs.de</div>
 				</div>
-			</div>
+			<?php endif; ?>
 			<div id="w-node-_6f0c7519-0018-f7f0-0117-8a8f518ee231-58975f82" class="vert">
 				<?php
 				$legal_menu_name  = 'Legal menu ' . strtoupper( $current_language );

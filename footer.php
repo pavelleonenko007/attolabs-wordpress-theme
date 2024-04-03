@@ -32,10 +32,10 @@ $current_language = pll_current_language();
 								<?php endif; ?>
 						</div>
 						<?php
-						$branches = get_field( 'branches', 'option' );
+						$branches = attolabs_get_branches_by_lang( $current_language );
 						$branches = array_filter(
 							$branches,
-							function ( $branch ) {
+							function ( $branch ) use ( $current_language ) {
 								return $branch['display_in_footer'];
 							}
 						);
@@ -139,8 +139,8 @@ $current_language = pll_current_language();
 			<div class="coocy-block" data-element="cookie">
 				<p class="p-12-120 c-grey m10"><?php echo esc_html( $cookie_content ); ?></p>
 				<div class="flex-horiz">
-					<a href="#" data-button="accept" class="a-12-120"><?php pll_e('Accept'); ?></a>
-					<a href="#" class="a-12-120 grey"><?php pll_e('Learn more'); ?></a>
+					<a href="#" data-button="accept" class="a-12-120"><?php pll_e( 'Accept' ); ?></a>
+					<a href="#" class="a-12-120 grey"><?php pll_e( 'Learn more' ); ?></a>
 				</div>
 			</div>
 		<?php endif; ?>
