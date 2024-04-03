@@ -7,6 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 $current_language = pll_current_language();
+$languages = pll_the_languages( array( 'raw' => 1 ) );
 ?>
 <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
 	<header class="header">
@@ -26,7 +27,6 @@ $current_language = pll_current_language();
 				<?php foreach ( $header_menu_items as $header_menu_item ) : ?>
 					<a href="<?php echo esc_url( $header_menu_item->url ); ?>" class="navlink w-nav-link"><?php echo esc_html( $header_menu_item->title ); ?></a>
 				<?php endforeach; ?>
-				<?php $languages = pll_the_languages( array( 'raw' => 1 ) ); ?>
 				<div data-hover="false" data-delay="0" class="dropdown w-dropdown">
 					<div class="navlink lang-drop w-dropdown-toggle">
 						<div><?php echo esc_html( $current_language ); ?></div>
