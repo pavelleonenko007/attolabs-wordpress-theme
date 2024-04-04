@@ -21,7 +21,11 @@ export const initCookieDialog = () => {
 	acceptButton.onclick = (event) => {
 		event.preventDefault();
 
-		setCookie('terms-of-use', 'accept', { 'max-age': 60 });
+		const secondsInOneDay = 24 * 60 * 60;
+
+		setCookie('terms-of-use', 'accept', {
+			'max-age': 2 * secondsInOneDay,
+		});
 
 		cookieDialog.style.display = 'none';
 	};
