@@ -156,7 +156,15 @@ get_header(
 										</div>
 										<div id="w-node-_3d3e5ec1-5644-c6f4-9e30-c9ed9830b5c0-6acaaba9" class="styk-btm _1">
 											<div class="form-block filter-projects">
-												<form id="projects-filter-form" class="form-2" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="6ddaff6a-b4e1-9242-a944-e6813b312421">
+											<?php
+											$classes = 'form-2';
+
+											if ( ( isset( $_GET['services'] ) && ! empty( $_GET['services'] ) ) || ( isset( $_GET['industries'] ) && ! empty( $_GET['industries'] ) ) ) {
+												$classes .= ' form--active';
+											}
+											?>
+												<form id="projects-filter-form" class="<?php echo esc_attr( $classes ); ?>" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="6ddaff6a-b4e1-9242-a944-e6813b312421">
+												<?php unset( $classes ); ?>
 													<input type="submit" data-wait="Please wait..." class="hide w-button" value="Submit">
 													<div class="spleet">
 														<div class="text-block-4">Filters</div>
