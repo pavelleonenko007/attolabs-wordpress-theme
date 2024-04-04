@@ -55,7 +55,7 @@ global $post; ?>
 	$short_description = get_field( 'short_description' );
 	if ( ! empty( $short_description ) ) :
 		?>
-		<div class="p-76-92 prjr">“<?php echo esc_html( $short_description ); ?>”</div>
+		<div class="p-76-92 prjr"><?php echo esc_html( $short_description ); ?></div>
 	<?php endif; ?>
 	<a href="<?php the_permalink(); ?>" class="project-link-in w-inline-block"></a>
 </div>
