@@ -43,6 +43,26 @@
             "new_lines": ""
         },
         {
+            "key": "field_660e86271b0a6",
+            "label": "Description for home page",
+            "name": "description_for_home_page",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Leave the field empty if the project will not be displayed on the main page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_65f98a98cd7e9",
             "label": "Project title",
             "name": "project_title",
@@ -406,5 +426,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1712059875
+    "modified": 1712227967
 }

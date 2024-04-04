@@ -176,11 +176,11 @@
 											<?php endif; ?>
 											<div class="project-item_top">
 												<?php
-												$short_description = get_field( 'short_description' );
-												if ( ! empty( $short_description ) ) :
+												$description_for_home_page = get_field( 'description_for_home_page' );
+												if ( ! empty( $description_for_home_page ) ) :
 													?>
-													<p class="p-18-120 mmax"><?php echo esc_html( $short_description ); ?></p>
-													<?php endif; ?>
+													<p class="p-18-120 mmax"><?php echo esc_html( $description_for_home_page ); ?></p>
+												<?php endif; ?>
 												<?php
 												$industries = get_the_terms( get_the_ID(), 'industry' );
 												if ( ! is_wp_error( $industries ) && ! empty( $industries ) ) :
