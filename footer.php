@@ -35,7 +35,7 @@ $current_language = pll_current_language();
 						$branches = attolabs_get_branches_by_lang( $current_language );
 						$branches = array_filter(
 							$branches,
-							function ( $branch ) use ( $current_language ) {
+							function ( $branch ) {
 								return $branch['display_in_footer'];
 							}
 						);
@@ -86,7 +86,7 @@ $current_language = pll_current_language();
 							endif;
 							?>
 							<?php
-							$copyright = get_field( 'copyright', 'option' );
+							$copyright = !empty(get_field( 'copyright', 'option' )) ? get_field( 'copyright', 'option' ) : '© ' . get_bloginfo('name');
 							if ( ! empty( $copyright ) ) :
 								?>
 								<div class="foo-text _23"><?php echo esc_html( $copyright ); ?>, <?php echo esc_html( gmdate( 'Y' ) ); ?></div>

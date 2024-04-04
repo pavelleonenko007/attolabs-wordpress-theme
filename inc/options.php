@@ -276,11 +276,50 @@ if ( function_exists( 'acf_add_local_field_group' ) && function_exists( 'pll_the
 		),
 	);
 
+	$other_fields = array(
+		array(
+			'key'               => 'other_fields_tab',
+			'label'             => 'Other fields',
+			'name'              => '',
+			'type'              => 'tab',
+			'instructions'      => '',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'placement'         => 'top',
+			'endpoint'          => 0,
+		),
+		array(
+			'key'               => 'field_66028b05c32b0',
+			'label'             => 'Copyright',
+			'name'              => 'copyright',
+			'aria-label'        => '',
+			'type'              => 'text',
+			'instructions'      => 'Add copyright. No needs to add year.',
+			'required'          => 0,
+			'conditional_logic' => 0,
+			'wrapper'           => array(
+				'width' => '',
+				'class' => '',
+				'id'    => '',
+			),
+			'default_value'     => '',
+			'maxlength'         => '',
+			'placeholder'       => '',
+			'prepend'           => '',
+			'append'            => '',
+		),
+	);
+
 	acf_add_local_field_group(
 		array(
 			'key'                   => 'option_group',
 			'title'                 => 'Global fields',
-			'fields'                => array_merge( $cookies_fields, $branches_fields ),
+			'fields'                => array_merge( $cookies_fields, $branches_fields, $other_fields ),
 			'location'              => array(
 				array(
 					array(
