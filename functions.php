@@ -577,6 +577,14 @@ function attolabs_custom_menu_tools_page_save_wpconfig() {
 	exit;
 }
 
+function attolabs_get_contact_email(): string|bool {
+	return ! empty( get_field( 'contact_email', 'option' ) ) ? get_field( 'contact_email', 'option' ) : get_option( 'admin_email' );
+}
+
+function attolabs_get_job_email(): string|bool {
+	return ! empty( get_field( 'job_email', 'option' ) ) ? get_field( 'job_email', 'option' ) : attolabs_get_contact_email();
+}
+
 add_action( 'init', 'attolabs_register_post_types' );
 function attolabs_register_post_types(): void {
 	register_taxonomy(
@@ -1018,8 +1026,18 @@ function attolabs_get_position_offices( stdClass $position ): array {
 
 function attolabs_get_job_positions( string $lang = 'en' ): array {
 	$hostname = 'attolabs';
-	$response = simplexml_load_file( 'https://' . $hostname . '.jobs.personio.de/xml?language=' . $lang, null, LIBXML_NOCDATA );
-	// $response     = simplexml_load_file( TEMPLATE_PATH . '/jobs.xml', null, LIBXML_NOCDATA );
+
+	$languages                 = pll_the_languages(
+		array(
+			'raw' => 1,
+		)
+	);
+	$formatted_languages       = array_combine( array_keys( $languages ), array_keys( $languages ) );
+	$formatted_languages['fr'] = $formatted_languages['ru'];
+	unset( $formatted_languages['ru'] );
+
+	// $response     = simplexml_load_file( 'https://' . $hostname . '.jobs.personio.de/xml?language=' . $formatted_languages[ $lang ], null, LIBXML_NOCDATA );
+	$response     = simplexml_load_file( TEMPLATE_PATH . '/jobs.xml', null, LIBXML_NOCDATA );
 	$json         = wp_json_encode( $response );
 	$decoded_json = json_decode( $json );
 
@@ -1049,7 +1067,7 @@ function attolabs_get_job_position_by_id( int|string $id, string $lang ): stdCla
 	return $position[0];
 }
 
-function attolabs_format_job_schedule( stdClass $position, string $lang = 'en' ): string {
+function attolabs_format_job_employment_type( stdClass $position, string $lang = 'en' ): string {
 	$translations = array(
 		'full-time' => array(
 			'de' => 'Vollzeit',
@@ -1083,7 +1101,7 @@ function attolabs_format_job_schedule( stdClass $position, string $lang = 'en' )
 		),
 	);
 
-	return $translations[ (string) $position->schedule ][ $lang ];
+	return $translations[ (string) $position->employmentType ][ $lang ];
 }
 
 function attolabs_get_job_content( stdClass $position ): string {
@@ -1133,14 +1151,29 @@ function attolabs_get_job_departments( array $positions ): array {
 	return array_unique( array_filter( $departments ) );
 }
 
-function attolabs_get_job_schedules( array $positions ): array {
-	$schedules = array();
+function attolabs_get_job_employment_types( array $positions ): array {
+	$employment_types = array();
 
 	foreach ( $positions as $position ) {
-		$schedules[] = $position->schedule;
+		$employment_types[] = $position->employmentType;
 	}
 
-	return array_unique( array_filter( $schedules ) );
+	return array_unique( array_filter( $employment_types ) );
+}
+
+function attolabs_send_client_reply_message( string $to, string $message, string $subject = '' ): bool {
+	$headers = array(
+		'content-type: text/html',
+	);
+
+	if ( empty( $subject ) ) {
+		$subject = 'Reply from ' . get_bloginfo( 'name' );
+	}
+
+	// TODO: add email markup
+	$markup = '<span style="font-size: 18px">' . $message . '</span>';
+
+	return wp_mail( $to, $subject, $markup, $headers );
 }
 
 add_action( 'wp_ajax_submit_contact_form', 'attolabs_submit_contact_form_via_ajax' );
@@ -1155,15 +1188,37 @@ function attolabs_submit_contact_form_via_ajax(): void {
 		);
 	}
 
+	if ( ! isset( $_POST['email'] ) || empty( $_POST['email'] ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'No contact information was provided',
+			),
+			400
+		);
+	}
+
 	$data = array_filter( json_decode( wp_json_encode( $_POST ), true ) );
+
+	$reply_message = ! empty( $data['message'] ) ? $data['message'] : 'Your resume successfully sent!';
 
 	unset( $data['action'] );
 	unset( $data['_wp_http_referer'] );
 	unset( $data['job_form_nonce'] );
+	unset( $data['message'] );
+	unset( $data['_contact_form_nonce'] );
 
-	$to      = ! empty( get_field( 'job_email', 'option' ) ) ? get_field( 'job_email', 'option' ) : 'pavel.leonenko374@gmail.com';
+	$to      = attolabs_get_contact_email();
 	$subject = 'New message from website ' . get_bloginfo( 'name' );
 	$message = '';
+
+	if ( empty( $to ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Administrator does not provide contact email. Please try again later.',
+			),
+			400
+		);
+	}
 
 	$headers = array(
 		'content-type: text/html',
@@ -1174,7 +1229,8 @@ function attolabs_submit_contact_form_via_ajax(): void {
 		$message      .= '<strong>' . $formatted_key . ':</strong> ' . $value . '<br>';
 	}
 
-	$sended = wp_mail( $to, $subject, $message, $headers );
+	$sended       = wp_mail( $to, $subject, $message, $headers );
+	$client_reply = attolabs_send_client_reply_message( sanitize_text_field( wp_unslash( $_POST['email'] ) ), $reply_message );
 
 	if ( ! $sended ) {
 		wp_send_json_error(
@@ -1204,15 +1260,37 @@ function attolabs_submit_job_form_via_ajax(): void {
 		);
 	}
 
+	if ( ! isset( $_POST['email'] ) || empty( $_POST['email'] ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'No contact information was provided',
+			),
+			400
+		);
+	}
+
 	$data = array_filter( json_decode( wp_json_encode( $_POST ), true ) );
+
+	$reply_message = ! empty( $data['message'] ) ? $data['message'] : 'Your resume successfully sent!';
 
 	unset( $data['action'] );
 	unset( $data['_wp_http_referer'] );
 	unset( $data['job_form_nonce'] );
+	unset( $data['message'] );
+	unset( $data['job_form_nonce'] );
 
-	$to      = ! empty( get_field( 'job_email', 'option' ) ) ? get_field( 'job_email', 'option' ) : 'pavel.leonenko374@gmail.com';
+	$to      = attolabs_get_job_email();
 	$subject = '';
 	$message = '';
+
+	if ( empty( $to ) ) {
+		wp_send_json_error(
+			array(
+				'message' => 'Administrator does not provide contact email. Please try again later.',
+			),
+			400
+		);
+	}
 
 	if ( isset( $_POST['job'] ) && ! empty( $_POST['job'] ) ) {
 		$subject = 'A new response to vacancy: ' . sanitize_text_field( wp_unslash( $_POST['job'] ) );
@@ -1251,7 +1329,8 @@ function attolabs_submit_job_form_via_ajax(): void {
 		}
 	}
 
-	$sended = wp_mail( $to, $subject, $message, $headers, $attachments );
+	$sended       = wp_mail( $to, $subject, $message, $headers, $attachments );
+	$client_reply = attolabs_send_client_reply_message( sanitize_text_field( wp_unslash( $_POST['email'] ) ), $reply_message );
 
 	foreach ( $attachments as $attachment ) {
 		unlink( $attachment );
@@ -1276,13 +1355,6 @@ function attolabs_submit_job_form_via_ajax(): void {
 add_action( 'customize_register', 'attolabs_customize_register_func' );
 
 function attolabs_customize_register_func( $wp_customize ) {
-
-	// // Add Customize Section
-	// $wp_customize->add_section('pdn_home_section', array(
-	// 'title' => 'Home',
-	// 'description'   => 'Update home image'
-	// ));
-
 	$wp_customize->add_setting(
 		'attolabs_footer_logo_settings',
 		array()

@@ -247,19 +247,25 @@ get_header(
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Share your vision below</div>
-												<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
+												<div class="input-keeper bigger">
+													<textarea required placeholder="How do you envision shaping the future with us?" maxlength="5000" id="vision-2" name="vision" class="text-field w-input"></textarea>
+												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
+												<div class="input-keeper bigger">
+													<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email-2" required>
+												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name" required>
+												<div class="input-keeper bigger">
+													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-2" required>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -274,6 +280,8 @@ get_header(
 								</div>
 								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php $message = ! empty( $forms ) && ! empty( $forms['empower_future_with_us'] ) ? $forms['empower_future_with_us'] : 'Your message has been sent successfully'; ?>
+								<input type="hidden" name="message" value="<?php echo esc_attr( $message ); ?>">
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">
@@ -292,19 +300,25 @@ get_header(
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">share your vision</div>
-												<textarea required placeholder="How do you envision shaping the future with us?" maxlength="5000" id="vision-2" name="vision" class="text-field w-input"></textarea>
+												<div class="input-keeper bigger">
+													<textarea required placeholder="How do you envision shaping the future with us?" maxlength="5000" id="vision-2" name="vision" class="text-field w-input"></textarea>
+												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email-2" required>
+												<div class="input-keeper bigger">
+													<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email-2" required>
+												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-2" required>
+												<div class="input-keeper bigger">
+													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-2" required>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -319,6 +333,8 @@ get_header(
 								</div>
 								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php $message = ! empty( $forms ) && ! empty( $forms['share_your_vision'] ) ? $forms['share_your_vision'] : 'Your message has been sent successfully'; ?>
+								<input type="hidden" name="message" value="<?php echo esc_attr( $message ); ?>">
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">
@@ -337,19 +353,25 @@ get_header(
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
 												<div class="p-12-120 whtx">Describe your project</div>
-												<textarea required placeholder="What is special about what you’re doing?" maxlength="5000" id="project-3" name="project" class="text-field w-input"></textarea>
+												<div class="input-keeper bigger">
+													<textarea required placeholder="What is special about what you’re doing?" maxlength="5000" id="project-3" name="project" class="text-field w-input"></textarea>
+												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">How to get in touch with you?</div>
-												<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
+												<div class="input-keeper bigger">
+													<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
+												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
 												<div class="p-12-120 whtx">What can I call you?</div>
-												<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-3" required>
+												<div class="input-keeper bigger">
+													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name-3" required>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -364,6 +386,8 @@ get_header(
 								</div>
 								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php $message = ! empty( $forms ) && ! empty( $forms['describe_your_project'] ) ? $forms['describe_your_project'] : 'Your message has been sent successfully'; ?>
+								<input type="hidden" name="message" value="<?php echo esc_attr( $message ); ?>">
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">

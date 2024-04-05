@@ -17,12 +17,12 @@ get_header(
 
 the_post();
 
-$lang         = pll_current_language();
-$positions    = attolabs_get_job_positions( $lang );
-$departments  = attolabs_get_job_departments( $positions );
-$cities       = attolabs_get_job_cities( $positions );
-$schedules    = attolabs_get_job_schedules( $positions );
-$translations = array(
+$lang             = pll_current_language();
+$positions        = attolabs_get_job_positions( $lang );
+$departments      = attolabs_get_job_departments( $positions );
+$cities           = attolabs_get_job_cities( $positions );
+$employment_types = attolabs_get_job_employment_types( $positions );
+$translations     = array(
 	'full-time' => array(
 		'de' => 'Vollzeit',
 		'en' => 'Full-time',
@@ -114,18 +114,18 @@ $translations = array(
 												</div>
 											</div>
 										<?php endif; ?>
-										<?php if ( ! empty( $schedules ) ) : ?>
+										<?php if ( ! empty( $employment_types ) ) : ?>
 											<div class="droper-filter">
 												<div class="drpoter-block">
-													<div class="p-12-120">Job type (<?php echo esc_html( count( $schedules ) ); ?>)</div>
+													<div class="p-12-120">Job type (<?php echo esc_html( count( $employment_types ) ); ?>)</div>
 													<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 no-mob">
 												</div>
 												<div class="droper-content">
-													<?php foreach ( $schedules as $schedule ) : ?>
+													<?php foreach ( $employment_types as $employment_type ) : ?>
 														<label class="w-checkbox rdb">
-															<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="<?php echo esc_attr( 'schedule_mob_' . $schedule ); ?>"></div>
-															<input type="radio" id="<?php echo esc_attr( 'schedule_mob_' . $schedule ); ?>" name="schedule" value="<?php echo esc_attr( $schedule ); ?>">
-															<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'schedule_mob_' . $schedule ); ?>"><?php echo esc_html( $schedule ); ?></span>
+															<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="<?php echo esc_attr( 'employment_type_mob_' . $employment_type ); ?>"></div>
+															<input type="radio" id="<?php echo esc_attr( 'employment_type_mob_' . $employment_type ); ?>" name="employment_type" value="<?php echo esc_attr( $employment_type ); ?>">
+															<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'employment_type_mob_' . $employment_type ); ?>"><?php echo esc_html( $translations[ $employment_type ][ $lang ] ); ?></span>
 														</label>
 													<?php endforeach; ?>
 												</div>
@@ -199,24 +199,24 @@ $translations = array(
 											</div>
 										<?php endif; ?>
 										<?php
-										if ( ! empty( $schedules ) ) :
+										if ( ! empty( $employment_types ) ) :
 											?>
 											<div class="job-droper">
 												<div class="job-droper-a">
 													<div class="p-12-120 uper">Job type</div>
-													<div class="p-12-120 top-counter"><sup><?php echo esc_html( count( $schedules ) ); ?></sup></div>
+													<div class="p-12-120 top-counter"><sup><?php echo esc_html( count( $employment_types ) ); ?></sup></div>
 													<img src="<?php echo esc_attr( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2">
 												</div>
 												<div class="job-droper-in">
 													<div class="job-droper-in_content">
 														<div class="flex-vert">
-															<?php foreach ( $schedules as $schedule ) : ?>
+															<?php foreach ( $employment_types as $employment_type ) : ?>
 																<label class="rdb w-radio">
 																	<div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button w-radio-input"></div>
 																	<input 
 																		type="radio" 
-																		name="schedule" id="<?php echo esc_attr( 'schedule_' . $schedule ); ?>" value="<?php echo esc_attr( $schedule ); ?>">
-																		<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'schedule_' . $schedule ); ?>"><?php echo esc_html( $schedule ); ?></span>
+																		name="employment_type" id="<?php echo esc_attr( 'employment_type_' . $employment_type ); ?>" value="<?php echo esc_attr( $employment_type ); ?>">
+																		<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'employment_type_' . $employment_type ); ?>"><?php echo esc_html( $translations[ $employment_type ][ $lang ] ); ?></span>
 																</label>
 															<?php endforeach; ?>
 														</div>
@@ -250,16 +250,16 @@ $translations = array(
 
 						// d( $positions );
 						foreach ( $positions as $position ) :
-							$department = $position->department;
-							$offices    = attolabs_get_position_offices( $position );
-							$schedule   = $translations[ (string) $position->schedule ][ $lang ];
+							$department      = $position->department;
+							$offices         = attolabs_get_position_offices( $position );
+							$employment_type = (string) $position->employmentType;
 							?>
 								<div 
 									id="w-node-_5dd46d37-ec32-59e7-3b21-59525383b3dc-4103d4fe" 
 									class="jobs-item" 
 									data-department="<?php echo esc_attr( $department ); ?>" 
 									data-office="<?php echo esc_attr( implode( ',', $offices ) ); ?>"
-									data-schedule="<?php echo esc_attr( $schedule ); ?>"
+									data-employment_type="<?php echo esc_attr( $employment_type ); ?>"
 								>
 									<div class="rel">
 										<div class="jobs-name"><?php echo esc_html( $position->name ); ?></div>
@@ -269,11 +269,11 @@ $translations = array(
 										<div class="jb-1">
 											<div><?php echo esc_html( $position->department ); ?></div>
 										</div>
-									<?php
-									$city               = (string) $position->office;
-									$additional_cities  = ( isset( $position->additionalOffices ) && ! empty( $position->additionalOffices->office ) ) ? $position->additionalOffices->office : array();
-									$extra_cities_count = count( $additional_cities );
-									?>
+										<?php
+										$city               = (string) $position->office;
+										$additional_cities  = ( isset( $position->additionalOffices ) && ! empty( $position->additionalOffices->office ) ) ? $position->additionalOffices->office : array();
+										$extra_cities_count = count( $additional_cities );
+										?>
 										<div class="jb-2">
 											<div class="job-in-drop">
 											<?php
@@ -302,8 +302,10 @@ $translations = array(
 											</div>
 										</div>
 										<div class="jb-1 last-jbcol">
-											<div><?php echo esc_html( $translations[ (string) $position->schedule ][ $lang ] ); ?></div>
 											<div><?php echo esc_html( $translations[ (string) $position->employmentType ][ $lang ] ); ?></div>
+										</div>
+										<div class="jb-1 last-jbcol">
+											<div><?php echo esc_html( $translations[ (string) $position->schedule ][ $lang ] ); ?></div>
 										</div>
 									</div>
 								</div>
@@ -368,7 +370,7 @@ $translations = array(
 													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link" required>
 												</div>
 											</div>
-											<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="w-checkbox checkbox-field">
+											<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="input-keeper input-keeper--checkbox w-checkbox checkbox-field">
 												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
 												<input required type="checkbox" id="user_agreement" name="user_agreement"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="#" class="link">Privacy Policy</a></span>
 											</label>

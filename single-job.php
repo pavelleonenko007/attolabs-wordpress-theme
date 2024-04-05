@@ -49,13 +49,13 @@
 									</div>
 								<?php endif; ?>
 								<?php
-								$schedule = attolabs_format_job_schedule( $position, $lang );
-								if ( ! empty( $schedule ) ) :
+								$employment_type = attolabs_format_job_employment_type( $position, $lang );
+								if ( ! empty( $employment_type ) ) :
 									?>
 									<div class="job-row">
 										<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e52-7400cdd1" class="p-12-120 c-grey">Job type:</div>
 										<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e54-7400cdd1" class="jil p-12-120">
-											<div><?php echo esc_html( $schedule ); ?></div>
+											<div><?php echo esc_html( $employment_type ); ?></div>
 										</div>
 									</div>
 								<?php endif; ?>
@@ -147,7 +147,7 @@
 													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link" required>
 												</div>
 											</div>
-											<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="w-checkbox checkbox-field">
+											<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="input-keeper input-keeper--checkbox w-checkbox checkbox-field">
 												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
 												<input type="checkbox" id="user_agreement" name="user_agreement" required>
 												<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="#" class="link">Privacy Policy</a></span>

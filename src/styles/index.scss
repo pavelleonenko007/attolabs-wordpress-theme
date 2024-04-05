@@ -30,3 +30,13 @@ body.admin-bar .nav {
 .jobs-rich.w-richtext > h2:not(:first-child) {
 	margin-top: 80rem;
 }
+
+.input-keeper.input-keeper--checkbox {
+	border: none;
+}
+
+.input-keeper.input-keeper--checkbox.input-keeper--error::after {
+	top: 50%;
+	left: 0;
+	transform: translate3d(-16px, -50%, 0);
+}

@@ -65,7 +65,7 @@
 				<section class="section obsf ob2">
 					<div class="container secnd">
 						<?php if ( ! empty( $heading ) ) : ?>
-						<h2 class="p-76-92">Our team strives for unparalleled quality and innovative solutions, ensuring that <span class="red">your project will be executed at the highest level, exceeding expectations and delivering enduring value.</span></h2>
+						<h2 class="p-76-92"><?php echo esc_html( $heading ); ?></h2>
 						<?php endif; ?>
 						<?php
 						$services = get_terms(
@@ -352,6 +352,8 @@
 					<div class="form-tracker"></div>
 					<a id="idid" href="#">Text Link</a>
 				</div>
+
+				<?php $forms = get_field( 'forms' ); ?>
 				<div class="styk-form">
 					<div class="form-ceeper">
 						<div class="styk-form-mom _1">
@@ -394,6 +396,8 @@
 								</div>
 								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php $message = ! empty( $forms ) && ! empty( $forms['empower_future_with_us'] ) ? $forms['empower_future_with_us'] : 'Your message has been sent successfully'; ?>
+								<input type="hidden" name="message" value="<?php echo esc_attr( $message ); ?>">
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">
@@ -445,6 +449,8 @@
 								</div>
 								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php $message = ! empty( $forms ) && ! empty( $forms['share_your_vision'] ) ? $forms['share_your_vision'] : 'Your message has been sent successfully'; ?>
+								<input type="hidden" name="message" value="<?php echo esc_attr( $message ); ?>">
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">
@@ -496,6 +502,8 @@
 								</div>
 								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
 								<input type="hidden" name="action" value="submit_contact_form" />
+								<?php $message = ! empty( $forms ) && ! empty( $forms['describe_your_project'] ) ? $forms['describe_your_project'] : 'Your message has been sent successfully'; ?>
+								<input type="hidden" name="message" value="<?php echo esc_attr( $message ); ?>">
 								<?php wp_nonce_field( '_submit_contact_form', '_contact_form_nonce' ); ?>
 							</form>
 							<div class="success-message w-form-done">

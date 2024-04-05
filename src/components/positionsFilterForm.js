@@ -18,10 +18,10 @@ export const initPositionsFilterForm = () => {
 		const isEmptyForm =
 			!formData.has('department') &&
 			!formData.has('office') &&
-			!formData.has('schedule');
+			!formData.has('employment_type');
 
 		positions.forEach((positionNode) => {
-			const { department, office, schedule } = positionNode.dataset;
+			const { department, office, employment_type } = positionNode.dataset;
 			const offices = office.split(',');
 
 			const departmentPassed =
@@ -29,10 +29,11 @@ export const initPositionsFilterForm = () => {
 				department === formData.get('department');
 			const officePassed =
 				!formData.has('office') || offices.includes(formData.get('office'));
-			const schedulePassed =
-				!formData.has('schedule') || schedule === formData.get('schedule');
+			const employmentPassed =
+				!formData.has('employment_type') ||
+				employment_type === formData.get('employment_type');
 
-			if (departmentPassed && officePassed && schedulePassed) {
+			if (departmentPassed && officePassed && employmentPassed) {
 				positionNode.style.display = 'flex';
 			} else {
 				positionNode.style.display = 'none';
