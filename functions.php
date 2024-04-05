@@ -1036,8 +1036,8 @@ function attolabs_get_job_positions( string $lang = 'en' ): array {
 	$formatted_languages['fr'] = $formatted_languages['ru'];
 	unset( $formatted_languages['ru'] );
 
-	// $response     = simplexml_load_file( 'https://' . $hostname . '.jobs.personio.de/xml?language=' . $formatted_languages[ $lang ], null, LIBXML_NOCDATA );
-	$response     = simplexml_load_file( TEMPLATE_PATH . '/jobs.xml', null, LIBXML_NOCDATA );
+	$response     = simplexml_load_file( 'https://' . $hostname . '.jobs.personio.de/xml?language=' . $formatted_languages[ $lang ], null, LIBXML_NOCDATA );
+	// $response     = simplexml_load_file( TEMPLATE_PATH . '/jobs.xml', null, LIBXML_NOCDATA );
 	$json         = wp_json_encode( $response );
 	$decoded_json = json_decode( $json );
 
