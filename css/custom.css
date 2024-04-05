@@ -231,7 +231,7 @@ textarea {
 	max-width: 50%;
 	margin-right: 10rem;
 }
-.project-img + .resoults .resoultes-core {
+.resoultes-core.resoultes-core--with-image {
 	max-width: 671rem;
 	grid-column-gap: 44rem;
 	grid-row-gap: 44rem;

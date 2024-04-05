@@ -80,12 +80,15 @@ the_post();
 													</div>
 												</div>
 											<?php endif; ?>
+											<?php
+											$small_image       = $projects_section['small_image'];
+											$image_id          = $small_image['image'];
+											$image_description = $small_image['description'];
+											?>
 											<div class="container resoults">
 												<div class="fw-div single-page">
 													<h2 id="w-node-d845f0d9-7c2b-0b05-afb7-8c90a1720e76-532b9878" class="paragraph p-18-120 styks single-p">Solutions</h2>
 													<?php
-													$small_image = $projects_section['small_image'];
-													$image_id    = $small_image['image'];
 													if ( ! empty( $image_id ) ) :
 														?>
 														<div class="mom-imgs _22wewsd _2 zvz">
@@ -115,14 +118,20 @@ the_post();
 																	<div id="w-node-_4f6f21dc-aef3-96b7-101d-dd4f62e4b711-532b9878" class="blt"></div>
 																</div>
 															</div>
-															<div class="p-12-120 lt0-12px">Köln, Germany</div>
+															<?php if ( ! empty( $image_description ) ) : ?>
+																<div class="p-12-120 lt0-12px"><?php echo esc_html( $image_description ); ?></div>
+															<?php endif; ?>
 														</div>
 													<?php endif; ?>
 													<?php
 													$solutions = $projects_section['solutions'];
 													if ( ! empty( $solutions ) ) :
+														$classes = 'resoultes-core';
+														if ( ! empty( $image_id ) ) {
+															$classes .= ' resoultes-core--with-image';
+														}
 														?>
-														<div id="w-node-_24224a79-18d5-1d4a-1f79-6774a9c24c27-532b9878" class="resoultes-core">
+														<div id="w-node-_24224a79-18d5-1d4a-1f79-6774a9c24c27-532b9878" class="<?php echo esc_attr( $classes ); ?>">
 															<?php foreach ( $solutions as $solution ) : ?>
 																<div id="w-node-_24224a79-18d5-1d4a-1f79-6774a9c24c28-532b9878" class="resoult">
 																	<?php
