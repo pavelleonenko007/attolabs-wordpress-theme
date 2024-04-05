@@ -7,9 +7,9 @@ export const refreshWebflowScripts = () => {
 
 class FormValidator {
 	static isEmail(input) {
-		return input.value.match(
-			/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-		);
+		const regex =
+			/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return regex.test(input.value);
 	}
 
 	static isEmpty(input) {
@@ -38,7 +38,7 @@ export const validateForm = (form) => {
 		}
 
 		if (input.type === 'email') {
-			if (FormValidator.isEmpty(input) && !FormValidator.isEmail(input)) {
+			if (FormValidator.isEmpty(input) || !FormValidator.isEmail(input)) {
 				input.closest('.input-keeper')?.classList.add('input-keeper--error');
 				isValid = false;
 			}
