@@ -1036,7 +1036,7 @@ function attolabs_get_job_positions( string $lang = 'en' ): array {
 	$formatted_languages['fr'] = $formatted_languages['ru'];
 	unset( $formatted_languages['ru'] );
 
-	$response     = simplexml_load_file( 'https://' . $hostname . '.jobs.personio.de/xml?language=' . $formatted_languages[ $lang ], null, LIBXML_NOCDATA );
+	$response = simplexml_load_file( 'https://' . $hostname . '.jobs.personio.de/xml?language=' . $formatted_languages[ $lang ], null, LIBXML_NOCDATA );
 	// $response     = simplexml_load_file( TEMPLATE_PATH . '/jobs.xml', null, LIBXML_NOCDATA );
 	$json         = wp_json_encode( $response );
 	$decoded_json = json_decode( $json );
@@ -1069,32 +1069,37 @@ function attolabs_get_job_position_by_id( int|string $id, string $lang ): stdCla
 
 function attolabs_format_job_employment_type( stdClass $position, string $lang = 'en' ): string {
 	$translations = array(
-		'full-time' => array(
+		'full-time'         => array(
 			'de' => 'Vollzeit',
 			'en' => 'Full-time',
 			'ru' => 'Полная занятость',
 		),
-		'part-time' => array(
+		'part-time'         => array(
 			'de' => 'Teilzeit',
 			'en' => 'Part-time',
 			'ru' => 'Частичная занятость',
 		),
-		'permanent' => array(
+		'full-or-part-time' => array(
+			'de' => 'Teilzeit',
+			'en' => 'Full or part-time',
+			'ru' => 'Полная или Частичная занятость',
+		),
+		'permanent'         => array(
 			'de' => 'Festanstellung',
 			'en' => 'Permanent Employment',
 			'ru' => 'Полная занятость',
 		),
-		'intern'    => array(
+		'intern'            => array(
 			'de' => 'Praktikum',
 			'en' => 'Internship',
 			'ru' => 'Практика',
 		),
-		'trainee'   => array(
+		'trainee'           => array(
 			'de' => 'Trainee Stelle',
 			'en' => 'Trainee Stelle',
 			'ru' => 'Наставничество',
 		),
-		'freelance' => array(
+		'freelance'         => array(
 			'de' => 'Freelance Position',
 			'en' => 'Freelance Position',
 			'ru' => 'Фриланс',

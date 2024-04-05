@@ -23,27 +23,32 @@ $departments      = attolabs_get_job_departments( $positions );
 $cities           = attolabs_get_job_cities( $positions );
 $employment_types = attolabs_get_job_employment_types( $positions );
 $translations     = array(
-	'full-time' => array(
+	'full-time'         => array(
 		'de' => 'Vollzeit',
 		'en' => 'Full-time',
 	),
-	'part-time' => array(
+	'part-time'         => array(
 		'de' => 'Teilzeit',
 		'en' => 'Part-time',
 	),
-	'permanent' => array(
+	'full-or-part-time' => array(
+		'de' => 'Teilzeit',
+		'en' => 'Full or part-time',
+		'ru' => 'Полная или Частичная занятость',
+	),
+	'permanent'         => array(
 		'de' => 'Festanstellung',
 		'en' => 'Permanent Employment',
 	),
-	'intern'    => array(
+	'intern'            => array(
 		'de' => 'Praktikum',
 		'en' => 'Internship',
 	),
-	'trainee'   => array(
+	'trainee'           => array(
 		'de' => 'Trainee Stelle',
 		'en' => 'Trainee Stelle',
 	),
-	'freelance' => array(
+	'freelance'         => array(
 		'de' => 'Freelance Position',
 		'en' => 'Freelance Position',
 	),
