@@ -7565,7 +7565,7 @@ ul, ol {
 
 @font-face {
   font-family: 'Fontsfree Net Maison Neue Mono';
-  src: url('../fonts/65ae22e5f0c9b22845156195_FontsFree-Net-Maison-Neue-Mono.ttf') format('truetype');
+  src: url('../fonts/font.woff2') format('woff2'), url('../fonts/font.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
