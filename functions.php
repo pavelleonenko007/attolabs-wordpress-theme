@@ -1080,7 +1080,7 @@ function attolabs_format_job_employment_type( stdClass $position, string $lang =
 			'ru' => 'Частичная занятость',
 		),
 		'full-or-part-time' => array(
-			'de' => 'Teilzeit',
+			'de' => 'Vollzeit oder Teilzeit',
 			'en' => 'Full or part-time',
 			'ru' => 'Полная или Частичная занятость',
 		),

@@ -32,7 +32,7 @@ $translations     = array(
 		'en' => 'Part-time',
 	),
 	'full-or-part-time' => array(
-		'de' => 'Teilzeit',
+		'de' => 'Vollzeit oder Teilzeit',
 		'en' => 'Full or part-time',
 		'ru' => 'Полная или Частичная занятость',
 	),
