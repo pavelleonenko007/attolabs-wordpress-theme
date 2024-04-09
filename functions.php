@@ -922,7 +922,8 @@ function attolabs_get_project_title_with_address( int|WP_Post $post ): string {
 
 add_filter( 'text_with_hover_links', 'attolabs_format_links' );
 function attolabs_format_links( $content ) {
-	$dom = new DOMDocument();
+	$content = mb_encode_numericentity( $content, array( 0x80, 0x10FFFF, 0, ~0 ), 'UTF-8' );
+	$dom     = new DOMDocument();
 	$dom->loadHTML( $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
 
 	// Получаем все ссылки
