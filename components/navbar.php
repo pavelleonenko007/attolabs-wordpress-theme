@@ -70,11 +70,13 @@ $languages        = pll_the_languages( array( 'raw' => 1 ) );
 		<div class="bottom-nav">
 			<?php
 			$addresses         = attolabs_get_branches_by_lang( $current_language );
-			$address_in_header = array_filter(
-				$addresses,
-				function ( $branch ) {
-					return $branch['display_in_header'];
-				}
+			$address_in_header = array_values(
+				array_filter(
+					$addresses,
+					function ( $branch ) {
+						return $branch['display_in_header'];
+					}
+				)
 			);
 
 			if ( ! empty( $address_in_header ) ) :
