@@ -213,103 +213,146 @@ $branches         = attolabs_get_branches_by_lang( $current_language );
 						</div>
 					</section>
 				<?php endif; ?>
-				<div class="div-block-4">
-					<div class="div-block-6"></div>
-					<div class="stik-diver">
-						<section class="section">
-							<div class="container">
-								<div class="horiz-liner">
-									<h2 class="h2 h2-offices">Our Branches</h2>
-									<div class="aress-core offices-vert-grid">
-										<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de3-d2111407" class="adress-item">
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de4-d2111407" class="p-18-120">Switzerland</div>
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de6-d2111407" class="adress-item_bottom">
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de7-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de9-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dee-d2111407">contact@attolabs.de</div>
-											</div>
-											<div class="project-img img-addr">
-												<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
-												<div class="canvas-tops">
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a49-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4a-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4b-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4c-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4d-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4e-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4f-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a50-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a51-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a52-d2111407" class="blt"></div>
-													<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a53-d2111407" class="blt"></div>
+				<?php if ( ! empty( $branches ) ) : ?>
+					<div class="div-block-4">
+						<div class="div-block-6"></div>
+						<div class="stik-diver">
+							<section class="section">
+								<div class="container">
+									<div class="horiz-liner">
+										<h2 class="h2 h2-offices">Our Branches</h2>
+										<div class="aress-core offices-vert-grid">
+											<?php
+											foreach ( $branches as $index => $branch ) :
+												$country        = $branch['country'];
+												$address_name   = $branch['address_name'];
+												$contact_phones = $branch['contact_phones'];
+												$contact_email  = $branch['contact_email'];
+												?>
+												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de3-d2111407" class="adress-item">
+													<?php if ( ! empty( $country ) ) : ?>
+														<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de4-d2111407" class="p-18-120"><?php echo esc_html( $country ); ?></div>
+													<?php endif; ?>
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de6-d2111407" class="adress-item_bottom">
+														<?php if ( ! empty( $address_name ) ) : ?>
+															<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de7-d2111407"><?php echo esc_html( $address_name ); ?></div>
+														<?php endif; ?>
+														<?php if ( ! empty( $contact_phones ) ) : ?>
+															<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42de9-d2111407" class="adress-item_bottom_ver">
+																<?php foreach ( $contact_phones as $contact_phone ) : ?>
+																	<a href="<?php echo esc_url( attolabs_format_phone_link( $contact_phone['phone_number'] ) ); ?>"><?php echo esc_html( $contact_phone['phone_number'] ); ?></a>
+																<?php endforeach; ?>
+															</div>
+														<?php endif; ?>
+														<?php if ( ! empty( $contact_email ) ) : ?>
+															<a href="<?php echo esc_url( attolabs_format_email_link( $contact_email ) ); ?>" id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dee-d2111407"><?php echo esc_html( $contact_email ); ?></a>
+														<?php endif; ?>
+													</div>
+													<?php if ( 0 === $index ) : ?>
+														<div class="project-img img-addr">
+															<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
+															<div class="canvas-tops">
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a49-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4a-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4b-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4c-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4d-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4e-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4f-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a50-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a51-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a52-d2111407" class="blt"></div>
+																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a53-d2111407" class="blt"></div>
+															</div>
+														</div>
+														<div id="w-node-_6d0d9638-7f3f-9ced-31ad-06dc4e253206-d2111407" class="adr-trigger"></div>
+													<?php endif; ?>
+													<?php if ( 5 === $index ) : ?>
+														<div class="project-img img-addr _2">
+															<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
+															<div class="canvas-tops">
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd6-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd7-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd8-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd9-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cda-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdb-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdc-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdd-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cde-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdf-d2111407" class="blt"></div>
+																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626ce0-d2111407" class="blt"></div>
+															</div>
+														</div>
+														<div id="w-node-_196584f8-3fb1-f3d7-ba9c-46241b40024c-d2111407" class="adr-trigger"></div>
+													<?php endif; ?>
+												</div>
+											<?php endforeach; ?>
+											<!-- <div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df0-d2111407" class="adress-item">
+												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df1-d2111407" class="p-18-120">Germany</div>
+												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df3-d2111407" class="adress-item_bottom">
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df4-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df6-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfb-d2111407">contact@attolabs.de</div>
 												</div>
 											</div>
-											<div id="w-node-_6d0d9638-7f3f-9ced-31ad-06dc4e253206-d2111407" class="adr-trigger"></div>
-										</div>
-										<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df0-d2111407" class="adress-item">
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df1-d2111407" class="p-18-120">Germany</div>
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df3-d2111407" class="adress-item_bottom">
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df4-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df6-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfb-d2111407">contact@attolabs.de</div>
-											</div>
-										</div>
-										<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfd-d2111407" class="adress-item">
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfe-d2111407" class="p-18-120">Türkiye</div>
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e00-d2111407" class="adress-item_bottom">
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e01-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e03-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e08-d2111407">contact@attolabs.de</div>
-											</div>
-										</div>
-										<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0a-d2111407" class="adress-item">
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0b-d2111407" class="p-18-120">Uzbekiston</div>
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0d-d2111407" class="adress-item_bottom">
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0e-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e10-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e15-d2111407">contact@attolabs.de</div>
-											</div>
-											<div id="w-node-c0b15f6e-f9c3-2b69-155c-2022518ef18f-d2111407" class="adr-trigger"></div>
-										</div>
-										<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa34-d2111407" class="adress-item">
-											<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa35-d2111407" class="p-18-120">Tojikiston, Khujand</div>
-											<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa37-d2111407" class="adress-item_bottom">
-												<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa38-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-												<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa3a-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-												<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa3f-d2111407">contact@attolabs.de</div>
-											</div>
-										</div>
-										<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f20f-d2111407" class="adress-item">
-											<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f210-d2111407" class="p-18-120">Tojikiston, Dushanbe</div>
-											<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f212-d2111407" class="adress-item_bottom">
-												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f213-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f215-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f21a-d2111407">contact@attolabs.de</div>
-											</div>
-											<div class="project-img img-addr _2">
-												<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
-												<div class="canvas-tops">
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd6-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd7-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd8-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd9-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cda-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdb-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdc-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdd-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cde-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdf-d2111407" class="blt"></div>
-													<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626ce0-d2111407" class="blt"></div>
+											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfd-d2111407" class="adress-item">
+												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfe-d2111407" class="p-18-120">Türkiye</div>
+												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e00-d2111407" class="adress-item_bottom">
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e01-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e03-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e08-d2111407">contact@attolabs.de</div>
 												</div>
 											</div>
-											<div id="w-node-_196584f8-3fb1-f3d7-ba9c-46241b40024c-d2111407" class="adr-trigger"></div>
+											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0a-d2111407" class="adress-item">
+												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0b-d2111407" class="p-18-120">Uzbekiston</div>
+												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0d-d2111407" class="adress-item_bottom">
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0e-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e10-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
+													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e15-d2111407">contact@attolabs.de</div>
+												</div>
+												<div id="w-node-c0b15f6e-f9c3-2b69-155c-2022518ef18f-d2111407" class="adr-trigger"></div>
+											</div>
+											<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa34-d2111407" class="adress-item">
+												<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa35-d2111407" class="p-18-120">Tojikiston, Khujand</div>
+												<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa37-d2111407" class="adress-item_bottom">
+													<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa38-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
+													<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa3a-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
+													<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa3f-d2111407">contact@attolabs.de</div>
+												</div>
+											</div>
+											<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f20f-d2111407" class="adress-item">
+												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f210-d2111407" class="p-18-120">Tojikiston, Dushanbe</div>
+												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f212-d2111407" class="adress-item_bottom">
+													<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f213-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
+													<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f215-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
+													<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f21a-d2111407">contact@attolabs.de</div>
+												</div>
+												<div class="project-img img-addr _2">
+													<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
+													<div class="canvas-tops">
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd6-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd7-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd8-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd9-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cda-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdb-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdc-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdd-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cde-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdf-d2111407" class="blt"></div>
+														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626ce0-d2111407" class="blt"></div>
+													</div>
+												</div>
+												<div id="w-node-_196584f8-3fb1-f3d7-ba9c-46241b40024c-d2111407" class="adr-trigger"></div>
+											</div> -->
 										</div>
 									</div>
 								</div>
-							</div>
-						</section>
+							</section>
+						</div>
 					</div>
-				</div>
+				<?php endif; ?>
 				<div id="styker" class="div-block-3">
 					<div class="form-tracker"></div>
 					<a id="idid" href="#">Text Link</a>
