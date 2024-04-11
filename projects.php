@@ -189,6 +189,7 @@ get_header(
 																				id="<?php echo esc_attr( 'service_' . $service->term_id ); ?>" 
 																				name="services[]" 
 																				value="<?php echo esc_attr( $service->term_id ); ?>"
+																				<?php echo ( isset( $_GET['services'] ) && (int) $_GET['services'] === $service->term_id ) ? 'checked' : ''; ?>
 																			/>
 																			<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'service_' . $service->term_id ); ?>"><?php echo esc_html( $service->name ); ?></span>
 																		</label>
@@ -215,6 +216,7 @@ get_header(
 																				id="<?php echo esc_attr( 'industry_' . $industry->term_id ); ?>" 
 																				name="industries[]" 
 																				value="<?php echo esc_attr( $industry->term_id ); ?>"
+																				<?php echo ( isset( $_GET['industries'] ) && (int) $_GET['industries'] === $industry->term_id ) ? 'checked' : ''; ?>
 																			/>
 																			<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'industry_' . $industry->term_id ); ?>"><?php echo esc_html( $industry->name ); ?></span>
 																		</label>
