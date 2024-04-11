@@ -110,13 +110,13 @@
 								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11a-57d32ccb" class="serv-core">
 									<?php foreach ( $industries as $industry ) : ?>
 										<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11b-57d32ccb" class="serv-item">
-										<a href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?industries=' . $service->term_id ); ?>" class="abs-serv-item-link"></a>
+										<a href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?industries=' . $industry->term_id ); ?>" class="abs-serv-item-link"></a>
 											<a href="#" class="serv-link"><?php echo esc_html( $industry->name ); ?></a>
 											<?php
 											$projects = attolabs_get_projects_by_term( $industry );
 											?>
 											<a href="#" class="serv-projects"><?php pll_e( 'Services' ); ?><span class="serv-span">:<?php echo esc_html( attolabs_get_project_services_number( $projects ) ); ?></span></a>
-											<a id="w-node-_6ac1f909-6525-b9ed-30fd-a9774858d522-57d32ccb" href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?industries=' . $service->term_id ); ?>" class="serv-projects ll">View Projects<span class="serv-span">:<?php echo count( $projects ); ?></span></a>
+											<a id="w-node-_6ac1f909-6525-b9ed-30fd-a9774858d522-57d32ccb" href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?industries=' . $industry->term_id ); ?>" class="serv-projects ll">View Projects<span class="serv-span">:<?php echo count( $projects ); ?></span></a>
 											<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd122-57d32ccb" class="obs-link-tracker"></div>
 										</div>
 									<?php endforeach; ?>
