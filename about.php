@@ -213,7 +213,10 @@ $branches         = attolabs_get_branches_by_lang( $current_language );
 						</div>
 					</section>
 				<?php endif; ?>
-				<?php if ( ! empty( $branches ) ) : ?>
+				<?php
+				if ( ! empty( $branches ) ) :
+					$our_branches = is_array( get_field( 'our_branches' ) ) ? get_field( 'our_branches' ) : array();
+					?>
 					<div class="div-block-4">
 						<div class="div-block-6"></div>
 						<div class="stik-diver">
@@ -248,9 +251,23 @@ $branches         = attolabs_get_branches_by_lang( $current_language );
 															<a href="<?php echo esc_url( attolabs_format_email_link( $contact_email ) ); ?>" id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dee-d2111407"><?php echo esc_html( $contact_email ); ?></a>
 														<?php endif; ?>
 													</div>
-													<?php if ( 0 === $index ) : ?>
+													<?php
+													$first_image = $our_branches['first_image'];
+													if ( 0 === $index && ! empty( $first_image ) ) :
+														?>
 														<div class="project-img img-addr">
-															<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
+															<?php
+															echo wp_get_attachment_image(
+																$first_image,
+																'full',
+																false,
+																array(
+																	'loading' => 'eager',
+																	'class' => 'img-cover pixel-addr',
+																)
+															);
+															?>
+															<!-- <img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr"> -->
 															<div class="canvas-tops">
 																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a49-d2111407" class="blt"></div>
 																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4a-d2111407" class="blt"></div>
@@ -267,9 +284,23 @@ $branches         = attolabs_get_branches_by_lang( $current_language );
 														</div>
 														<div id="w-node-_6d0d9638-7f3f-9ced-31ad-06dc4e253206-d2111407" class="adr-trigger"></div>
 													<?php endif; ?>
-													<?php if ( 5 === $index ) : ?>
+													<?php
+													$second_image = $our_branches['second_image'];
+													if ( 5 === $index && ! empty( $second_image ) ) :
+														?>
 														<div class="project-img img-addr _2">
-															<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
+															<?php
+															echo wp_get_attachment_image(
+																$second_image,
+																'full',
+																false,
+																array(
+																	'loading' => 'eager',
+																	'class' => 'img-cover pixel-addr',
+																)
+															);
+															?>
+															<!-- <img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr"> -->
 															<div class="canvas-tops">
 																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd6-d2111407" class="blt"></div>
 																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd7-d2111407" class="blt"></div>
