@@ -989,12 +989,13 @@ function attolabs_get_site_logo(): string {
 
 add_action( 'init', 'attolabs_add_rewrite_rules' );
 function attolabs_add_rewrite_rules() {
-	add_rewrite_rule( 'jobs/(.+)[/]?$', 'index.php?job=$matches[1]', 'top' );
+	add_rewrite_rule( '(?:([a-z]{2})/)?jobs/(\d+)$', 'index.php?lang=$matches[1]&job=$matches[2]', 'top' );
 }
 
 add_filter( 'query_vars', 'attolabs_custom_query_vars' );
 function attolabs_custom_query_vars( $query_vars ) {
 	$query_vars[] = 'job';
+	$query_vars[] = 'lang';
 	return $query_vars;
 }
 
