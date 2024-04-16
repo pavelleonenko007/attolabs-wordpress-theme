@@ -20,6 +20,8 @@ $text_section     = get_field( 'text_section' );
 $our_values_block = get_field( 'our_values_block' );
 $current_language = pll_current_language();
 $branches         = attolabs_get_branches_by_lang( $current_language );
+$privacy_policy_page_id = 3;
+$privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
 ?>
 				<div data-w-id="f63cc638-65a6-6b47-a6cb-493087ba41e4" class="scroll-mom-container">
 					<div class="styk-anim">
@@ -416,6 +418,7 @@ $branches         = attolabs_get_branches_by_lang( $current_language );
 												<div class="input-keeper bigger">
 													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name" required>
 												</div>
+												<span>By clicking “Submit” you agree to our <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
 											</div>
 										</div>
 									</div>

@@ -16,6 +16,10 @@ get_header(
 );
 
 the_post();
+$current_language       = pll_current_language();
+$privacy_policy_page_id = 3;
+$privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
+
 ?>
 				<div class="div-block-4 obsf ob1">
 					<div class="div-block-6"></div>
@@ -270,6 +274,7 @@ the_post();
 												<div class="input-keeper bigger">
 													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name" required>
 												</div>
+												<span>By clicking “Submit” you agree to our <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
 											</div>
 										</div>
 									</div>
