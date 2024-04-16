@@ -252,7 +252,7 @@ $branches         = attolabs_get_branches_by_lang( $current_language );
 														<?php endif; ?>
 													</div>
 													<?php
-													$first_image = $our_branches['first_image'];
+													$first_image = isset( $our_branches['first_image'] ) ? $our_branches['first_image'] : null;
 													if ( 0 === $index && ! empty( $first_image ) ) :
 														?>
 														<div class="project-img img-addr">
@@ -285,7 +285,7 @@ $branches         = attolabs_get_branches_by_lang( $current_language );
 														<div id="w-node-_6d0d9638-7f3f-9ced-31ad-06dc4e253206-d2111407" class="adr-trigger"></div>
 													<?php endif; ?>
 													<?php
-													$second_image = $our_branches['second_image'];
+													$second_image = isset( $our_branches['second_image'] ) ? $our_branches['second_image'] : null;
 													if ( 5 === $index && ! empty( $second_image ) ) :
 														?>
 														<div class="project-img img-addr _2">
