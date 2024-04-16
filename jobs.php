@@ -22,7 +22,8 @@ $positions        = attolabs_get_job_positions( $lang );
 $departments      = attolabs_get_job_departments( $positions );
 $cities           = attolabs_get_job_cities( $positions );
 $employment_types = attolabs_get_job_employment_types( $positions );
-$translations = array(
+$current_language = pll_current_language();
+$translations     = array(
 	'full-time'         => array(
 		'de' => 'Vollzeit',
 		'en' => 'Full-time',
@@ -383,7 +384,11 @@ $translations = array(
 											</div>
 											<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="input-keeper input-keeper--checkbox w-checkbox checkbox-field">
 												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
-												<input required type="checkbox" id="user_agreement" name="user_agreement"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="#" class="link">Privacy Policy</a></span>
+												<?php
+												$privacy_policy_page_id = 3;
+												$privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
+												?>
+												<input required type="checkbox" id="user_agreement" name="user_agreement"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" class="link" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
 											</label>
 										</div>
 									</div>

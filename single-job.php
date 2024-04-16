@@ -150,7 +150,11 @@
 											<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="input-keeper input-keeper--checkbox w-checkbox checkbox-field">
 												<div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox" for="user_agreement"></div>
 												<input type="checkbox" id="user_agreement" name="user_agreement" required>
-												<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="#" class="link">Privacy Policy</a></span>
+												<?php
+												$privacy_policy_page_id = 3;
+												$privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $lang );
+												?>
+												<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" class="link" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
 											</label>
 										</div>
 									</div>

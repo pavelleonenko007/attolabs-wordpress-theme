@@ -86,7 +86,7 @@ $current_language = pll_current_language();
 							endif;
 							?>
 							<?php
-							$copyright = !empty(get_field( 'copyright', 'option' )) ? get_field( 'copyright', 'option' ) : '© ' . get_bloginfo('name');
+							$copyright = ! empty( get_field( 'copyright', 'option' ) ) ? get_field( 'copyright', 'option' ) : '© ' . get_bloginfo( 'name' );
 							if ( ! empty( $copyright ) ) :
 								?>
 								<div class="foo-text _23"><?php echo esc_html( $copyright ); ?>, <?php echo esc_html( gmdate( 'Y' ) ); ?></div>
@@ -140,7 +140,11 @@ $current_language = pll_current_language();
 				<p class="p-12-120 c-grey m10"><?php echo esc_html( $cookie_content ); ?></p>
 				<div class="flex-horiz">
 					<a href="#" data-button="accept" class="a-12-120"><?php pll_e( 'Accept' ); ?></a>
-					<a href="#" class="a-12-120 grey"><?php pll_e( 'Learn more' ); ?></a>
+					<?php
+					$privacy_policy_page_id = 3;
+					$privacy_policy_url     = get_the_permalink( pll_get_post( $privacy_policy_page_id, $current_language ) );
+					?>
+					<a href="<?php echo esc_url( $privacy_policy_url ); ?>" class="a-12-120 grey"><?php pll_e( 'Learn more' ); ?></a>
 				</div>
 			</div>
 		<?php endif; ?>
