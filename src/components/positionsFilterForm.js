@@ -101,10 +101,9 @@ export const initPositionsFilterForm = () => {
 
 	const resetHandler = (event) => {
 		const form = event.target.closest('form');
-		const trigger = form.dataset.formTrigger ?? 'submit';
 		form.reset();
 		setTimeout(() => {
-			form.dispatchEvent(new Event(trigger));
+			form.dispatchEvent(new Event('submit'));
 		}, 100);
 	};
 
