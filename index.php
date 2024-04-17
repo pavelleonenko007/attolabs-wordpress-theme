@@ -16,6 +16,7 @@
 	the_post();
 	$projects_page_id       = 56;
 	$current_language       = pll_current_language();
+	$projects_page          = pll_get_post( $projects_page_id, $current_language );
 	$privacy_policy_page_id = 3;
 	$privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
 	?>
@@ -85,13 +86,13 @@
 								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e6-57d32ccb" class="serv-core server">
 									<?php foreach ( $services as $service ) : ?>
 										<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e7-57d32ccb" class="serv-item">
-											<a href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?services=' . $service->term_id ); ?>" class="abs-serv-item-link"></a>
+											<a href="<?php echo esc_url( get_the_permalink( $projects_page ) . '?services=' . $service->term_id ); ?>" class="abs-serv-item-link"></a>
 											<a id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0e8-57d32ccb" href="#" class="serv-link"><?php echo esc_html( $service->name ); ?></a>
 											<?php
 											$projects = attolabs_get_projects_by_term( $service );
 											?>
 											<a href="#" class="serv-projects"><?php pll_e( 'Industries' ); ?><span class="serv-span">:<?php echo esc_html( attolabs_get_project_industry_number( $projects ) ); ?></span></a>
-											<a id="w-node-_1223488a-8650-1ebc-1d48-71d2a33c8c8d-57d32ccb" href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?services=' . $service->term_id ); ?>" class="serv-projects ll">View Projects<span class="serv-span">:<?php echo count( $projects ); ?></span></a>
+											<a id="w-node-_1223488a-8650-1ebc-1d48-71d2a33c8c8d-57d32ccb" href="<?php echo esc_url( get_the_permalink( $projects_page ) . '?services=' . $service->term_id ); ?>" class="serv-projects ll">View Projects<span class="serv-span">:<?php echo count( $projects ); ?></span></a>
 											<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd0ee-57d32ccb" class="obs-link-tracker"></div>
 										</div>
 									<?php endforeach; ?>
@@ -113,13 +114,13 @@
 								<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11a-57d32ccb" class="serv-core">
 									<?php foreach ( $industries as $industry ) : ?>
 										<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd11b-57d32ccb" class="serv-item">
-										<a href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?industries=' . $industry->term_id ); ?>" class="abs-serv-item-link"></a>
+										<a href="<?php echo esc_url( get_the_permalink( $projects_page ) . '?industries=' . $industry->term_id ); ?>" class="abs-serv-item-link"></a>
 											<a href="#" class="serv-link"><?php echo esc_html( $industry->name ); ?></a>
 											<?php
 											$projects = attolabs_get_projects_by_term( $industry );
 											?>
 											<a href="#" class="serv-projects"><?php pll_e( 'Services' ); ?><span class="serv-span">:<?php echo esc_html( attolabs_get_project_services_number( $projects ) ); ?></span></a>
-											<a id="w-node-_6ac1f909-6525-b9ed-30fd-a9774858d522-57d32ccb" href="<?php echo esc_url( get_the_permalink( $projects_page_id ) . '?industries=' . $industry->term_id ); ?>" class="serv-projects ll">View Projects<span class="serv-span">:<?php echo count( $projects ); ?></span></a>
+											<a id="w-node-_6ac1f909-6525-b9ed-30fd-a9774858d522-57d32ccb" href="<?php echo esc_url( get_the_permalink( $projects_page ) . '?industries=' . $industry->term_id ); ?>" class="serv-projects ll">View Projects<span class="serv-span">:<?php echo count( $projects ); ?></span></a>
 											<div id="w-node-_75904b16-76a3-3065-6a21-3868f85fd122-57d32ccb" class="obs-link-tracker"></div>
 										</div>
 									<?php endforeach; ?>
@@ -161,6 +162,7 @@
 								<div class="skyk-projects">
 									<div class="red-scroll-line"></div>
 									<h2 class="h2-abs">Projects</h2>
+									<a href="<?php echo esc_url( get_the_permalink( $projects_page ) ); ?>" class="project-link view-all">View all</a>
 									<?php
 									foreach ( $projects as $index => $post ) :
 										setup_postdata( $post );
@@ -239,58 +241,6 @@
 									endforeach;
 									wp_reset_postdata();
 									?>
-									<!-- <div class="project-item">
-										<h3 class="h3-project">UVP</h3>
-										<div class="project-item_top">
-											<p class="p-18-120 mmax">The modernization of the platform helped to speed up the search for documentation, the search for volunteers and the necessary data about them, in the database on the Unified Volunteer Platform for efficient and fast operation of the platform.</p>
-											<div class="_0w">
-												<div class="text-block">Industry:<br>Fintech</div>
-											</div>
-											<a href="/project-single" class="project-link">Learn more</a>
-										</div>
-										<div class="project-img _2 homep">
-											<img src="<?php echo get_template_directory_uri(); ?>/images/65ae36374e9b439983d212e7_image2022720(1).webp" loading="eager" alt class="img-cover pixel">
-											<div class="canvas-tops">
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a2c-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a2d-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a2e-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a2f-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a30-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a31-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a32-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a33-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a34-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a35-57d32ccb" class="blt"></div>
-												<div id="w-node-_63140f28-56b2-fa17-f2a6-c71eebcc9a36-57d32ccb" class="blt"></div>
-											</div>
-										</div>
-									</div>
-									<div class="project-item">
-										<h3 class="h3-project">CSH</h3>
-										<div class="project-item_top">
-											<p class="p-18-120 mmax">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
-											<div class="_0w">
-												<div class="text-block">Industry:<br>Fintech</div>
-											</div>
-											<a href="/project-single" class="project-link">Learn more</a>
-										</div>
-										<div class="project-img _3 homep">
-											<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d38498a521ef243a6cf9_image2022720(5).webp" loading="eager" alt class="img-cover pixel">
-											<div class="canvas-tops">
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d4168439-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d416843a-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d416843b-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d416843c-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d416843d-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d416843e-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d416843f-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d4168440-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d4168441-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d4168442-57d32ccb" class="blt"></div>
-												<div id="w-node-_06edf520-4c10-5c72-361c-1558d4168443-57d32ccb" class="blt"></div>
-											</div>
-										</div>
-									</div> -->
 								</div>
 							</div>
 						</div>
