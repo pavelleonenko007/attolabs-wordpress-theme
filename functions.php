@@ -1410,4 +1410,31 @@ function attolabs_get_branches_by_lang( string $lang ): array {
 	return $branches_by_lang;
 }
 
+function attolabs_remove_language_slug( $url ) {
+	$pattern                   = '/^(https?:\/\/[^\/]+)\/[a-z]{2}\/(.*)$/i';
+	$replacement               = '$1/$2';
+	$url_without_language_slug = preg_replace( $pattern, $replacement, $url );
+
+	return $url_without_language_slug;
+}
+
+function attolabs_generate_language_url( $url, $lang ) {
+	$normalized_url = attolabs_remove_language_slug( $url );
+	$url_schema     = parse_url( $normalized_url );
+
+	if ( 'en' === $lang ) {
+		return $normalized_url;
+	} else {
+		return $url_schema['scheme'] . '://' . $url_schema['host'] . '/' . $lang . $url_schema['path'];
+	}
+}
+
+add_filter( 'pll_the_language_link', 'attolabs_filter_polylang_empty_link', 10, 3 );
+function attolabs_filter_polylang_empty_link( $url, $slug, $locale ) {
+	if ( empty( $url ) ) {
+		return attolabs_generate_language_url( attolabs_get_current_url(), $slug );
+	}
+	return $url;
+}
+
 require_once trailingslashit( get_template_directory() ) . 'inc/translations.php';
