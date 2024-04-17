@@ -1,3 +1,18 @@
+.filteropened button.clear-filter,
+button.clear-filter {
+	display: none;
+}
+
+.filteropened button.clear-filter.clear-filters--active,
 .clear-filters.clear-filters--active {
-	display: block;
+	display: flex;
+}
+
+button[form="job-filter-form-mobile"][disabled] {
+	display: none;
+}
+
+.job-btn[disabled] {
+	cursor: not-allowed;
+	opacity: 0.5;
 }

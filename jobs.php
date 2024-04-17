@@ -88,6 +88,7 @@ $translations     = array(
 									</div>
 								</a>
 								<button type="reset" form="job-filter-form-mobile" class="clear-filter">Clear filters</button>
+								<button type="submit" form="job-filter-form-mobile" class="apply-filter" disabled>Apply</button>
 							</div>
 							<div class="filters-block">
 								<div>
@@ -154,7 +155,7 @@ $translations     = array(
 								<form id="job-filter-form" data-form="filter-positions" data-form-trigger="submit" class="jobs-form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="e9aa1461-cfa6-6ef1-cffd-068ffa8cc9dc">
 									<div class="p-18-120 top-he">Open positions (<span class="count"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
 									<div class="flex-left">
-										<button type="reset" class="clear-filters">Clear filters</button>
+										<button type="reset" form="job-filter-form" class="clear-filters">Clear filters</button>
 										<div class="cl-fltrs"></div>
 										<?php if ( ! empty( $departments ) ) : ?>
 											<div class="job-droper">
@@ -175,7 +176,7 @@ $translations     = array(
 															<?php endforeach; ?>
 														</div>
 														<div class="flex-horiz">
-															<button type="submit" class="job-btn">Apply</button>
+															<button type="submit" form="job-filter-form" disabled class="job-btn">Apply</button>
 															<a href="#" class="job-btn close">Close</a>
 														</div>
 													</div>
@@ -203,7 +204,7 @@ $translations     = array(
 															<?php endforeach; ?>
 														</div>
 														<div class="flex-horiz">
-															<button type="submit" class="job-btn">Apply</button>
+															<button type="submit" form="job-filter-form" disabled class="job-btn">Apply</button>
 															<a href="#" class="job-btn close">Close</a>
 														</div>
 													</div>
@@ -233,14 +234,13 @@ $translations     = array(
 															<?php endforeach; ?>
 														</div>
 														<div class="flex-horiz">
-															<button type="submit" class="job-btn">Apply</button>
+															<button type="submit" form="job-filter-form" disabled class="job-btn">Apply</button>
 															<a href="#" class="job-btn close">Close</a></div>
 													</div>
 												</div>
 											</div>
 										<?php endif; ?>
 									</div>
-									<input type="submit" data-wait="Please wait..." class="hide w-button" value="Submit">
 								</form>
 							</div>
 						<?php endif; ?>

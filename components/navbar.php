@@ -7,7 +7,11 @@
 
 defined( 'ABSPATH' ) || exit;
 $current_language = pll_current_language();
-$languages        = pll_the_languages( array( 'raw' => 1 ) );
+$languages        = pll_the_languages(
+	array(
+		'raw' => 1,
+	)
+);
 ?>
 <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
 	<header class="header">
