@@ -1058,11 +1058,13 @@ function attolabs_get_job_positions( string $lang = 'en' ): array {
 function attolabs_get_job_position_by_id( int|string $id, string $lang ): stdClass|null {
 	$positions = attolabs_get_job_positions( $lang );
 
-	$position = array_filter(
-		$positions,
-		function ( $pos ) use ( $id ) {
-			return $pos->id === $id;
-		}
+	$position = array_values(
+		array_filter(
+			$positions,
+			function ( $pos ) use ( $id ) {
+				return $pos->id === $id;
+			}
+		)
 	);
 
 	return $position[0];
