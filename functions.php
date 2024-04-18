@@ -816,13 +816,10 @@ function attolabs_filter_projects_via_ajax(): void {
 	if ( ! $query->have_posts() ) {
 		wp_send_json_success(
 			array(
-				'projects'    => '<p>No projects with this filters</p>',
-				'filter-form' => '',
+				'projects' => '<p>No projects with this filters</p>',
 			)
 		);
 	}
-
-	$data = array();
 
 	ob_start();
 
@@ -835,72 +832,12 @@ function attolabs_filter_projects_via_ajax(): void {
 
 	$projects_html = ob_get_clean();
 
-	$data['projects'] = $projects_html;
-
-	$services   = attolabs_get_posts_terms( 'service', $query->posts );
-	$industries = attolabs_get_posts_terms( 'industry', $query->posts );
-
-	// wp_send_json($query_args);
-
-	$filters_html = '';
-
-	if ( ! empty( $services ) ) {
-		$filters_html .= '<div class="droper-filter">
-			<div class="drpoter-block">
-				<div class="p-12-120">Services (<span class="count">' . count( $services ) . '</span>)</div>
-				<img src="' . esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ) . '" loading="lazy" alt class="image-2">
-			</div>
-			<div class="droper-content">';
-
-		foreach ( $services as $service ) {
-			$checked       = ( isset( $_POST['services'] ) && is_array( $_POST['services'] ) && in_array( $service->term_id, $_POST['services'] ) ) ? 'checked' : '';
-			$filters_html .= '<label class="w-checkbox rdb">
-				<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="' . esc_attr( 'service_' . $service->term_id ) . '"></div>
-				<input 
-					type="checkbox" 
-					id="' . esc_attr( 'service_' . $service->term_id ) . '" 
-					name="services[]" 
-					value="' . esc_attr( $service->term_id ) . '"
-					' . $checked . '
-				/>
-				<span class="radio-button-label w-form-label" for="' . esc_attr( 'service_' . $service->term_id ) . '">' . esc_html( $service->name ) . '</span>
-			</label>';
-		}
-
-		$filters_html .= '</div>
-		</div>';
-	}
-
-	if ( ! empty( $industries ) ) {
-		$filters_html .= '<div class="droper-filter">
-			<div class="drpoter-block">
-				<div class="p-12-120">Industries (<span class="count">' . count( $industries ) . '</span>)</div>
-				<img src="' . esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ) . '" loading="lazy" alt class="image-2">
-			</div>
-			<div class="droper-content">';
-
-		foreach ( $industries as $industry ) {
-			$checked       = ( isset( $_POST['industries'] ) && is_array( $_POST['industries'] ) && in_array( $industry->term_id, $_POST['industries'] ) ) ? 'checked' : '';
-			$filters_html .= '<label class="w-checkbox rdb">
-					<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="' . esc_attr( 'industry_' . $industry->term_id ) . '"></div>
-					<input 
-						type="checkbox" 
-						id="' . esc_attr( 'industry_' . $industry->term_id ) . '" 
-						name="industries[]" 
-						value="' . esc_attr( $industry->term_id ) . '"
-						' . $checked . '
-					/>
-					<span class="radio-button-label w-form-label" for="' . esc_attr( 'industry_' . $industry->term_id ) . '">' . esc_html( $industry->name ) . '</span>
-				</label>';
-		}
-
-		$filters_html .= '</div>
-			</div>';
-	}
-
-	$data['filter-form'] = $filters_html;
-
-	wp_send_json_success( $data );
+	wp_send_json_success(
+		array(
+			'html'  => $projects_html,
+			'count' => $query->post_count,
+		)
+	);
 }
 
 function attolabs_get_project_title_with_address( int|WP_Post $post ): string {

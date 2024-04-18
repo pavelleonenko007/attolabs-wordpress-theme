@@ -16,6 +16,17 @@ get_header(
 $current_language       = pll_current_language();
 $privacy_policy_page_id = 3;
 $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
+$services               = get_terms(
+	array(
+		'taxonomy' => 'service',
+	)
+);
+
+$industries = get_terms(
+	array(
+		'taxonomy' => 'industry',
+	)
+);
 ?>
 				<div class="div-block-4 obsf ob1">
 					<div class="div-block-6"></div>
@@ -59,95 +70,148 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 													</svg>
 												</div>
 											</a>
-											<a href="#" class="clear-filter">Clear filters</a>
+											<button type="reset" form="projects-filter-form-mob" class="clear-filter">Clear filters</button>
+											<button type="submit" form="projects-filter-form-mob" class="apply-filter" disabled>Apply</button>
 										</div>
 										<div class="filters-block">
-											<div class="w-form">
-												<form id="email-form-4" name="email-form-4" data-name="Email Form 4" method="get" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="b89cf7ca-e2c6-3358-fec3-101568a42046">
-													<div class="droper-filter">
-														<div class="drpoter-block">
-															<div class="p-12-120">Services (<span class="count">6</span>)</div>
-															<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 no-mob">
+											<div>
+												<form id="projects-filter-form-mob" data-form="filter-projects" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="b89cf7ca-e2c6-3358-fec3-101568a42046">
+													<?php if ( ! empty( $services ) ) : ?>
+														<div class="droper-filter">
+															<div class="drpoter-block">
+																<div class="p-12-120">Services (<span class="count"><?php echo count( $services ); ?></span>)</div>
+																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 no-mob">
+															</div>
+															<div class="droper-content">
+																<?php foreach ( $services as $service ) : ?>
+																	<label class="w-checkbox rdb">
+																		<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="<?php echo esc_attr( 'service_mob_' . $service->term_id ); ?>"></div>
+																		<input 
+																			type="radio" 
+																			id="<?php echo esc_attr( 'service_mob_' . $service->term_id ); ?>" 
+																			name="services[]" 
+																			data-name="services[]" 
+																			style="opacity:0;position:absolute;z-index:-1"
+																			value="<?php echo esc_attr( $service->term_id ); ?>"
+																		/>
+																		<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'service_mob_' . $service->term_id ); ?>"><?php echo esc_html( $service->name ); ?></span>
+																	</label>
+																<?php endforeach; ?>
+															</div>
 														</div>
-														<div class="droper-content">
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-7"></div>
-																<input type="checkbox" id="checkbox-7" name="checkbox-7" data-name="Checkbox 7" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-7">Custom Software Development</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-2"></div>
-																<input type="checkbox" id="checkbox-2" name="checkbox-2" data-name="Checkbox 2" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-2">CRM Development</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-3"></div>
-																<input type="checkbox" id="checkbox-3" name="checkbox-3" data-name="Checkbox 3" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-3">Web Development</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">Mobile app Development</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">Saas Development</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">Cloud Development</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">MVP Development</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">CROSS-PLATFORM SOLUTIONS</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">Database solutions</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">API integration</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">Support and maintenance</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-4"></div>
-																<input type="checkbox" id="checkbox-4" name="checkbox-4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-4">TECHNOLOGY consulting</span>
-															</label>
+													<?php endif; ?>
+													<?php if ( ! empty( $industries ) ) : ?>
+														<div class="droper-filter">
+															<div class="drpoter-block">
+																<div class="p-12-120">Industries (<span class="count"><?php echo count( $services ); ?></span>)</div>
+																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 no-mob">
+															</div>
+															<div class="droper-content">
+																<?php foreach ( $industries as $industry ) : ?>
+																	<label class="w-checkbox rdb">
+																		<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="<?php echo esc_attr( 'industry_mob_' . $industry->term_id ); ?>"></div>
+																		<input 
+																			type="radio" 
+																			id="<?php echo esc_attr( 'industry_mob_' . $industry->term_id ); ?>" 
+																			name="industries[]" 
+																			data-name="industries[]" 
+																			style="opacity:0;position:absolute;z-index:-1"
+																			value="<?php echo esc_attr( $industry->term_id ); ?>"
+																		/>
+																		<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'industry_mob_' . $industry->term_id ); ?>"><?php echo esc_html( $industry->name ); ?></span>
+																	</label>
+																<?php endforeach; ?>
+															</div>
 														</div>
-													</div>
-													<div class="droper-filter">
-														<div class="drpoter-block">
-															<div class="p-12-120">Industries (2)</div>
-															<img src="<?php echo get_template_directory_uri(); ?>/images/65d85ded4d043968d9a1a5d9_chevron.svg" loading="lazy" alt class="image-2 no-mob">
-														</div>
-														<div class="droper-content">
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-5"></div>
-																<input type="checkbox" id="checkbox-5" name="checkbox-5" data-name="Checkbox 5" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-5">Agritech</span>
-															</label>
-															<label class="w-checkbox rdb">
-																<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="checkbox-6"></div>
-																<input type="checkbox" id="checkbox-6" name="checkbox-6" data-name="Checkbox 6" style="opacity:0;position:absolute;z-index:-1"><span class="radio-button-label w-form-label" for="checkbox-6">Consulting</span>
-															</label>
-														</div>
-													</div>
+													<?php endif; ?>
+													<input type="hidden" name="action" value="filter_projects" />
+													<?php wp_nonce_field( 'attolabs_filter_projects', 'filter_nonce' ); ?>
 												</form>
-												<div class="w-form-done">
-													<div>Thank you! Your submission has been received!</div>
-												</div>
-												<div class="w-form-fail">
-													<div>Oops! Something went wrong while submitting the form.</div>
-												</div>
 											</div>
 										</div>
 									</div>
 									
 									<div class="projects-core underfilter">
+										<div class="jobs-mom-form projects-filter">
+											<form id="projects-filter-form" data-form="filter-projects" class="jobs-form" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="0826e2de-fd8a-bf2f-05b5-e5a4ece99b85">
+												<div class="p-18-120 top-he">selected projects (<span data-filter="counter"><?php echo esc_html( $query->post_count ); ?></span>)</div>
+												<div class="flex-left">
+													<button type="reset" form="projects-filter-form" class="clear-filters">Clear filters</button>
+													<div class="cl-fltrs"></div>
+													<?php
+													if ( ! empty( $services ) ) :
+														?>
+														<div class="job-droper">
+															<div class="job-droper-a">
+																<div class="p-12-120 uper">Services</div>
+																<div class="p-12-120 top-counter"><sup>1</sup></div>
+																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt="" class="image-2">
+															</div>
+															<div class="job-droper-in">
+																<div class="job-droper-in_content">
+																	<div class="flex-vert">
+																		<?php foreach ( $services as $service ) : ?>
+																			<label class="rdb w-radio">
+																				<div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button w-radio-input"></div>
+																				<input 
+																					type="radio" 
+																					name="services[]" 
+																					id="<?php echo esc_attr( 'service_' . $service->term_id ); ?>" 
+																					data-name="services[]" 
+																					value="<?php echo esc_attr( $service->term_id ); ?>" 
+																					style="opacity:0;position:absolute;z-index:-1"
+																				/>
+																				<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'service_' . $service->term_id ); ?>"><?php echo esc_html( $service->name ); ?></span>
+																			</label>
+																		<?php endforeach; ?>
+																	</div>
+																	<div class="flex-horiz">
+																		<button type="submit" form="projects-filter-form" disabled class="job-btn">Apply</button>
+																		<a href="#" class="job-btn close">Close</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													<?php endif; ?>
+													<?php if ( ! empty( $industries ) ) : ?>
+														<div class="job-droper">
+															<div class="job-droper-a">
+																<div class="p-12-120 uper">Industries</div>
+																<div class="p-12-120 top-counter"><sup>1</sup></div>
+																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt="" class="image-2">
+															</div>
+															<div class="job-droper-in">
+																<div class="job-droper-in_content">
+																	<div class="flex-vert">
+																		<?php foreach ( $industries as $industry ) : ?>
+																			<label class="rdb w-radio">
+																				<div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button w-radio-input"></div>
+																				<input 
+																					type="radio" 
+																					name="industries[]" 
+																					id="<?php echo esc_attr( 'industry_' . $industry->term_id ); ?>" 
+																					data-name="industries[]" 
+																					value="<?php echo esc_attr( $industry->term_id ); ?>" 
+																					style="opacity:0;position:absolute;z-index:-1"
+																				/>
+																				<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'industry_' . $industry->term_id ); ?>"><?php echo esc_html( $industry->name ); ?></span>
+																			</label>
+																		<?php endforeach; ?>
+																	</div>
+																	<div class="flex-horiz">
+																		<button type="submit" form="projects-filter-form" disabled class="job-btn">Apply</button>
+																		<a href="#" class="job-btn close">Close</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													<?php endif; ?>
+												</div>
+												<input type="hidden" name="action" value="filter_projects" />
+												<?php wp_nonce_field( 'attolabs_filter_projects', 'filter_nonce' ); ?>
+												<input type="submit" data-wait="Please wait..." class="hide w-button" value="Submit">
+											</form>
+										</div>
 										<div class="projects-container">
 											<?php
 											while ( $query->have_posts() ) :
@@ -158,7 +222,7 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 											?>
 										</div>
 										<div id="w-node-_3d3e5ec1-5644-c6f4-9e30-c9ed9830b5c0-6acaaba9" class="styk-btm _1">
-											<div class="form-block filter-projects">
+											<div class="form-block filter-projects" style="display: none;">
 											<?php
 											$classes = 'form-2';
 

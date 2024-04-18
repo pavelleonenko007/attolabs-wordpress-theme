@@ -108,7 +108,6 @@ export const initPositionsFilterForm = () => {
 	};
 
 	forms.forEach((form) => {
-		const trigger = form.dataset.formTrigger ?? 'submit';
 		form.addEventListener('submit', formHandler);
 		form.addEventListener('change', formHandler);
 		form.addEventListener('reset', resetHandler);

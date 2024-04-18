@@ -4070,6 +4070,14 @@ ul, ol {
   display: grid;
 }
 
+.projects-core.underfilter {
+  grid-column-gap: 0rem;
+  grid-row-gap: 0rem;
+  flex-flow: column;
+  align-items: stretch;
+  display: flex;
+}
+
 .project-in_item {
   color: var(--grey-black);
   background-color: #fff7f3;
@@ -4277,6 +4285,12 @@ ul, ol {
   margin-top: -10rem;
   margin-bottom: 30rem;
   position: relative;
+}
+
+.jobs-mom-form.projects-filter {
+  z-index: 10;
+  margin-top: 0;
+  margin-bottom: 20rem;
 }
 
 .jobs-form {

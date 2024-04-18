@@ -8,6 +8,7 @@ button.clear-filter {
 	display: flex;
 }
 
+button[form="projects-filter-form-mob"][disabled],
 button[form="job-filter-form-mobile"][disabled] {
 	display: none;
 }
