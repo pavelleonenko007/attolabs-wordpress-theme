@@ -144,7 +144,7 @@ $industries = get_terms(
 														<div class="job-droper">
 															<div class="job-droper-a">
 																<div class="p-12-120 uper">Services</div>
-																<div class="p-12-120 top-counter"><sup>1</sup></div>
+																<div class="p-12-120 top-counter"><sup><?php echo count( $services ); ?></sup></div>
 																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt="" class="image-2">
 															</div>
 															<div class="job-droper-in">
@@ -177,7 +177,7 @@ $industries = get_terms(
 														<div class="job-droper">
 															<div class="job-droper-a">
 																<div class="p-12-120 uper">Industries</div>
-																<div class="p-12-120 top-counter"><sup>1</sup></div>
+																<div class="p-12-120 top-counter"><sup><?php echo count( $industries ); ?></sup></div>
 																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt="" class="image-2">
 															</div>
 															<div class="job-droper-in">
