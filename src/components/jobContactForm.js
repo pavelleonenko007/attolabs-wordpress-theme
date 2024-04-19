@@ -42,6 +42,9 @@ export const initJobContactForm = () => {
 			console.error(error);
 			submitButton.value = error;
 		} finally {
+			form.reset();
+			const detachButtons = form.querySelectorAll('.input-file-list-remove');
+			detachButtons.forEach((detachButton) => detachButton.click());
 			setTimeout(() => {
 				submitButton.value = buttonText;
 			}, 3000);
