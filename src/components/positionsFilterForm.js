@@ -101,10 +101,13 @@ export const initPositionsFilterForm = () => {
 
 		if (event.type === 'change') return;
 
-		positions.forEach((positionNode) => {
-			const { department, office, employment_type } = positionNode.dataset;
-			const offices = office.split(',');
+		const positionsCounters = document.querySelectorAll(
+			'[data-filter="counter"]'
+		);
 
+		const passedPositions = positions.filter((position) => {
+			const { department, office, employment_type } = position.dataset;
+			const offices = office.split(',');
 			const departmentPassed =
 				!formData.has('department') ||
 				department === formData.get('department');
@@ -113,13 +116,38 @@ export const initPositionsFilterForm = () => {
 			const employmentPassed =
 				!formData.has('employment_type') ||
 				employment_type === formData.get('employment_type');
-
-			if (departmentPassed && officePassed && employmentPassed) {
-				positionNode.style.display = 'flex';
-			} else {
-				positionNode.style.display = 'none';
-			}
+			return departmentPassed && officePassed && employmentPassed;
 		});
+
+		positionsCounters.forEach((positionsCounter) => {
+			positionsCounter.textContent = passedPositions.length;
+		});
+
+		positions.forEach((position) => (position.style.display = 'none'));
+
+		passedPositions.forEach((position) => {
+			position.style.display = 'flex';
+		});
+
+		// positions.forEach((positionNode) => {
+		// 	const { department, office, employment_type } = positionNode.dataset;
+		// 	const offices = office.split(',');
+
+		// 	const departmentPassed =
+		// 		!formData.has('department') ||
+		// 		department === formData.get('department');
+		// 	const officePassed =
+		// 		!formData.has('office') || offices.includes(formData.get('office'));
+		// 	const employmentPassed =
+		// 		!formData.has('employment_type') ||
+		// 		employment_type === formData.get('employment_type');
+
+		// 	if (departmentPassed && officePassed && employmentPassed) {
+		// 		positionNode.style.display = 'flex';
+		// 	} else {
+		// 		positionNode.style.display = 'none';
+		// 	}
+		// });
 
 		if (formId === 'job-filter-form-mobile') {
 			document.documentElement.classList.remove('filteropened');

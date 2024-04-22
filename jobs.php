@@ -77,7 +77,7 @@ $translations     = array(
 				<section class="section bg--fff7f3-2">
 					<div class="container secnd _3 jobs-core">
 						<div class="filter-block-mob job-pager">
-							<div class="p-18-120 top-he">Open positions (<span class="count"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
+							<div class="p-18-120 top-he">Open positions (<span class="count" data-filter="counter"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
 							<div class="top-line">
 								<a href="#" class="filter-switcher w-inline-block">
 									<div>Filter</div>
@@ -153,7 +153,7 @@ $translations     = array(
 							?>
 							<div class="jobs-mom-form">
 								<form id="job-filter-form" data-form="filter-positions" data-form-trigger="submit" class="jobs-form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="e9aa1461-cfa6-6ef1-cffd-068ffa8cc9dc">
-									<div class="p-18-120 top-he">Open positions (<span class="count"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
+									<div class="p-18-120 top-he">Open positions (<span class="count" data-filter="counter"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
 									<div class="flex-left">
 										<button type="reset" form="job-filter-form" class="clear-filters">Clear filters</button>
 										<div class="cl-fltrs"></div>
