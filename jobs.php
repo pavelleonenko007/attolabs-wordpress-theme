@@ -161,7 +161,9 @@ $translations     = array(
 											<div class="job-droper">
 												<div class="job-droper-a">
 													<div class="p-12-120 uper">Department</div>
-													<div class="p-12-120 top-counter"><sup><?php echo esc_html( count( $departments ) ); ?></sup></div>
+													<div class="p-12-120 top-counter">
+														<sup></sup>
+													</div>
 													<img src="<?php echo esc_attr( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2">
 												</div>
 												<div class="job-droper-in">
@@ -189,7 +191,7 @@ $translations     = array(
 											<div class="job-droper">
 												<div class="job-droper-a">
 													<div class="p-12-120 uper">Location</div>
-													<div class="p-12-120 top-counter"><sup><?php echo esc_html( count( $cities ) ); ?></sup></div>
+													<div class="p-12-120 top-counter"><sup></sup></div>
 													<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2">
 												</div>
 												<div class="job-droper-in">
@@ -217,7 +219,7 @@ $translations     = array(
 											<div class="job-droper">
 												<div class="job-droper-a">
 													<div class="p-12-120 uper">Job type</div>
-													<div class="p-12-120 top-counter"><sup><?php echo esc_html( count( $employment_types ) ); ?></sup></div>
+													<div class="p-12-120 top-counter"><sup></sup></div>
 													<img src="<?php echo esc_attr( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2">
 												</div>
 												<div class="job-droper-in">

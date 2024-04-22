@@ -60,6 +60,33 @@ export const initPositionsFilterForm = () => {
 			!formData.has('office') &&
 			!formData.has('employment_type');
 
+		if (!isEmptyForm) {
+			const filters = [...formData.entries()].reduce((acc, [key, value]) => {
+				acc[key] = [...(acc[key] ?? []), value];
+				return acc;
+			}, {});
+
+			for (let i = 0; i < Object.entries(filters).length; i++) {
+				const [key, value] = Object.entries(filters)[i];
+				if (
+					key === 'department' ||
+					key === 'office' ||
+					key === 'employment_type'
+				) {
+					const filterCounter = form
+						.querySelector(`input[name="${key}"]`)
+						.closest('.job-droper')
+						?.querySelector('sup');
+
+					if (filterCounter) {
+						filterCounter.textContent = value.length;
+					}
+				}
+			}
+		} else {
+			form.querySelectorAll('sup').forEach((sup) => (sup.textContent = ''));
+		}
+
 		resetButtons.forEach((resetButton) =>
 			resetButton.classList.toggle('clear-filters--active', !isEmptyForm)
 		);

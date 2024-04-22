@@ -23,6 +23,29 @@ export const initProjectsFilterForm = () => {
 		const isEmptyForm =
 			!formData.has('services[]') && !formData.has('industries[]');
 
+		if (!isEmptyForm) {
+			const filters = [...formData.entries()].reduce((acc, [key, value]) => {
+				acc[key] = [...(acc[key] ?? []), value];
+				return acc;
+			}, {});
+
+			for (let i = 0; i < Object.entries(filters).length; i++) {
+				const [key, value] = Object.entries(filters)[i];
+				if (key === 'services[]' || key === 'industries[]') {
+					const filterCounter = form
+						.querySelector(`input[name="${key}"]`)
+						.closest('.job-droper')
+						?.querySelector('sup');
+
+					if (filterCounter) {
+						filterCounter.textContent = value.length;
+					}
+				}
+			}
+		} else {
+			form.querySelectorAll('sup').forEach((sup) => (sup.textContent = ''));
+		}
+
 		resetButtons.forEach((resetButton) =>
 			resetButton.classList.toggle('clear-filters--active', !isEmptyForm)
 		);

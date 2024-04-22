@@ -186,7 +186,19 @@ $industries = get_terms(
 														<div class="job-droper">
 															<div class="job-droper-a">
 																<div class="p-12-120 uper">Services</div>
-																<div class="p-12-120 top-counter"><sup><?php echo count( $services ); ?></sup></div>
+																<div class="p-12-120 top-counter">
+																	<sup>
+																	<?php
+																	if ( ! empty( $_GET['services'] ) ) {
+																		if ( is_array( $_GET['services'] ) ) {
+																			echo count( $_GET['services'] );
+																		} else {
+																			echo '1';
+																		}
+																	}
+																	?>
+																	</sup>
+																</div>
 																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt="" class="image-2">
 															</div>
 															<div class="job-droper-in">
@@ -228,7 +240,19 @@ $industries = get_terms(
 														<div class="job-droper">
 															<div class="job-droper-a">
 																<div class="p-12-120 uper">Industries</div>
-																<div class="p-12-120 top-counter"><sup><?php echo count( $industries ); ?></sup></div>
+																<div class="p-12-120 top-counter">
+																	<sup>
+																	<?php
+																	if ( ! empty( $_GET['industries'] ) ) {
+																		if ( is_array( $_GET['industries'] ) ) {
+																			echo count( $_GET['industries'] );
+																		} else {
+																			echo '1';
+																		}
+																	}
+																	?>
+																	</sup>
+																</div>
 																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt="" class="image-2">
 															</div>
 															<div class="job-droper-in">
