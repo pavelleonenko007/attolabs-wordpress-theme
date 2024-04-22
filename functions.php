@@ -834,8 +834,9 @@ function attolabs_filter_projects_via_ajax(): void {
 
 	wp_send_json_success(
 		array(
-			'html'  => $projects_html,
-			'count' => $query->post_count,
+			'html'          => $projects_html,
+			'count'         => $query->post_count,
+			'selected_text' => ! empty( $_POST['industries'] ) || ! empty( $_POST['services'] ) ? 'Selected projects' : 'All projects',
 		)
 	);
 }

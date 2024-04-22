@@ -97,3 +97,31 @@ export function deleteCookie(name) {
 		'max-age': -1,
 	});
 }
+
+/**
+ * Resets the form by clearing all input fields and checkboxes.
+ *
+ * @param {HTMLFormElement} form - The form element to reset.
+ * @return {void} This function does not return anything.
+ */
+export const resetForm = (form) => {
+	form.reset();
+	const formElements = form.querySelectorAll('input, select, textarea');
+	formElements.forEach((element) => {
+		switch (element.type) {
+			case 'hidden':
+				break;
+			case 'checkbox':
+			case 'radio': {
+				element.checked = false;
+				element.removeAttribute('checked');
+				break;
+			}
+			case 'file':
+				element.value = '';
+				break;
+			default:
+				element.value = '';
+		}
+	});
+};

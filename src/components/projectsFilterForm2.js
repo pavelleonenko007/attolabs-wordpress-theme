@@ -1,3 +1,5 @@
+import { resetForm } from '../utils';
+
 const POSITION_FORM_SELECTOR = '[data-form="filter-projects"]';
 
 export const initProjectsFilterForm = () => {
@@ -18,7 +20,8 @@ export const initProjectsFilterForm = () => {
 			`button[type="submit"][form="${formId}"]`
 		);
 
-		const isEmptyForm = !formData.has('services[]') && !formData.has('industries[]');
+		const isEmptyForm =
+			!formData.has('services[]') && !formData.has('industries[]');
 
 		resetButtons.forEach((resetButton) =>
 			resetButton.classList.toggle('clear-filters--active', !isEmptyForm)
@@ -47,10 +50,12 @@ export const initProjectsFilterForm = () => {
 			}
 
 			const projectsContainer = document.querySelector('.projects-container');
+			const projectsText = document.querySelector('[data-filter="text"]');
 			const projectsCounter = document.querySelector('[data-filter="counter"]');
 
 			projectsContainer.innerHTML = json.data.html;
-			projectsCounter.textContent = json.data.count;
+			projectsText.textContent = json.data.selected_text;
+			projectsCounter.textContent = `(${json.data.count})`;
 		} catch (error) {
 			console.error(error);
 		} finally {
@@ -62,7 +67,7 @@ export const initProjectsFilterForm = () => {
 
 	const resetHandler = (event) => {
 		const form = event.target.closest('form');
-		form.reset();
+		resetForm(form);
 		setTimeout(() => {
 			form.dispatchEvent(new Event('submit'));
 		}, 100);

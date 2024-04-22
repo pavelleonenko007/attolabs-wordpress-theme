@@ -16,6 +16,7 @@ get_header(
 $current_language       = pll_current_language();
 $privacy_policy_page_id = 3;
 $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
+$has_selected_filters   = ! empty( $_GET['services'] ) || ! empty( $_GET['industries'] );
 $services               = get_terms(
 	array(
 		'taxonomy' => 'service',
@@ -70,7 +71,14 @@ $industries = get_terms(
 													</svg>
 												</div>
 											</a>
-											<button type="reset" form="projects-filter-form-mob" class="clear-filter">Clear filters</button>
+											<?php
+											$reset_classes = 'clear-filter';
+											if ( $has_selected_filters ) {
+												$reset_classes .= ' clear-filters--active';
+											}
+											?>
+											<button type="reset" form="projects-filter-form-mob" class="<?php echo esc_attr( $reset_classes ); ?>">Clear filters</button>
+											<?php unset( $reset_classes ); ?>
 											<button type="submit" form="projects-filter-form-mob" class="apply-filter" disabled>Apply</button>
 										</div>
 										<div class="filters-block">
@@ -93,6 +101,15 @@ $industries = get_terms(
 																			data-name="services[]" 
 																			style="opacity:0;position:absolute;z-index:-1"
 																			value="<?php echo esc_attr( $service->term_id ); ?>"
+																			<?php
+																			if ( isset( $_GET['services'] ) ) {
+																				if ( is_array( $_GET['services'] ) && in_array( $service->term_id, $_GET['services'] ) ) {
+																					echo 'checked';
+																				} elseif ( $service->term_id === (int) $_GET['services'] ) {
+																					echo 'checked';
+																				}
+																			}
+																			?>
 																		/>
 																		<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'service_mob_' . $service->term_id ); ?>"><?php echo esc_html( $service->name ); ?></span>
 																	</label>
@@ -117,6 +134,15 @@ $industries = get_terms(
 																			data-name="industries[]" 
 																			style="opacity:0;position:absolute;z-index:-1"
 																			value="<?php echo esc_attr( $industry->term_id ); ?>"
+																			<?php
+																			if ( isset( $_GET['industries'] ) ) {
+																				if ( is_array( $_GET['industries'] ) && in_array( $industry->term_id, $_GET['industries'] ) ) {
+																					echo 'checked';
+																				} elseif ( $industry->term_id === (int) $_GET['industries'] ) {
+																					echo 'checked';
+																				}
+																			}
+																			?>
 																		/>
 																		<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'industry_mob_' . $industry->term_id ); ?>"><?php echo esc_html( $industry->name ); ?></span>
 																	</label>
@@ -134,9 +160,25 @@ $industries = get_terms(
 									<div class="projects-core underfilter">
 										<div class="jobs-mom-form projects-filter">
 											<form id="projects-filter-form" data-form="filter-projects" class="jobs-form" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="0826e2de-fd8a-bf2f-05b5-e5a4ece99b85">
-												<div class="p-18-120 top-he">selected projects (<span data-filter="counter"><?php echo esc_html( $query->post_count ); ?></span>)</div>
+												<div class="p-18-120 top-he">
+													<span data-filter="text">
+													<?php
+													if ( ! empty( $_GET['industries'] ) || ! empty( $_GET['services'] ) ) {
+														echo 'Selected projects';
+													} else {
+														echo 'All projects';
+													}
+													?>
+												</span> <span data-filter="counter">(<?php echo esc_html( $query->post_count ); ?>)</span></div>
 												<div class="flex-left">
-													<button type="reset" form="projects-filter-form" class="clear-filters">Clear filters</button>
+													<?php
+													$reset_classes = 'clear-filters';
+													if ( $has_selected_filters ) {
+														$reset_classes .= ' clear-filters--active';
+													}
+													?>
+													<button type="reset" form="projects-filter-form" class="<?php echo esc_attr( $reset_classes ); ?>">Clear filters</button>
+													<?php unset( $reset_classes ); ?>
 													<div class="cl-fltrs"></div>
 													<?php
 													if ( ! empty( $services ) ) :
@@ -160,6 +202,15 @@ $industries = get_terms(
 																					data-name="services[]" 
 																					value="<?php echo esc_attr( $service->term_id ); ?>" 
 																					style="opacity:0;position:absolute;z-index:-1"
+																					<?php
+																					if ( isset( $_GET['services'] ) ) {
+																						if ( is_array( $_GET['services'] ) && in_array( $service->term_id, $_GET['services'] ) ) {
+																							echo 'checked';
+																						} elseif ( $service->term_id === (int) $_GET['services'] ) {
+																							echo 'checked';
+																						}
+																					}
+																					?>
 																				/>
 																				<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'service_' . $service->term_id ); ?>"><?php echo esc_html( $service->name ); ?></span>
 																			</label>
@@ -193,6 +244,15 @@ $industries = get_terms(
 																					data-name="industries[]" 
 																					value="<?php echo esc_attr( $industry->term_id ); ?>" 
 																					style="opacity:0;position:absolute;z-index:-1"
+																					<?php
+																					if ( isset( $_GET['industries'] ) ) {
+																						if ( is_array( $_GET['industries'] ) && in_array( $industry->term_id, $_GET['industries'] ) ) {
+																							echo 'checked';
+																						} elseif ( $industry->term_id === (int) $_GET['industries'] ) {
+																							echo 'checked';
+																						}
+																					}
+																					?>
 																				/>
 																				<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'industry_' . $industry->term_id ); ?>"><?php echo esc_html( $industry->name ); ?></span>
 																			</label>
