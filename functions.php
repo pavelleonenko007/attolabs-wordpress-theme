@@ -1013,22 +1013,22 @@ function attolabs_format_job_employment_type( stdClass $position, string $lang =
 		'full-time'         => array(
 			'de' => 'Vollzeit',
 			'en' => 'Full-time',
-			'ru' => 'Полная занятость',
+			'ru' => 'Full-time',
 		),
 		'part-time'         => array(
 			'de' => 'Teilzeit',
 			'en' => 'Part-time',
-			'ru' => 'Частичная занятость',
+			'ru' => 'Part-time',
 		),
 		'full-or-part-time' => array(
 			'de' => 'Vollzeit oder Teilzeit',
 			'en' => 'Full or part-time',
-			'ru' => 'Полная или Частичная занятость',
+			'ru' => 'Full or part-time',
 		),
 		'permanent'         => array(
 			'de' => 'Festanstellung',
 			'en' => 'Permanent Employment',
-			'ru' => 'Полная занятость',
+			'ru' => 'Постоянный сотрудник',
 		),
 		'intern'            => array(
 			'de' => 'Praktikum',
