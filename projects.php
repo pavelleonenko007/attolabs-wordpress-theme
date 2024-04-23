@@ -34,7 +34,7 @@ $industries = get_terms(
 					<div class="stik-diver ggh">
 						<section class="section">
 							<div class="container secnd top-op">
-								<h1 class="p-76-92">Projects</h1>
+								<h1 class="p-76-92"><?php the_title(); ?></h1>
 								<?php
 								$query_args = array(
 									'post_type'      => 'project',
@@ -64,7 +64,7 @@ $industries = get_terms(
 									<div class="filter-block-mob">
 										<div class="top-line">
 											<a href="#" class="filter-switcher w-inline-block">
-												<div>Filter</div>
+												<div><?php pll_e( 'Filter' ); ?></div>
 												<div class="filter-shevron _2 w-embed">
 													<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 10 10" fill="none">
 														<path d="M5 10L2 1L8 1L5 10Z" fill="currentColor"></path>
@@ -77,9 +77,9 @@ $industries = get_terms(
 												$reset_classes .= ' clear-filters--active';
 											}
 											?>
-											<button type="reset" form="projects-filter-form-mob" class="<?php echo esc_attr( $reset_classes ); ?>">Clear filters</button>
+											<button type="reset" form="projects-filter-form-mob" class="<?php echo esc_attr( $reset_classes ); ?>"><?php pll_e( 'Clear filters' ); ?></button>
 											<?php unset( $reset_classes ); ?>
-											<button type="submit" form="projects-filter-form-mob" class="apply-filter" disabled>Apply</button>
+											<button type="submit" form="projects-filter-form-mob" class="apply-filter" disabled><?php pll_e( 'Apply' ); ?></button>
 										</div>
 										<div class="filters-block">
 											<div>
@@ -87,7 +87,7 @@ $industries = get_terms(
 													<?php if ( ! empty( $services ) ) : ?>
 														<div class="droper-filter">
 															<div class="drpoter-block">
-																<div class="p-12-120">Services (<span class="count"><?php echo count( $services ); ?></span>)</div>
+																<div class="p-12-120"><?php pll_e( 'Services' ); ?> (<span class="count"><?php echo count( $services ); ?></span>)</div>
 																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 no-mob">
 															</div>
 															<div class="droper-content">
@@ -120,7 +120,7 @@ $industries = get_terms(
 													<?php if ( ! empty( $industries ) ) : ?>
 														<div class="droper-filter">
 															<div class="drpoter-block">
-																<div class="p-12-120">Industries (<span class="count"><?php echo count( $services ); ?></span>)</div>
+																<div class="p-12-120"><?php pll_e( 'Industries' ); ?> (<span class="count"><?php echo count( $services ); ?></span>)</div>
 																<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 no-mob">
 															</div>
 															<div class="droper-content">
@@ -164,9 +164,9 @@ $industries = get_terms(
 													<span data-filter="text">
 													<?php
 													if ( ! empty( $_GET['industries'] ) || ! empty( $_GET['services'] ) ) {
-														echo 'Selected projects';
+														echo pll__( 'Selected projects' );
 													} else {
-														echo 'All projects';
+														echo pll__( 'All projects' );
 													}
 													?>
 												</span> <span data-filter="counter">(<?php echo esc_html( $query->post_count ); ?>)</span></div>
@@ -177,7 +177,7 @@ $industries = get_terms(
 														$reset_classes .= ' clear-filters--active';
 													}
 													?>
-													<button type="reset" form="projects-filter-form" class="<?php echo esc_attr( $reset_classes ); ?>">Clear filters</button>
+													<button type="reset" form="projects-filter-form" class="<?php echo esc_attr( $reset_classes ); ?>"><?php pll_e( 'Clear filters' ); ?></button>
 													<?php unset( $reset_classes ); ?>
 													<div class="cl-fltrs"></div>
 													<?php
@@ -185,7 +185,7 @@ $industries = get_terms(
 														?>
 														<div class="job-droper">
 															<div class="job-droper-a">
-																<div class="p-12-120 uper">Services</div>
+																<div class="p-12-120 uper"><?php pll_e( 'Services' ); ?></div>
 																<div class="p-12-120 top-counter">
 																	<sup>
 																	<?php
@@ -229,8 +229,8 @@ $industries = get_terms(
 																		<?php endforeach; ?>
 																	</div>
 																	<div class="flex-horiz">
-																		<button type="submit" form="projects-filter-form" disabled class="job-btn">Apply</button>
-																		<a href="#" class="job-btn close">Close</a>
+																		<button type="submit" form="projects-filter-form" disabled class="job-btn"><?php pll_e( 'Apply' ); ?></button>
+																		<a href="#" class="job-btn close"><?php pll_e( 'Close' ); ?></a>
 																	</div>
 																</div>
 															</div>
@@ -239,7 +239,7 @@ $industries = get_terms(
 													<?php if ( ! empty( $industries ) ) : ?>
 														<div class="job-droper">
 															<div class="job-droper-a">
-																<div class="p-12-120 uper">Industries</div>
+																<div class="p-12-120 uper"><?php pll_e( 'Industries' ); ?></div>
 																<div class="p-12-120 top-counter">
 																	<sup>
 																	<?php
@@ -283,8 +283,8 @@ $industries = get_terms(
 																		<?php endforeach; ?>
 																	</div>
 																	<div class="flex-horiz">
-																		<button type="submit" form="projects-filter-form" disabled class="job-btn">Apply</button>
-																		<a href="#" class="job-btn close">Close</a>
+																		<button type="submit" form="projects-filter-form" disabled class="job-btn"><?php pll_e( 'Apply' ); ?></button>
+																		<a href="#" class="job-btn close"><?php pll_e( 'Close' ); ?></a>
 																	</div>
 																</div>
 															</div>
@@ -293,7 +293,7 @@ $industries = get_terms(
 												</div>
 												<input type="hidden" name="action" value="filter_projects" />
 												<?php wp_nonce_field( 'attolabs_filter_projects', 'filter_nonce' ); ?>
-												<input type="submit" data-wait="Please wait..." class="hide w-button" value="Submit">
+												<input type="submit" data-wait="Please wait..." class="hide w-button" value="<?php pll_e( 'Submit' ); ?>">
 											</form>
 										</div>
 										<div class="projects-container">
@@ -316,10 +316,10 @@ $industries = get_terms(
 											?>
 												<form id="projects-filter-form" class="<?php echo esc_attr( $classes ); ?>" data-wf-page-id="65d843633dee84076acaaba9" data-wf-element-id="6ddaff6a-b4e1-9242-a944-e6813b312421">
 												<?php unset( $classes ); ?>
-													<input type="submit" data-wait="Please wait..." class="hide w-button" value="Submit">
+													<input type="submit" data-wait="Please wait..." class="hide w-button" value="<?php pll_e( 'Submit' ); ?>">
 													<div class="spleet">
-														<div class="text-block-4">Filters</div>
-														<button type="reset" class="link-2">Clear filters</button>
+														<div class="text-block-4"><?php pll_e( 'Filters' ); ?></div>
+														<button type="reset" class="link-2"><?php pll_e( 'Clear filters' ); ?></button>
 													</div>
 													<div class="form-filters-container">
 														<?php
@@ -328,7 +328,7 @@ $industries = get_terms(
 															?>
 															<div class="droper-filter">
 																<div class="drpoter-block">
-																	<div class="p-12-120">Services (<span class="count"><?php echo count( $services ); ?></span>)</div>
+																	<div class="p-12-120"><?php pll_e( 'Services' ); ?> (<span class="count"><?php echo count( $services ); ?></span>)</div>
 																	<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2">
 																</div>
 																<div class="droper-content">
@@ -355,7 +355,7 @@ $industries = get_terms(
 															?>
 															<div class="droper-filter">
 																<div class="drpoter-block">
-																	<div class="p-12-120">Industries (<?php echo count( $industries ); ?>)</div>
+																	<div class="p-12-120"><?php pll_e( 'Industries' ); ?> (<?php echo count( $industries ); ?>)</div>
 																	<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2">
 																</div>
 																<div class="droper-content">

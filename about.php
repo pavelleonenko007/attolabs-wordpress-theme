@@ -15,11 +15,13 @@ get_header(
 );
 
 the_post();
-$tabs             = get_field( 'tabs' );
-$text_section     = get_field( 'text_section' );
-$our_values_block = get_field( 'our_values_block' );
-$current_language = pll_current_language();
-$branches         = attolabs_get_branches_by_lang( $current_language );
+$tabs                   = get_field( 'tabs' );
+$text_section           = get_field( 'text_section' );
+$our_values_block       = get_field( 'our_values_block' );
+$current_language       = pll_current_language();
+$branches               = attolabs_get_branches_by_lang( $current_language );
+$projects_page_id       = 56;
+$projects_page          = pll_get_post( $projects_page_id, $current_language );
 $privacy_policy_page_id = 3;
 $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
 ?>
@@ -101,7 +103,6 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 									<h2 class="h2"><?php echo esc_html( $small_heading ); ?></h2>
 								<?php endif; ?>
 								<div class="p-76-92 wht"><?php echo apply_filters( 'text_with_hover_links', $content ); ?></div>
-								<!-- <p class="p-76-92 wht">At AttoLabs, we transformE-Government and Logistics through projects like <a href="#" class="scroll-link abo-ix">the Unified Volunteer Platform</a> and <a href="#" class="scroll-link abo-ix">Smart Logistics Network</a>, optimizing information retrieval, enhancing community engagement, and streamlining operations.</p> -->
 								<?php if ( ! empty( $description ) ) : ?>
 									<p class="p-18-120 blk under"><?php echo esc_html( $description ); ?></p>
 								<?php endif; ?>
@@ -144,31 +145,15 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 													<div id="w-node-d799c485-a5e6-e7a1-764d-e28473bc3642-d2111407" class="blt"></div>
 												</div>
 											</div>
-											<div class="p-12-120 absp">Unified Volunteer Platform</div>
+											<?php
+											$image_description = $hover_image['image_description'];
+											if ( ! empty( $image_description ) ) :
+												?>
+												<div class="p-12-120 absp"><?php echo esc_html( $image_description ); ?></div>
+											<?php endif; ?>
 										</div>
 									</div>
 								<?php endforeach; ?>
-								<!-- <div class="imger">
-									<div class="verter _2">
-										<div class="project-img img-man rel">
-											<img src="<?php echo get_template_directory_uri(); ?>/images/65e9d38498a521ef243a6cf9_image2022720(5).webp" loading="eager" alt class="img-cover pixel-abo">
-											<div class="canvas-tops">
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f7f-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f80-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f81-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f82-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f83-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f84-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f85-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f86-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f87-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f88-d2111407" class="blt"></div>
-												<div id="w-node-cd7df422-465b-1c19-8dd6-f4495aff0f89-d2111407" class="blt"></div>
-											</div>
-										</div>
-										<div class="p-12-120 absp">Smart Logistics Network</div>
-									</div>
-								</div> -->
 							</div>
 						<?php endif; ?>
 					</section>
@@ -186,7 +171,7 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 								<h2 class="p-76-92"><?php echo esc_html( $heading ); ?></h2>
 							<?php endif; ?>
 							<div class="fw-div _2">
-								<h2 class="p-18-120 n-pc">Our values</h2>
+								<h2 class="p-18-120 n-pc"><?php pll_e( 'Our values' ); ?></h2>
 								<p class="paragraph p-18-120 n-mob"> </p>
 								<div id="w-node-b16eb019-dbb6-68af-5eed-55fb4de5cc77-d2111407" class="citas _2">
 									<?php foreach ( $values as $index => $value ) : ?>
@@ -210,7 +195,7 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 						</div>
 						<div class="abs">
 							<div class="styk-block">
-								<h2 class="p-18-120">Our values</h2>
+								<h2 class="p-18-120"><?php pll_e( 'Our values' ); ?></h2>
 							</div>
 						</div>
 					</section>
@@ -225,7 +210,7 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 							<section class="section">
 								<div class="container">
 									<div class="horiz-liner">
-										<h2 class="h2 h2-offices">Our Branches</h2>
+										<h2 class="h2 h2-offices"><?php pll_e( 'Our Branches' ); ?></h2>
 										<div class="aress-core offices-vert-grid">
 											<?php
 											foreach ( $branches as $index => $branch ) :
@@ -269,7 +254,6 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 																)
 															);
 															?>
-															<!-- <img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4797d4c91d9d0b04c06_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020320(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr"> -->
 															<div class="canvas-tops">
 																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a49-d2111407" class="blt"></div>
 																<div id="w-node-c99c1fef-47da-6d6c-61a5-6f2b9e737a4a-d2111407" class="blt"></div>
@@ -302,7 +286,6 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 																)
 															);
 															?>
-															<!-- <img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr"> -->
 															<div class="canvas-tops">
 																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd6-d2111407" class="blt"></div>
 																<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd7-d2111407" class="blt"></div>
@@ -321,64 +304,6 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 													<?php endif; ?>
 												</div>
 											<?php endforeach; ?>
-											<!-- <div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df0-d2111407" class="adress-item">
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df1-d2111407" class="p-18-120">Germany</div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df3-d2111407" class="adress-item_bottom">
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df4-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42df6-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfb-d2111407">contact@attolabs.de</div>
-												</div>
-											</div>
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfd-d2111407" class="adress-item">
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42dfe-d2111407" class="p-18-120">Türkiye</div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e00-d2111407" class="adress-item_bottom">
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e01-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e03-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e08-d2111407">contact@attolabs.de</div>
-												</div>
-											</div>
-											<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0a-d2111407" class="adress-item">
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0b-d2111407" class="p-18-120">Uzbekiston</div>
-												<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0d-d2111407" class="adress-item_bottom">
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e0e-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e10-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-													<div id="w-node-_5d1a3da3-4d55-87c4-4e27-13cecdd42e15-d2111407">contact@attolabs.de</div>
-												</div>
-												<div id="w-node-c0b15f6e-f9c3-2b69-155c-2022518ef18f-d2111407" class="adr-trigger"></div>
-											</div>
-											<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa34-d2111407" class="adress-item">
-												<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa35-d2111407" class="p-18-120">Tojikiston, Khujand</div>
-												<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa37-d2111407" class="adress-item_bottom">
-													<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa38-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-													<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa3a-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-													<div id="w-node-bc5ffd5e-d788-bd6b-5a35-379b1dbdfa3f-d2111407">contact@attolabs.de</div>
-												</div>
-											</div>
-											<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f20f-d2111407" class="adress-item">
-												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f210-d2111407" class="p-18-120">Tojikiston, Dushanbe</div>
-												<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f212-d2111407" class="adress-item_bottom">
-													<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f213-d2111407">Schanzenstraße 41 51063 Köln, Germany</div>
-													<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f215-d2111407" class="adress-item_bottom_ver"><a href="#">+49 176 4445 0770</a><a href="#">+49 2238 4780 6118</a></div>
-													<div id="w-node-f29c91b3-7945-5185-b05d-0c75b938f21a-d2111407">contact@attolabs.de</div>
-												</div>
-												<div class="project-img img-addr _2">
-													<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65e9d4a941843385ce346660_GettyImages-906499516-5bc6570d46e0fb0026d6f1e020220(1).webp' ); ?>" loading="eager" alt class="img-cover pixel-addr">
-													<div class="canvas-tops">
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd6-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd7-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd8-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cd9-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cda-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdb-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdc-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdd-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cde-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626cdf-d2111407" class="blt"></div>
-														<div id="w-node-_407e8d39-2e51-d54f-4d61-5aacfb626ce0-d2111407" class="blt"></div>
-													</div>
-												</div>
-												<div id="w-node-_196584f8-3fb1-f3d7-ba9c-46241b40024c-d2111407" class="adr-trigger"></div>
-											</div> -->
 										</div>
 									</div>
 								</div>
@@ -388,7 +313,6 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 				<?php endif; ?>
 				<div id="styker" class="div-block-3">
 					<div class="form-tracker"></div>
-					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
 					<div class="form-ceeper">
@@ -398,40 +322,40 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 									<div class="w-slider-mask">
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
-												<div class="p-12-120 whtx">Empower the Future with Us</div>
+												<div class="p-12-120 whtx"><?php pll_e( 'Empower the Future with Us' ); ?></div>
 												<div class="input-keeper bigger">
-													<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
+													<textarea required placeholder="<?php pll_e( 'Tell us how we could help you to empower the future?' ); ?>" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
 												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
-												<div class="p-12-120 whtx">How to get in touch with you?</div>
+												<div class="p-12-120 whtx"><?php pll_e( 'How to get in touch with you?' ); ?></div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
+													<input class="text-field w-input" maxlength="256" name="email" placeholder="<?php pll_e( 'Enter your email' ); ?>" type="email" id="email" required>
 												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
-												<div class="p-12-120 whtx">What can I call you?</div>
+												<div class="p-12-120 whtx"><?php pll_e( 'What can I call you?' ); ?></div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name" required>
+													<input class="text-field w-input" maxlength="256" name="name" placeholder="<?php pll_e( 'Enter your name' ); ?>" type="text" id="name" required>
 												</div>
-												<span class="sticky-form-privacy-link">By clicking “Submit” you agree to our <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
+												<span class="sticky-form-privacy-link"><?php pll_e( 'By clicking “Submit” you agree to our' ); ?> <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
 											</div>
 										</div>
 									</div>
 									<div class="l-arrow w-slider-arrow-left">
 										<div class="red-form-line"></div>
-										<div class="text-block-6">Back</div>
+										<div class="text-block-6"><?php pll_e( 'Back' ); ?></div>
 									</div>
 									<div class="right-arrow w-slider-arrow-right">
-										<div>Next</div>
+										<div><?php pll_e( 'Next' ); ?></div>
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="submit" data-wait="Please wait..." fs-formsubmit-element="reset" class="submit fs_formsubmit_button w-button" value="><?php pll_e( 'Submit' ); ?>">
 								<input type="hidden" name="action" value="submit_contact_form" />
 								<?php $message = ! empty( $forms ) && ! empty( $forms['empower_future_with_us'] ) ? $forms['empower_future_with_us'] : 'Your message has been sent successfully'; ?>
 								<input type="hidden" name="message" value="<?php echo esc_attr( $message ); ?>">
@@ -439,21 +363,23 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
-									<div class="text-field">Thank you! <br>Your submission has been received!</div>
+									<div class="text-field"><?php pll_e( 'Thank you! <br>Your submission has been received!' ); ?></div>
 								</div>
 							</div>
 							<div class="w-form-fail">
-								<div>Oops! Something went wrong while submitting the form.</div>
+								<div><?php pll_e( 'Oops! Something went wrong while submitting the form.' ); ?></div>
 							</div>
 						</div>
 						<div class="top-stykert">
 							<div class="tline ll">
-								<a href="#" class="tlink main-tlink formpp">Empower the Future with Us</a><a href="#" class="tlink main-tlink formpp">share your vision</a><a href="#" class="tlink main-tlink formpp">Describe your project</a>
+								<a href="#" class="tlink main-tlink formpp"><?php pll_e( 'Empower the Future with Us' ); ?></a>
+								<a href="#" class="tlink main-tlink formpp"><?php pll_e( 'Share your vision' ); ?></a>
+								<a href="#" class="tlink main-tlink formpp"><?php pll_e( 'Describe your project' ); ?></a>
 								<div class="div-block-2"></div>
-								<a href="/projects" class="tlink">All projects</a>
+								<a href="<?php echo esc_url( get_the_permalink( $projects_page ) ); ?>" class="tlink"><?php echo esc_html( get_the_title( $projects_page ) ); ?></a>
 							</div>
 							<a href="#" class="close-form w-inline-block">
-								<div class="text-block-5">CLOSE</div>
+								<div class="text-block-5"><?php pll_e( 'Close' ); ?></div>
 							</a>
 						</div>
 					</div>

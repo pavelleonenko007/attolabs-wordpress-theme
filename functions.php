@@ -816,7 +816,7 @@ function attolabs_filter_projects_via_ajax(): void {
 	if ( ! $query->have_posts() ) {
 		wp_send_json_success(
 			array(
-				'projects' => '<p>No projects with this filters</p>',
+				'projects' => '<p>' . pll__( 'No projects with this filters' ) . '</p>',
 			)
 		);
 	}
@@ -1137,7 +1137,7 @@ function attolabs_submit_contact_form_via_ajax(): void {
 	if ( ! isset( $_POST['email'] ) || empty( $_POST['email'] ) ) {
 		wp_send_json_error(
 			array(
-				'message' => 'No contact information was provided',
+				'message' => pll__( 'No contact information was provided' ),
 			),
 			400
 		);
@@ -1160,7 +1160,7 @@ function attolabs_submit_contact_form_via_ajax(): void {
 	if ( empty( $to ) ) {
 		wp_send_json_error(
 			array(
-				'message' => 'Administrator does not provide contact email. Please try again later.',
+				'message' => pll__( 'Administrator does not provide contact email. Please try again later.' ),
 			),
 			400
 		);
@@ -1181,7 +1181,7 @@ function attolabs_submit_contact_form_via_ajax(): void {
 	if ( ! $sended ) {
 		wp_send_json_error(
 			array(
-				'message' => 'Something wrong with sending your message. Try again later!',
+				'message' => pll__( 'Something wrong with sending your message. Try again later!' ),
 			),
 			400
 		);
@@ -1189,7 +1189,7 @@ function attolabs_submit_contact_form_via_ajax(): void {
 
 	wp_send_json_success(
 		array(
-			'message' => 'Your message successfully sent!',
+			'message' => pll__( 'Your message successfully sent!' ),
 		)
 	);
 }
@@ -1209,7 +1209,7 @@ function attolabs_submit_job_form_via_ajax(): void {
 	if ( ! isset( $_POST['email'] ) || empty( $_POST['email'] ) ) {
 		wp_send_json_error(
 			array(
-				'message' => 'No contact information was provided',
+				'message' => pll__( 'No contact information was provided' ),
 			),
 			400
 		);
@@ -1232,7 +1232,7 @@ function attolabs_submit_job_form_via_ajax(): void {
 	if ( empty( $to ) ) {
 		wp_send_json_error(
 			array(
-				'message' => 'Administrator does not provide contact email. Please try again later.',
+				'message' => pll__( 'Administrator does not provide contact email. Please try again later.' ),
 			),
 			400
 		);
@@ -1285,7 +1285,7 @@ function attolabs_submit_job_form_via_ajax(): void {
 	if ( ! $sended ) {
 		wp_send_json_error(
 			array(
-				'message' => 'Something wrong with sending your vacancy. Try again later!',
+				'message' => pll__('Something wrong with sending your vacancy. Try again later!'),
 			),
 			400
 		);
@@ -1293,7 +1293,7 @@ function attolabs_submit_job_form_via_ajax(): void {
 
 	wp_send_json_success(
 		array(
-			'message' => 'Your message successfully sent!',
+			'message' => pll__('Your message successfully sent!'),
 		)
 	);
 }

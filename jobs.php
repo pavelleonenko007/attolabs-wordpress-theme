@@ -17,12 +17,13 @@ get_header(
 
 the_post();
 
-$lang             = pll_current_language();
-$positions        = attolabs_get_job_positions( $lang );
+$current_language = pll_current_language();
+$positions        = attolabs_get_job_positions( $current_language );
 $departments      = attolabs_get_job_departments( $positions );
 $cities           = attolabs_get_job_cities( $positions );
 $employment_types = attolabs_get_job_employment_types( $positions );
-$current_language = pll_current_language();
+$projects_page_id = 56;
+$projects_page    = pll_get_post( $projects_page_id, $current_language );
 $translations     = array(
 	'full-time'         => array(
 		'de' => 'Vollzeit',
@@ -77,7 +78,7 @@ $translations     = array(
 				<section class="section bg--fff7f3-2">
 					<div class="container secnd _3 jobs-core">
 						<div class="filter-block-mob job-pager">
-							<div class="p-18-120 top-he">Open positions (<span class="count" data-filter="counter"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
+							<div class="p-18-120 top-he"><?php pll_e( 'Open positions' ); ?> (<span class="count" data-filter="counter"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
 							<div class="top-line">
 								<a href="#" class="filter-switcher w-inline-block">
 									<div>Filter</div>
@@ -87,8 +88,8 @@ $translations     = array(
 										</svg>
 									</div>
 								</a>
-								<button type="reset" form="job-filter-form-mobile" class="clear-filter">Clear filters</button>
-								<button type="submit" form="job-filter-form-mobile" class="apply-filter" disabled>Apply</button>
+								<button type="reset" form="job-filter-form-mobile" class="clear-filter"><?php pll_e( 'Clear filters' ); ?></button>
+								<button type="submit" form="job-filter-form-mobile" class="apply-filter" disabled><?php pll_e( 'Apply' ); ?></button>
 							</div>
 							<div class="filters-block">
 								<div>
@@ -96,7 +97,7 @@ $translations     = array(
 										<?php if ( ! empty( $departments ) ) : ?>
 											<div class="droper-filter">
 												<div class="drpoter-block">
-													<div class="p-12-120">Department (<?php echo esc_html( count( $departments ) ); ?>)</div>
+													<div class="p-12-120"><?php pll_e( 'Department' ); ?> (<?php echo esc_html( count( $departments ) ); ?>)</div>
 													<img src="<?php echo esc_attr( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 no-mob">
 												</div>
 												<div class="droper-content">
@@ -113,7 +114,7 @@ $translations     = array(
 										<?php if ( ! empty( $cities ) ) : ?>
 											<div class="droper-filter">
 												<div class="drpoter-block">
-													<div class="p-12-120">Location (<?php echo esc_html( count( $cities ) ); ?>)</div>
+													<div class="p-12-120"><?php pll_e( 'Location' ); ?> (<?php echo esc_html( count( $cities ) ); ?>)</div>
 													<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 no-mob">
 												</div>
 												<div class="droper-content">
@@ -130,7 +131,7 @@ $translations     = array(
 										<?php if ( ! empty( $employment_types ) ) : ?>
 											<div class="droper-filter">
 												<div class="drpoter-block">
-													<div class="p-12-120">Job type (<?php echo esc_html( count( $employment_types ) ); ?>)</div>
+													<div class="p-12-120"><?php pll_e( 'Job type' ); ?> (<?php echo esc_html( count( $employment_types ) ); ?>)</div>
 													<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2 no-mob">
 												</div>
 												<div class="droper-content">
@@ -138,7 +139,7 @@ $translations     = array(
 														<label class="w-checkbox rdb">
 															<div class="w-checkbox-input w-checkbox-input--inputType-custom radio-button" for="<?php echo esc_attr( 'employment_type_mob_' . $employment_type ); ?>"></div>
 															<input type="radio" id="<?php echo esc_attr( 'employment_type_mob_' . $employment_type ); ?>" name="employment_type" value="<?php echo esc_attr( $employment_type ); ?>">
-															<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'employment_type_mob_' . $employment_type ); ?>"><?php echo esc_html( $translations[ $employment_type ][ $lang ] ); ?></span>
+															<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'employment_type_mob_' . $employment_type ); ?>"><?php echo esc_html( $translations[ $employment_type ][ $current_language ] ); ?></span>
 														</label>
 													<?php endforeach; ?>
 												</div>
@@ -153,14 +154,14 @@ $translations     = array(
 							?>
 							<div class="jobs-mom-form">
 								<form id="job-filter-form" data-form="filter-positions" data-form-trigger="submit" class="jobs-form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="e9aa1461-cfa6-6ef1-cffd-068ffa8cc9dc">
-									<div class="p-18-120 top-he">Open positions (<span class="count" data-filter="counter"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
+									<div class="p-18-120 top-he"><?php pll_e( 'Open positions' ); ?> (<span class="count" data-filter="counter"><?php echo esc_html( count( $positions ) ); ?></span>)</div>
 									<div class="flex-left">
-										<button type="reset" form="job-filter-form" class="clear-filters">Clear filters</button>
+										<button type="reset" form="job-filter-form" class="clear-filters"><?php pll_e( 'Clear filters' ); ?></button>
 										<div class="cl-fltrs"></div>
 										<?php if ( ! empty( $departments ) ) : ?>
 											<div class="job-droper">
 												<div class="job-droper-a">
-													<div class="p-12-120 uper">Department</div>
+													<div class="p-12-120 uper"><?php pll_e( 'Department' ); ?></div>
 													<div class="p-12-120 top-counter">
 														<sup></sup>
 													</div>
@@ -178,8 +179,8 @@ $translations     = array(
 															<?php endforeach; ?>
 														</div>
 														<div class="flex-horiz">
-															<button type="submit" form="job-filter-form" disabled class="job-btn">Apply</button>
-															<a href="#" class="job-btn close">Close</a>
+															<button type="submit" form="job-filter-form" disabled class="job-btn"><?php pll_e( 'Apply' ); ?></button>
+															<a href="#" class="job-btn close"><?php pll_e( 'Close' ); ?></a>
 														</div>
 													</div>
 												</div>
@@ -190,7 +191,7 @@ $translations     = array(
 											?>
 											<div class="job-droper">
 												<div class="job-droper-a">
-													<div class="p-12-120 uper">Location</div>
+													<div class="p-12-120 uper"><?php pll_e( 'Location' ); ?></div>
 													<div class="p-12-120 top-counter"><sup></sup></div>
 													<img src="<?php echo esc_url( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2">
 												</div>
@@ -206,8 +207,8 @@ $translations     = array(
 															<?php endforeach; ?>
 														</div>
 														<div class="flex-horiz">
-															<button type="submit" form="job-filter-form" disabled class="job-btn">Apply</button>
-															<a href="#" class="job-btn close">Close</a>
+															<button type="submit" form="job-filter-form" disabled class="job-btn"><?php pll_e( 'Apply' ); ?></button>
+															<a href="#" class="job-btn close"><?php pll_e( 'Close' ); ?></a>
 														</div>
 													</div>
 												</div>
@@ -218,7 +219,7 @@ $translations     = array(
 											?>
 											<div class="job-droper">
 												<div class="job-droper-a">
-													<div class="p-12-120 uper">Job type</div>
+													<div class="p-12-120 uper"><?php pll_e( 'Job type' ); ?></div>
 													<div class="p-12-120 top-counter"><sup></sup></div>
 													<img src="<?php echo esc_attr( TEMPLATE_PATH . '/images/65d85ded4d043968d9a1a5d9_chevron.svg' ); ?>" loading="lazy" alt class="image-2">
 												</div>
@@ -231,13 +232,14 @@ $translations     = array(
 																	<input 
 																		type="radio" 
 																		name="employment_type" id="<?php echo esc_attr( 'employment_type_' . $employment_type ); ?>" value="<?php echo esc_attr( $employment_type ); ?>">
-																		<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'employment_type_' . $employment_type ); ?>"><?php echo esc_html( $translations[ $employment_type ][ $lang ] ); ?></span>
+																		<span class="radio-button-label w-form-label" for="<?php echo esc_attr( 'employment_type_' . $employment_type ); ?>"><?php echo esc_html( $translations[ $employment_type ][ $current_language ] ); ?></span>
 																</label>
 															<?php endforeach; ?>
 														</div>
 														<div class="flex-horiz">
-															<button type="submit" form="job-filter-form" disabled class="job-btn">Apply</button>
-															<a href="#" class="job-btn close">Close</a></div>
+															<button type="submit" form="job-filter-form" disabled class="job-btn"><?php pll_e( 'Apply' ); ?></button>
+															<a href="#" class="job-btn close"><?php pll_e( 'Close' ); ?></a>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -258,7 +260,7 @@ $translations     = array(
 						// }
 						// echo '<a href="' . $detailLink . '" target="_blank" alt="Job Details">' .
 						// '<h2>' . $position->name . '</h2>' .
-						// '<p>' . $translations[ (string) $position->employmentType ][ $lang ] . ', ' . $translations[ (string) $position->schedule ][ $lang ] . '</p>' .
+						// '<p>' . $translations[ (string) $position->employmentType ][ $current_language ] . ', ' . $translations[ (string) $position->schedule ][ $current_language ] . '</p>' .
 						// '</a>';
 						// }
 
@@ -316,10 +318,10 @@ $translations     = array(
 											</div>
 										</div>
 										<div class="jb-1 last-jbcol">
-											<div><?php echo esc_html( $translations[ (string) $position->employmentType ][ $lang ] ); ?></div>
+											<div><?php echo esc_html( $translations[ (string) $position->employmentType ][ $current_language ] ); ?></div>
 										</div>
 										<div class="jb-1 last-jbcol">
-											<div><?php echo esc_html( $translations[ (string) $position->schedule ][ $lang ] ); ?></div>
+											<div><?php echo esc_html( $translations[ (string) $position->schedule ][ $current_language ] ); ?></div>
 										</div>
 									</div>
 								</div>
@@ -329,46 +331,47 @@ $translations     = array(
 				</section>
 				<div id="styker" class="div-block-3">
 					<div class="form-tracker"></div>
-					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
 					<div class="form-ceeper jobs-core">
 						<div class="styk-form-mom _1">
 							<form id="job-contact-form" data-form="job-contact" class="form" data-wf-page-id="65dc28b2adbd672d4103d4fe" data-wf-element-id="2918af35-b134-b011-bc88-063920f2dc7f" novalidate>
 								<div class="normal-form">
-									<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc81-4103d4fe" class="p-12-120 ww">GET IN TOUCH with us!</div>
+									<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc81-4103d4fe" class="p-12-120 ww"><?php pll_e( 'Get in touch with us!' ); ?></div>
 									<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc83-4103d4fe" class="r-form-vertical">
-										<div class="p-76-92 ww">What role are you seeking for?</div>
+										<div class="p-76-92 ww"><?php pll_e( 'What role are you seeking for?' ); ?></div>
 										<div class="form-core">
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc87-4103d4fe" class="input-keeper">
-												<div class="form-label">Name</div>
+												<div class="form-label"><?php pll_e( 'Name' ); ?></div>
 												<input class="input-normal w-input" maxlength="256" name="name" placeholder="JOHN JOHNSON" type="text" id="name" required>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc8b-4103d4fe" class="input-keeper">
-												<div class="form-label">EMAIL</div>
+												<div class="form-label"><?php pll_e( 'Email' ); ?></div>
 												<input class="input-normal w-input" maxlength="256" name="email" placeholder="ADDRESS@MAIL.COM" type="email" id="email" required>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc8f-4103d4fe" class="input-keeper">
-												<div class="form-label">PHONE NUMBER</div>
+												<div class="form-label"><?php pll_e( 'Phone number' ); ?></div>
 												<input class="input-normal w-input" maxlength="256" name="phone" placeholder="0617084035" type="tel" id="phone" required>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dc93-4103d4fe" class="input-keeper">
-												<div class="form-label">contact preference</div>
+												<div class="form-label"><?php pll_e( 'Contact preference' ); ?></div>
 												<div class="horiz-left">
 													<label id="incroyable" class="cont-ref caller w-radio">
 														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-														<input type="radio" name="contact_preference" id="call" style="opacity:0;position:absolute;z-index:-1" value="call"><span class="call-text w-form-label" for="call">Call</span>
+														<input type="radio" name="contact_preference" id="call" style="opacity:0;position:absolute;z-index:-1" value="call">
+														<span class="call-text w-form-label" for="call"><?php pll_e( 'Call' ); ?></span>
 													</label>
 													<div class="reger"></div>
 													<label class="cont-ref w-radio">
 														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
-														<input type="radio" name="contact_preference" id="messenger" style="opacity:0;position:absolute;z-index:-1" value="Messenger"><span class="call-text w-form-label" for="Messenger">Messenger</span>
+														<input type="radio" name="contact_preference" id="messenger" style="opacity:0;position:absolute;z-index:-1" value="Messenger">
+														<span class="call-text w-form-label" for="messenger"><?php pll_e( 'Messenger' ); ?></span>
 													</label>
 												</div>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dca0-4103d4fe" class="input-keeper textarer">
-												<div class="form-label">Message</div>
-												<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="message" name="message" class="input-normal textarea w-input"></textarea>
+												<div class="form-label"><?php pll_e( 'Message' ); ?></div>
+												<textarea placeholder="<?php pll_e( 'Talk about your dream job' ); ?>" maxlength="5000" id="message" name="message" class="input-normal textarea w-input"></textarea>
 											</div>
 											<div id="w-node-_2918af35-b134-b011-bc88-063920f2dca4-4103d4fe" class="input-keeper textarer file-mom">
 												<div class="form-label">CV</div>
@@ -376,12 +379,12 @@ $translations     = array(
 													<div class="w-embed">
 														<div class="input-file-row">
 															<label class="input-file"> 
-															<input type="file" name="file" accept="application/pdf,application/vnd.ms-excel,image/jpg,image/jpeg,image/png"><span>ATTACH A FILE (PDF, JPG, PNG)</span> </label>
+															<input type="file" name="file" accept="application/pdf,application/vnd.ms-excel,image/jpg,image/jpeg,image/png"><span><?php pll_e( 'Attach the file' ); ?> (PDF, JPG, PNG)</span> </label>
 															<div class="input-file-list"></div>
 														</div>
 													</div>
-													<div class="p-12-120 ww2 cv-or"> OR </div>
-													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link" required>
+													<div class="p-12-120 ww2 cv-or"> <?php pll_e( 'Or' ); ?> </div>
+													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="<?php pll_e( 'Insert a link' ); ?>" type="text" id="link" required>
 												</div>
 											</div>
 											<label id="w-node-_2918af35-b134-b011-bc88-063920f2dcac-4103d4fe" class="input-keeper input-keeper--checkbox w-checkbox checkbox-field">
@@ -390,32 +393,33 @@ $translations     = array(
 												$privacy_policy_page_id = 3;
 												$privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
 												?>
-												<input required type="checkbox" id="user_agreement" name="user_agreement"><span class="p-12-120 ww fomr-c w-form-label" for="user_agreement">I agree with the <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" class="link" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
+												<input required type="checkbox" id="user_agreement" name="user_agreement">
+												<span class="p-12-120 ww fomr-c w-form-label" for="user_agreement"><?php pll_e( 'I agree with the' ); ?> <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" class="link" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
 											</label>
 										</div>
 									</div>
 								</div>
 								<input type="hidden" name="action" value="submit_job_form">
 								<?php wp_nonce_field( '_submit_job_form', 'job_form_nonce' ); ?>
-								<input type="submit" data-wait="Please wait..." class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
+								<input type="submit" data-wait="Please wait..." class="submit-re fs_formsubmit_button n-fowm w-button" value="<?php pll_e( 'Send' ); ?>">
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
-									<div class="text-field">Thank you! <br>Your submission has been received!</div>
+									<div class="text-field"><?php pll_e( 'Thank you! <br>Your submission has been received!' ); ?></div>
 								</div>
 							</div>
 							<div class="w-form-fail">
-								<div>Oops! Something went wrong while submitting the form.</div>
+								<div><?php pll_e( 'Oops! Something went wrong while submitting the form.' ); ?></div>
 							</div>
 						</div>
 						<div class="top-stykert">
 							<div class="tline ll">
-								<a href="#" class="tlink main-tlink formpp">Didn’t find the desired position?</a>
+								<a href="#" class="tlink main-tlink formpp"><?php pll_e( 'Didn’t find the desired position?' ); ?></a>
 								<div class="div-block-2"></div>
-								<a href="#" class="tlink">All projects</a>
+								<a href="<?php echo esc_url( get_the_permalink( $projects_page ) ); ?>" class="tlink"><?php echo esc_html( get_the_permalink( $projects_page ) ); ?></a>
 							</div>
 							<a href="#" class="close-form w-inline-block">
-								<div class="text-block-5">CLOSE</div>
+								<div class="text-block-5"><?php pll_e( 'Close' ); ?></div>
 							</a>
 						</div>
 					</div>

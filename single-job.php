@@ -14,8 +14,10 @@
 		)
 	);
 
-	$lang     = pll_current_language();
-	$position = attolabs_get_job_position_by_id( get_query_var( 'job' ), $lang );
+	$lang             = pll_current_language();
+	$position         = attolabs_get_job_position_by_id( get_query_var( 'job' ), $lang );
+	$projects_page_id = 56;
+	$projects_page    = pll_get_post( $projects_page_id, $lang );
 
 	if ( null === $position ) {
 		wp_safe_redirect( get_home_url() . '/jobs/', 302 );
@@ -31,7 +33,7 @@
 									<h1 id="w-node-_015a8304-e077-87c1-e839-dba82f5631bb-7400cdd1" class="h1-job"><?php echo esc_html( $position->name ); ?></h1>
 								</div>
 								<div id="w-node-_6fd8b6f5-1c95-373f-28f3-3842bd9cbd62-7400cdd1" class="job-row">
-									<div id="w-node-_53361b7a-b4fb-1cc6-fc13-f7a3f34e3673-7400cdd1" class="p-12-120 c-grey">Department:</div>
+									<div id="w-node-_53361b7a-b4fb-1cc6-fc13-f7a3f34e3673-7400cdd1" class="p-12-120 c-grey"><?php pll_e( 'Department' ); ?>:</div>
 									<div id="w-node-_895fb078-b3aa-746d-d6df-acdf3bead88b-7400cdd1" class="jil p-12-120">
 										<?php if ( ! empty( $position->department ) ) : ?>
 											<div><?php echo esc_html( $position->department ); ?></div>
@@ -42,7 +44,7 @@
 								if ( ! empty( $offices ) ) :
 									?>
 									<div class="job-row">
-										<div id="w-node-_1afd2c92-f22d-7e1a-d33f-1b7b27b6782f-7400cdd1" class="p-12-120 c-grey">Location:</div>
+										<div id="w-node-_1afd2c92-f22d-7e1a-d33f-1b7b27b6782f-7400cdd1" class="p-12-120 c-grey"><?php pll_e( 'Location' ); ?>:</div>
 										<div id="w-node-_1afd2c92-f22d-7e1a-d33f-1b7b27b67831-7400cdd1" class="jil p-12-120">
 											<div><?php echo esc_html( implode( ', ', $offices ) ); ?></div>
 										</div>
@@ -53,14 +55,14 @@
 								if ( ! empty( $employment_type ) ) :
 									?>
 									<div class="job-row">
-										<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e52-7400cdd1" class="p-12-120 c-grey">Job type:</div>
+										<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e52-7400cdd1" class="p-12-120 c-grey"><?php pll_e( 'Job type' ); ?>:</div>
 										<div id="w-node-b3c4e69d-d549-9eae-a5f3-64f45b5a9e54-7400cdd1" class="jil p-12-120">
 											<div><?php echo esc_html( $employment_type ); ?></div>
 										</div>
 									</div>
 								<?php endif; ?>
 								<a href="#" class="share-btn p-12-120 w-inline-block" data-button="copy">
-									<div>Share position</div>
+									<div><?php pll_e( 'Share position' ); ?></div>
 									<div class="html-embed w-embed">
 										<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<circle cx="12" cy="12" r="12" fill="#292525"></circle>
@@ -79,7 +81,6 @@
 				</section>
 				<div id="styker" class="div-block-3">
 					<div class="form-tracker"></div>
-					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
 					<div class="form-ceeper jobs-core">
@@ -88,19 +89,19 @@
 								<div class="normal-form">
 									<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f89e-7400cdd1" class="p-12-120 ww"><?php echo esc_html( $position->name ); ?></div>
 									<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a0-7400cdd1" class="r-form-vertical">
-										<div class="p-76-92 ww">Join our team:<br>apply now!</div>
+										<div class="p-76-92 ww"><?php pll_e( 'Join our team:<br>apply now!' ); ?></div>
 										<div class="form-core">
 											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a4-7400cdd1" class="input-keeper">
-												<div class="form-label">Name</div>
+												<div class="form-label"><?php pll_e( 'Name' ); ?></div>
 												<input class="input-normal w-input" maxlength="256" name="name" placeholder="JOHN JOHNSON" type="text" id="name" required>
 											</div>
 											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a8-7400cdd1" class="input-keeper">
-												<div class="form-label">EMAIL</div>
+												<div class="form-label"><?php pll_e( 'Email' ); ?></div>
 												<input class="input-normal w-input" maxlength="256" name="email" placeholder="ADDRESS@MAIL.COM" type="email" id="email" required>
 											</div>
 											<?php if ( count( $offices ) > 1 ) : ?>
 												<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8a8-7400cdd1" class="input-keeper">
-													<div class="form-label">Work Location</div>
+													<div class="form-label"><?php pll_e( 'Work Location' ); ?></div>
 													<select name="city" data-field="select" required>
 														<option>Select office</option>
 														<?php foreach ( $offices as $office ) : ?>
@@ -110,28 +111,28 @@
 												</div>
 											<?php endif; ?>
 											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8ac-7400cdd1" class="input-keeper">
-												<div class="form-label">PHONE NUMBER</div>
+												<div class="form-label"><?php pll_e( 'Phone number' ); ?></div>
 												<input class="input-normal w-input" maxlength="256" name="phone" placeholder="0617084035" type="tel" id="phone" required>
 											</div>
 											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8b0-7400cdd1" class="input-keeper">
-												<div class="form-label">contact preference</div>
+												<div class="form-label"><?php pll_e( 'Contact preference' ); ?></div>
 												<div class="horiz-left">
 													<label id="incroyable" class="cont-ref caller w-radio">
 														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
 														<input type="radio" name="contact_preference" id="call" style="opacity:0;position:absolute;z-index:-1" value="Call">
-														<span class="call-text w-form-label" for="call">Call</span>
+														<span class="call-text w-form-label" for="call"><?php pll_e( 'Call' ); ?></span>
 													</label>
 													<div class="reger"></div>
 													<label class="cont-ref w-radio">
 														<div class="w-form-formradioinput w-form-formradioinput--inputType-custom call-dot w-radio-input"></div>
 														<input type="radio" name="contact_preference" id="messenger" style="opacity:0;position:absolute;z-index:-1" value="Messenger">
-														<span class="call-text w-form-label" for="Messenger">Messenger</span>
+														<span class="call-text w-form-label" for="messenger"><?php pll_e( 'Messenger' ); ?></span>
 													</label>
 												</div>
 											</div>
 											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8bd-7400cdd1" class="input-keeper textarer">
-												<div class="form-label">Message</div>
-												<textarea placeholder="TALK ABOUT YOUR DREAM JOB" maxlength="5000" id="message" name="message" class="input-normal textarea w-input"></textarea>
+												<div class="form-label"><?php pll_e( 'Message' ); ?></div>
+												<textarea placeholder="<?php pll_e( 'Talk about your dream job' ); ?>" maxlength="5000" id="message" name="message" class="input-normal textarea w-input"></textarea>
 											</div>
 											<div id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c1-7400cdd1" class="input-keeper textarer file-mom">
 												<div class="form-label">CV</div>
@@ -139,12 +140,12 @@
 													<div class="w-embed">
 														<div class="input-file-row">
 															<label class="input-file"> 
-															<input type="file" name="file" accept="application/pdf,application/vnd.ms-excel,image/jpg,image/jpeg,image/png"><span>ATTACH A FILE (PDF, JPG, PNG)</span> </label>
+															<input type="file" name="file" accept="application/pdf,application/vnd.ms-excel,image/jpg,image/jpeg,image/png"><span><?php pll_e( 'Attach the file' ); ?> (PDF, JPG, PNG)</span> </label>
 															<div class="input-file-list"></div>
 														</div>
 													</div>
-													<div class="p-12-120 ww2 cv-or"> OR </div>
-													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="INSERT A LINK" type="text" id="link" required>
+													<div class="p-12-120 ww2 cv-or"> <?php pll_e( 'Or' ); ?> </div>
+													<input class="input-normal cv-link w-input" maxlength="256" name="link" placeholder="<?php pll_e( 'Insert a link' ); ?>" type="text" id="link" required>
 												</div>
 											</div>
 											<label id="w-node-_9f3e7290-dede-9b21-bf0e-914aeb30f8c9-7400cdd1" class="input-keeper input-keeper--checkbox w-checkbox checkbox-field">
@@ -154,7 +155,7 @@
 												$privacy_policy_page_id = 3;
 												$privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $lang );
 												?>
-												<span class="p-12-120 ww fomr-c w-form-label" for="checkbox">I agree with the <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" class="link" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
+												<span class="p-12-120 ww fomr-c w-form-label" for="checkbox"><?php pll_e( 'I agree with the' ); ?> <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" class="link" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
 											</label>
 										</div>
 									</div>
@@ -162,25 +163,25 @@
 								<input type="hidden" name="action" value="submit_job_form">
 								<input type="hidden" name="job" value="<?php echo esc_attr( $position->name ); ?>">
 								<?php wp_nonce_field( '_submit_job_form', 'job_form_nonce' ); ?>
-								<input type="submit" data-wait="Please wait..." class="submit-re fs_formsubmit_button n-fowm w-button" value="Send">
+								<input type="submit" data-wait="Please wait..." class="submit-re fs_formsubmit_button n-fowm w-button" value="<?php pll_e( 'Send' ); ?>">
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
-									<div class="text-field">Thank you! <br>Your submission has been received!</div>
+									<div class="text-field"><?php pll_e( 'Thank you! <br>Your submission has been received!' ); ?></div>
 								</div>
 							</div>
 							<div class="w-form-fail">
-								<div>Oops! Something went wrong while submitting the form.</div>
+								<div><?php pll_e( 'Oops! Something went wrong while submitting the form.' ); ?></div>
 							</div>
 						</div>
 						<div class="top-stykert">
 							<div class="tline ll">
-								<a href="#" class="tlink main-tlink formpp">Apply</a>
+								<a href="#" class="tlink main-tlink formpp"><?php pll_e( 'Apply' ); ?></a>
 								<div class="div-block-2"></div>
-								<a href="#" class="tlink">All projects</a>
+								<a href="<?php echo esc_url( get_the_permalink( $projects_page ) ); ?>" class="tlink"><?php echo esc_html( get_the_title( $projects_page ) ); ?></a>
 							</div>
 							<a href="#" class="close-form w-inline-block">
-								<div class="text-block-5">CLOSE</div>
+								<div class="text-block-5"><?php pll_e( 'Close' ); ?></div>
 							</a>
 						</div>
 					</div>

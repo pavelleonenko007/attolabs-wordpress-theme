@@ -19,6 +19,8 @@ the_post();
 $current_language       = pll_current_language();
 $privacy_policy_page_id = 3;
 $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_language );
+$projects_page_id       = 56;
+$projects_page          = pll_get_post( $projects_page_id, $current_language );
 
 ?>
 				<div class="div-block-4 obsf ob1">
@@ -43,7 +45,7 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 										?>
 										<div class="container single-page">
 											<div class="_2cols">
-												<h2 class="h2 cont-line">Goals</h2>
+												<h2 class="h2 cont-line"><?php pll_e( 'Goals' ); ?></h2>
 												<?php
 												$content = $projects_section['content'];
 												if ( ! empty( $content ) ) :
@@ -91,7 +93,7 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 											?>
 											<div class="container resoults">
 												<div class="fw-div single-page">
-													<h2 id="w-node-d845f0d9-7c2b-0b05-afb7-8c90a1720e76-532b9878" class="paragraph p-18-120 styks single-p">Solutions</h2>
+													<h2 id="w-node-d845f0d9-7c2b-0b05-afb7-8c90a1720e76-532b9878" class="paragraph p-18-120 styks single-p"><?php pll_e( 'Solutions' ); ?></h2>
 													<?php
 													if ( ! empty( $image_id ) ) :
 														?>
@@ -160,7 +162,7 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 										?>
 										<div class="container secnd">
 											<div>
-												<h2 class="paragraph p-18-120">Project Results</h2>
+												<h2 class="paragraph p-18-120"><?php pll_e( 'Project Results' ); ?></h2>
 												<?php
 												$heading = $projects_section['heading'];
 												if ( ! empty( $heading ) ) :
@@ -244,7 +246,6 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 				</div>
 				<div id="styker" class="div-block-3 obsf ob1">
 					<div class="form-tracker"></div>
-					<a id="idid" href="#">Text Link</a>
 				</div>
 				<div class="styk-form">
 					<div class="form-ceeper">
@@ -254,40 +255,40 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 									<div class="w-slider-mask">
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter _1st">
-												<div class="p-12-120 whtx">Share your vision below</div>
+												<div class="p-12-120 whtx"><?php pll_e( 'Share your vision below' ); ?></div>
 												<div class="input-keeper bigger">
-													<textarea required placeholder="tell us how we could help you to emprower the future?" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
+													<textarea required placeholder="<?php pll_e( 'Tell us how we could help you to empower the future?' ); ?>" maxlength="5000" id="how-to-help" name="how-to-help" class="text-field w-input"></textarea>
 												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
-												<div class="p-12-120 whtx">How to get in touch with you?</div>
+												<div class="p-12-120 whtx"><?php pll_e( 'How to get in touch with you?' ); ?></div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" maxlength="256" name="email" placeholder="Enter your email" type="email" id="email" required>
+													<input class="text-field w-input" maxlength="256" name="email" placeholder="<?php pll_e( 'Enter your email' ); ?>" type="email" id="email" required>
 												</div>
 											</div>
 										</div>
 										<div class="form-slide w-slide">
 											<div class="_100vhctnter">
-												<div class="p-12-120 whtx">What can I call you?</div>
+												<div class="p-12-120 whtx"><?php pll_e( 'What can I call you?' ); ?></div>
 												<div class="input-keeper bigger">
-													<input class="text-field w-input" maxlength="256" name="name" placeholder="Enter your name" type="text" id="name" required>
+													<input class="text-field w-input" maxlength="256" name="name" placeholder="<?php pll_e( 'Enter your name' ); ?>" type="text" id="name" required>
 												</div>
-												<span class="sticky-form-privacy-link">By clicking “Submit” you agree to our <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
+												<span class="sticky-form-privacy-link"><?php pll_e( 'By clicking “Submit” you agree to our' ); ?> <a href="<?php echo esc_url( get_the_permalink( $privacy_policy_page ) ); ?>" target="_blank"><?php echo esc_html( get_the_title( $privacy_policy_page ) ); ?></a></span>
 											</div>
 										</div>
 									</div>
 									<div class="l-arrow w-slider-arrow-left">
 										<div class="red-form-line"></div>
-										<div class="text-block-6">Back</div>
+										<div class="text-block-6"><?php pll_e( 'Back' ); ?></div>
 									</div>
 									<div class="right-arrow w-slider-arrow-right">
-										<div>Next</div>
+										<div><?php pll_e( 'Next' ); ?></div>
 									</div>
 									<div class="none w-slider-nav w-round w-num"></div>
 								</div>
-								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="Submit">
+								<input type="submit" data-wait="Please wait..." class="submit fs_formsubmit_button w-button" value="<?php pll_e( 'Submit' ); ?>">
 								<input type="hidden" name="action" value="submit_contact_form" />
 								<?php $message = ! empty( $forms ) && ! empty( $forms['empower_future_with_us'] ) ? $forms['empower_future_with_us'] : 'Your message has been sent successfully'; ?>
 								<input type="hidden" name="message" value="<?php echo esc_attr( $message ); ?>">
@@ -295,21 +296,21 @@ $privacy_policy_page    = pll_get_post( $privacy_policy_page_id, $current_langua
 							</form>
 							<div class="success-message w-form-done">
 								<div class="div-block-8">
-									<div class="text-field">Thank you! <br>Your submission has been received!</div>
+									<div class="text-field"><?php pll_e( 'Thank you! <br>Your submission has been received!' ); ?></div>
 								</div>
 							</div>
 							<div class="w-form-fail">
-								<div>Oops! Something went wrong while submitting the form.</div>
+								<div><?php pll_e( 'Oops! Something went wrong while submitting the form.' ); ?></div>
 							</div>
 						</div>
 						<div class="top-stykert">
 							<div class="tline ll">
-								<a href="#" class="tlink main-tlink formpp">Empower the Future with Us</a>
+								<a href="#" class="tlink main-tlink formpp"><?php pll_e( 'Empower the Future with Us' ); ?></a>
 								<div class="div-block-2"></div>
-								<a href="#" class="tlink">All projects</a>
+								<a href="<?php echo esc_url( get_the_permalink( $projects_page ) ); ?>" class="tlink"><?php echo esc_html( get_the_title( $projects_page ) ); ?></a>
 							</div>
 							<a href="#" class="close-form w-inline-block">
-								<div class="text-block-5">CLOSE</div>
+								<div class="text-block-5"><?php pll_e( 'Close' ); ?></div>
 							</a>
 						</div>
 					</div>

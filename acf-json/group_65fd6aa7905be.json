@@ -211,6 +211,27 @@
                             "mime_types": "",
                             "preview_size": "medium",
                             "parent_repeater": "field_65fd6ff81cf5e"
+                        },
+                        {
+                            "key": "field_66277906bf708",
+                            "label": "Image Description",
+                            "name": "image_description",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Add image description. Only for mobile devices.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_65fd6ff81cf5e"
                         }
                     ]
                 }
@@ -409,5 +430,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713255595
+    "modified": 1713862965
 }
