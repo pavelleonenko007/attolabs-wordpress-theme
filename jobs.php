@@ -278,7 +278,17 @@ $translations     = array(
 									data-employment_type="<?php echo esc_attr( $employment_type ); ?>"
 								>
 									<div class="rel">
-										<div class="jobs-name"><?php echo esc_html( $position->name ); ?></div>
+										<?php
+										$name = $position->name;
+										if ( $name instanceof stdClass ) {
+											$name = (array) $name;
+										}
+
+										$is_empty_name = empty( $name );
+										if ( ! $is_empty_name ) :
+											?>
+											<div class="jobs-name"><?php echo esc_html( $name ); ?></div>
+										<?php endif; ?>
 										<a href="<?php echo esc_url( get_home_url() . '/jobs/' . $position->id ); ?>" class="abs-link w-inline-block"></a>
 									</div>
 									<div class="jobs-ins">
