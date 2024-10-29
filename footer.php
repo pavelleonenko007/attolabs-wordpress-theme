@@ -90,7 +90,6 @@ $current_language = pll_current_language();
 							if ( ! empty( $copyright ) ) :
 								?>
 								<div class="foo-text _23"><?php echo esc_html( $copyright ); ?>, <?php echo esc_html( gmdate( 'Y' ) ); ?></div>
-								<div class="powered-by">Done by <a href="https://vosk.design" target="_blank" rel="nofollow" class="a-vosk">vosk</a>. powered by attolabs</div>
 							<?php endif; ?>
 						</div>
 						

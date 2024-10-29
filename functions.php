@@ -1320,17 +1320,30 @@ function attolabs_customize_register_func( $wp_customize ) {
 }
 
 add_action( 'phpmailer_init', 'attolabs_smtp_enable' );
-
 function attolabs_smtp_enable( $phpmailer ) {
 	$phpmailer->isSMTP();
 	$phpmailer->SMTPAuth   = true;
 	$phpmailer->Host       = 'mx2e4b.netcup.net';
 	$phpmailer->Port       = 25;
-	$phpmailer->Username   = 'techuser-nosy@albs.tech';
-	$phpmailer->Password   = 'juQ3XJlyC91mBPqgcBYw';
+	$phpmailer->Username   = 'noreply@albs.tech';
+	$phpmailer->Password   = 'f5l7f@U83';
 	$phpmailer->SMTPSecure = 'tls';
-	$phpmailer->From       = 'techuser-nosy@albs.tech';
-	$phpmailer->FromName   = get_bloginfo( 'name' );
+	$phpmailer->From       = 'noreply@albs.tech';
+}
+
+add_filter( 'wp_mail_from', 'attolabs_change_mail_from' );
+function attolabs_change_mail_from() {
+	return 'noreply@albs.tech';
+}
+
+add_filter( 'wp_mail_from_name', 'attolabs_change_mail_from_name' );
+function attolabs_change_mail_from_name() {
+	return 'AttoLabs Team';
+}
+
+add_action( 'wp_mail_failed', 'attolabs_log_email_fails' );
+function attolabs_log_email_fails( $error ) {
+	error_log( $error->get_error_message(), 3, WP_CONTENT_DIR . '/debug.log' );
 }
 
 function attolabs_get_branches_by_lang( string $lang ): array {
