@@ -1323,17 +1323,17 @@ add_action( 'phpmailer_init', 'attolabs_smtp_enable' );
 function attolabs_smtp_enable( $phpmailer ) {
 	$phpmailer->isSMTP();
 	$phpmailer->SMTPAuth   = true;
-	$phpmailer->Host       = 'mx2e4b.netcup.net';
+	$phpmailer->Host       = ATTO_SFTP_HOST;
 	$phpmailer->Port       = 25;
-	$phpmailer->Username   = 'noreply@albs.tech';
-	$phpmailer->Password   = 'f5l7f@U83';
+	$phpmailer->Username   = ATTO_SFTP_USERNAME;
+	$phpmailer->Password   = ATTO_SFTP_PASSWORD;
 	$phpmailer->SMTPSecure = 'tls';
-	$phpmailer->From       = 'noreply@albs.tech';
+	$phpmailer->From       = ATTO_SFTP_USERNAME;
 }
 
 add_filter( 'wp_mail_from', 'attolabs_change_mail_from' );
 function attolabs_change_mail_from() {
-	return 'noreply@albs.tech';
+	return ATTO_SFTP_USERNAME;
 }
 
 add_filter( 'wp_mail_from_name', 'attolabs_change_mail_from_name' );
